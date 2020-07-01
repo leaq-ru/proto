@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/nnqq/ibc-proto/codegen/go/parser";
+import "google/protobuf/empty.proto";
+
+service Parser {
+  rpc AddUrl(AddUrlRequest) returns (google.protobuf.Empty);
+}
+
+message AddUrlRequest {
+  string url = 1;
+}
