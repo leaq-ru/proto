@@ -14,9 +14,9 @@ message PutRequest {
 }
 
 message PutResponse {
-  string url = 1;
+  string s3_url = 1;
 }
 
 message RemoveRequest {
-  string url = 1;
+  string s3_url = 1;
 }
