@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package image;
+option go_package = "github.com/nnqq/ibc-proto/codegen/go/image";
+import "google/protobuf/empty.proto";
+
+service Image {
+  rpc Put(PutRequest) returns (PutResponse);
+  rpc Remove(RemoveRequest) returns (google.protobuf.Empty);
+}
+
+message PutRequest {
+  string url = 1;
+}
+
+message PutResponse {
+  string url = 1;
+}
+
+message RemoveRequest {
+  string url = 1;
+}
