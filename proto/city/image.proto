@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package city;
+option go_package = "github.com/nnqq/ibc-proto/codegen/go/city";
+import "google/protobuf/empty.proto";
+
+service City {
+  rpc Find(FindRequest) returns (FindResponse);
+}
+
+message FindRequest {
+  string html = 1;
+}
+
+message FindResponse {
+  string city_id = 1;
+  bool is_found = 2;
+}
