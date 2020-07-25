@@ -13,5 +13,4 @@ message FindRequest {
 
 message FindResponse {
   string category_id = 1;
-  bool is_found = 2;
 }
