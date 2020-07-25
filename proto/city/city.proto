@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package city;
 option go_package = "github.com/nnqq/ibc-proto/codegen/go/city";
-import "google/protobuf/empty.proto";
 
 service City {
   rpc Find(FindRequest) returns (FindResponse);

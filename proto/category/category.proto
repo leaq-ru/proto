@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package category;
+option go_package = "github.com/nnqq/ibc-proto/codegen/go/city";
+
+service Category {
+  rpc Find(FindRequest) returns (FindResponse);
+}
+
+message FindRequest {
+  string html = 1;
+}
+
+message FindResponse {
+  string category_id = 1;
+  bool is_found = 2;
+}
