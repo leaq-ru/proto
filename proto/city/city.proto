@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package city;
-option go_package = "github.com/nnqq/ibc-proto/codegen/go/city";
+option go_package = "github.com/nnqq/scr-proto/codegen/go/city";
 
 service City {
   rpc Find(FindRequest) returns (FindResponse);
