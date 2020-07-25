@@ -7,6 +7,7 @@ all: ./proto/*/
 	rm -rf codegen; \
 	mkdir codegen; \
 	mkdir codegen/go; \
+	mkdir codegen/swagger; \
 	echo "Done."; \
 	echo "Processing proto files..."; \
 	for dir in $^ ; do \
@@ -14,7 +15,11 @@ all: ./proto/*/
 		echo "Processing $$a..."; \
 		mkdir $(ROOT_DIR)/codegen/go/$$a; \
 		echo "  Generating go for $$a..."; \
-		protoc --proto_path=proto $(GO_ARGS) proto/$$a/*.proto; \
+		protoc -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+			-I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway \
+			--proto_path=proto $(GO_ARGS) proto/$$a/*.proto \
+			--grpc-gateway_out=logtostderr=true:$(GOPATH)/src \
+            --swagger_out=logtostderr=true,json_names_for_fields=true:codegen/swagger; \
 		echo "Done $$a."; \
 	done;
 	@echo "Done!"

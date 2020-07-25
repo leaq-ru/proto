@@ -1,0 +1,155 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
+import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+import "city/city.proto";
+import "category/category.proto";
+import "opts/page.proto";
+
+service Company {
+  rpc GetBySlug(GetBySlugRequest) returns (FullCompany) {
+    option (google.api.http) = {
+      get: "/company/getBySlug"
+    };
+  };
+  rpc Get(GetRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/company/get"
+    };
+  };
+  rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
+    option (google.api.http) = {
+      get: "/company/getRelated"
+    };
+  };
+}
+
+message GetRelatedRequest {
+  uint32 limit = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+	    minimum: 0,
+      maximum: 5,
+      required: "limit",
+  }];
+  string city_id = 2;
+  string category_id = 3;
+}
+
+message GetRelatedResponse {
+  repeated ShortCompany short_companies = 1;
+}
+
+message GetRequest {
+  opts.Opts opts = 1;
+  string city_id = 2;
+  string category_id = 3;
+}
+
+message GetResponse {
+  repeated ShortCompany short_companies = 1;
+  uint32 total_count = 2;
+}
+
+message GetBySlugRequest {
+  string slug = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    required: "slug",
+  }];
+}
+
+message FullCompany {
+  string id = 1;
+  category.CategoryItem category = 2;
+  string url = 3;
+  string slug = 4;
+  string title = 5;
+  string email = 6;
+  string description = 7;
+  bool online = 8;
+  double phone = 9;
+  double inn = 10;
+  double kpp = 11;
+  double ogrn = 12;
+  Domain domain = 13;
+  string avatar = 14;
+  Location location = 15;
+  App app = 16;
+  Social social = 17;
+  repeated People people = 18;
+  string updated_at = 19;
+}
+
+message ShortCompany {
+  string id = 1;
+  string category_id = 2;
+  string url = 3;
+  string slug = 4;
+  string title = 5;
+  string email = 6;
+  bool online = 7;
+  double phone = 8;
+  string avatar = 9;
+}
+
+message People {
+  double vk_id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  bool vk_is_closed = 4;
+  Sex sex = 5;
+  string photo_200 = 6;
+  double phone = 7;
+  string email = 8;
+  string description = 9;
+}
+
+enum Sex {
+  NONE = 0;
+  FEMALE = 1;
+  MALE = 2;
+}
+
+message Social {
+  Vk vk = 1;
+  UrlItem instagram = 2;
+  UrlItem twitter = 3;
+  UrlItem youtube = 4;
+  UrlItem facebook = 5;
+}
+
+message Vk {
+  double group_id = 1;
+  string name = 2;
+  string screen_name = 3;
+  IsClosed is_closed = 4;
+  string description = 5;
+  double members_count = 6;
+  string photo_200 = 7;
+}
+
+enum IsClosed {
+  OPEN = 0;
+  CLOSE = 1;
+  PRIVATE = 2;
+}
+
+message App {
+  UrlItem app_store = 1;
+  UrlItem google_play = 2;
+}
+
+message UrlItem {
+  string url = 1;
+}
+
+message Domain {
+  string address = 1;
+  string registrar = 2;
+  string registration_date = 3;
+}
+
+message Location {
+  city.CityItem city = 1;
+  string address = 2;
+  string address_title = 3;
+}

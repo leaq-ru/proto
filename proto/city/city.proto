@@ -15,3 +15,9 @@ message FindResponse {
   string city_id = 1;
   bool is_found = 2;
 }
+
+message CityItem {
+  string id = 1;
+  string title = 2;
+  string slug = 3;
+}
