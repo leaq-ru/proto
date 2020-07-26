@@ -28,7 +28,7 @@ service Company {
 
 message GetRelatedRequest {
   uint32 limit = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-	    minimum: 0,
+	    minimum: 1,
       maximum: 5,
       required: "limit",
   }];

@@ -10,7 +10,7 @@ message Opts {
     default: "0",
   }];
   uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    minimum: 0,
+    minimum: 1,
     maximum: 100,
     default: "20",
   }];
