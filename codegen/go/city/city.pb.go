@@ -9,6 +9,8 @@ package city
 import (
 	context "context"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -29,6 +31,100 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type GetByIdsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CityIds []string `protobuf:"bytes,1,rep,name=city_ids,json=cityIds,proto3" json:"city_ids,omitempty"`
+}
+
+func (x *GetByIdsRequest) Reset() {
+	*x = GetByIdsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_city_city_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetByIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByIdsRequest) ProtoMessage() {}
+
+func (x *GetByIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_city_city_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetByIdsRequest) Descriptor() ([]byte, []int) {
+	return file_city_city_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetByIdsRequest) GetCityIds() []string {
+	if x != nil {
+		return x.CityIds
+	}
+	return nil
+}
+
+type CitiesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Cities []*CityItem `protobuf:"bytes,1,rep,name=cities,proto3" json:"cities,omitempty"`
+}
+
+func (x *CitiesResponse) Reset() {
+	*x = CitiesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_city_city_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CitiesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CitiesResponse) ProtoMessage() {}
+
+func (x *CitiesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_city_city_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CitiesResponse.ProtoReflect.Descriptor instead.
+func (*CitiesResponse) Descriptor() ([]byte, []int) {
+	return file_city_city_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CitiesResponse) GetCities() []*CityItem {
+	if x != nil {
+		return x.Cities
+	}
+	return nil
+}
+
 type FindRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -40,7 +136,7 @@ type FindRequest struct {
 func (x *FindRequest) Reset() {
 	*x = FindRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_city_city_proto_msgTypes[0]
+		mi := &file_city_city_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -53,7 +149,7 @@ func (x *FindRequest) String() string {
 func (*FindRequest) ProtoMessage() {}
 
 func (x *FindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_city_city_proto_msgTypes[0]
+	mi := &file_city_city_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -66,7 +162,7 @@ func (x *FindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FindRequest.ProtoReflect.Descriptor instead.
 func (*FindRequest) Descriptor() ([]byte, []int) {
-	return file_city_city_proto_rawDescGZIP(), []int{0}
+	return file_city_city_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *FindRequest) GetHtml() string {
@@ -88,7 +184,7 @@ type FindResponse struct {
 func (x *FindResponse) Reset() {
 	*x = FindResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_city_city_proto_msgTypes[1]
+		mi := &file_city_city_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -101,7 +197,7 @@ func (x *FindResponse) String() string {
 func (*FindResponse) ProtoMessage() {}
 
 func (x *FindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_city_city_proto_msgTypes[1]
+	mi := &file_city_city_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -114,7 +210,7 @@ func (x *FindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FindResponse.ProtoReflect.Descriptor instead.
 func (*FindResponse) Descriptor() ([]byte, []int) {
-	return file_city_city_proto_rawDescGZIP(), []int{1}
+	return file_city_city_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *FindResponse) GetCityId() string {
@@ -144,7 +240,7 @@ type CityItem struct {
 func (x *CityItem) Reset() {
 	*x = CityItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_city_city_proto_msgTypes[2]
+		mi := &file_city_city_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -157,7 +253,7 @@ func (x *CityItem) String() string {
 func (*CityItem) ProtoMessage() {}
 
 func (x *CityItem) ProtoReflect() protoreflect.Message {
-	mi := &file_city_city_proto_msgTypes[2]
+	mi := &file_city_city_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -170,7 +266,7 @@ func (x *CityItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CityItem.ProtoReflect.Descriptor instead.
 func (*CityItem) Descriptor() ([]byte, []int) {
-	return file_city_city_proto_rawDescGZIP(), []int{2}
+	return file_city_city_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CityItem) GetId() string {
@@ -198,24 +294,45 @@ var File_city_city_proto protoreflect.FileDescriptor
 
 var file_city_city_proto_rawDesc = []byte{
 	0x0a, 0x0f, 0x63, 0x69, 0x74, 0x79, 0x2f, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x12, 0x04, 0x63, 0x69, 0x74, 0x79, 0x22, 0x21, 0x0a, 0x0b, 0x46, 0x69, 0x6e, 0x64, 0x52,
-	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x22, 0x42, 0x0a, 0x0c, 0x46, 0x69,
-	0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a, 0x07, 0x63, 0x69,
-	0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x63, 0x69, 0x74,
-	0x79, 0x49, 0x64, 0x12, 0x19, 0x0a, 0x08, 0x69, 0x73, 0x5f, 0x66, 0x6f, 0x75, 0x6e, 0x64, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x69, 0x73, 0x46, 0x6f, 0x75, 0x6e, 0x64, 0x22, 0x44,
-	0x0a, 0x08, 0x43, 0x69, 0x74, 0x79, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64,
-	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69,
-	0x74, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65,
-	0x12, 0x12, 0x0a, 0x04, 0x73, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04,
-	0x73, 0x6c, 0x75, 0x67, 0x32, 0x35, 0x0a, 0x04, 0x43, 0x69, 0x74, 0x79, 0x12, 0x2d, 0x0a, 0x04,
-	0x46, 0x69, 0x6e, 0x64, 0x12, 0x11, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x46, 0x69, 0x6e, 0x64,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x46,
-	0x69, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x2b, 0x5a, 0x29, 0x67,
-	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73,
-	0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e,
-	0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x69, 0x74, 0x79, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x12, 0x04, 0x63, 0x69, 0x74, 0x79, 0x1a, 0x1b, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2f, 0x65, 0x6d, 0x70, 0x74, 0x79, 0x2e, 0x70,
+	0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69,
+	0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x22, 0x2c, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x19, 0x0a, 0x08, 0x63, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x07, 0x63, 0x69, 0x74, 0x79, 0x49, 0x64, 0x73,
+	0x22, 0x38, 0x0a, 0x0e, 0x43, 0x69, 0x74, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x26, 0x0a, 0x06, 0x63, 0x69, 0x74, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03,
+	0x28, 0x0b, 0x32, 0x0e, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x43, 0x69, 0x74, 0x79, 0x49, 0x74,
+	0x65, 0x6d, 0x52, 0x06, 0x63, 0x69, 0x74, 0x69, 0x65, 0x73, 0x22, 0x21, 0x0a, 0x0b, 0x46, 0x69,
+	0x6e, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x74, 0x6d,
+	0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x22, 0x42, 0x0a,
+	0x0c, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x17, 0x0a,
+	0x07, 0x63, 0x69, 0x74, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
+	0x63, 0x69, 0x74, 0x79, 0x49, 0x64, 0x12, 0x19, 0x0a, 0x08, 0x69, 0x73, 0x5f, 0x66, 0x6f, 0x75,
+	0x6e, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x08, 0x52, 0x07, 0x69, 0x73, 0x46, 0x6f, 0x75, 0x6e,
+	0x64, 0x22, 0x44, 0x0a, 0x08, 0x43, 0x69, 0x74, 0x79, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x0e, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a,
+	0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69,
+	0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04, 0x73, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x04, 0x73, 0x6c, 0x75, 0x67, 0x32, 0xd4, 0x01, 0x0a, 0x04, 0x43, 0x69, 0x74, 0x79,
+	0x12, 0x2d, 0x0a, 0x04, 0x46, 0x69, 0x6e, 0x64, 0x12, 0x11, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e,
+	0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x12, 0x2e, 0x63, 0x69,
+	0x74, 0x79, 0x2e, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x4f, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73, 0x12, 0x15, 0x2e, 0x63, 0x69,
+	0x74, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x14, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x43, 0x69, 0x74, 0x69, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x16, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x10,
+	0x12, 0x0e, 0x2f, 0x63, 0x69, 0x74, 0x79, 0x2f, 0x67, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73,
+	0x12, 0x4c, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x12, 0x16, 0x2e, 0x67, 0x6f, 0x6f,
+	0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70,
+	0x74, 0x79, 0x1a, 0x14, 0x2e, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x43, 0x69, 0x74, 0x69, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x14, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0e,
+	0x12, 0x0c, 0x2f, 0x63, 0x69, 0x74, 0x79, 0x2f, 0x67, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x42, 0x2b,
+	0x5a, 0x29, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71,
+	0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65,
+	0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x69, 0x74, 0x79, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -230,20 +347,28 @@ func file_city_city_proto_rawDescGZIP() []byte {
 	return file_city_city_proto_rawDescData
 }
 
-var file_city_city_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_city_city_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_city_city_proto_goTypes = []interface{}{
-	(*FindRequest)(nil),  // 0: city.FindRequest
-	(*FindResponse)(nil), // 1: city.FindResponse
-	(*CityItem)(nil),     // 2: city.CityItem
+	(*GetByIdsRequest)(nil), // 0: city.GetByIdsRequest
+	(*CitiesResponse)(nil),  // 1: city.CitiesResponse
+	(*FindRequest)(nil),     // 2: city.FindRequest
+	(*FindResponse)(nil),    // 3: city.FindResponse
+	(*CityItem)(nil),        // 4: city.CityItem
+	(*empty.Empty)(nil),     // 5: google.protobuf.Empty
 }
 var file_city_city_proto_depIdxs = []int32{
-	0, // 0: city.City.Find:input_type -> city.FindRequest
-	1, // 1: city.City.Find:output_type -> city.FindResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: city.CitiesResponse.cities:type_name -> city.CityItem
+	2, // 1: city.City.Find:input_type -> city.FindRequest
+	0, // 2: city.City.GetByIds:input_type -> city.GetByIdsRequest
+	5, // 3: city.City.GetAll:input_type -> google.protobuf.Empty
+	3, // 4: city.City.Find:output_type -> city.FindResponse
+	1, // 5: city.City.GetByIds:output_type -> city.CitiesResponse
+	1, // 6: city.City.GetAll:output_type -> city.CitiesResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_city_city_proto_init() }
@@ -253,7 +378,7 @@ func file_city_city_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_city_city_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindRequest); i {
+			switch v := v.(*GetByIdsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -265,7 +390,7 @@ func file_city_city_proto_init() {
 			}
 		}
 		file_city_city_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindResponse); i {
+			switch v := v.(*CitiesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -277,6 +402,30 @@ func file_city_city_proto_init() {
 			}
 		}
 		file_city_city_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*FindRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_city_city_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*FindResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_city_city_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CityItem); i {
 			case 0:
 				return &v.state
@@ -295,7 +444,7 @@ func file_city_city_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_city_city_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -322,6 +471,8 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CityClient interface {
 	Find(ctx context.Context, in *FindRequest, opts ...grpc.CallOption) (*FindResponse, error)
+	GetByIds(ctx context.Context, in *GetByIdsRequest, opts ...grpc.CallOption) (*CitiesResponse, error)
+	GetAll(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*CitiesResponse, error)
 }
 
 type cityClient struct {
@@ -341,9 +492,29 @@ func (c *cityClient) Find(ctx context.Context, in *FindRequest, opts ...grpc.Cal
 	return out, nil
 }
 
+func (c *cityClient) GetByIds(ctx context.Context, in *GetByIdsRequest, opts ...grpc.CallOption) (*CitiesResponse, error) {
+	out := new(CitiesResponse)
+	err := c.cc.Invoke(ctx, "/city.City/GetByIds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *cityClient) GetAll(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*CitiesResponse, error) {
+	out := new(CitiesResponse)
+	err := c.cc.Invoke(ctx, "/city.City/GetAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CityServer is the server API for City service.
 type CityServer interface {
 	Find(context.Context, *FindRequest) (*FindResponse, error)
+	GetByIds(context.Context, *GetByIdsRequest) (*CitiesResponse, error)
+	GetAll(context.Context, *empty.Empty) (*CitiesResponse, error)
 }
 
 // UnimplementedCityServer can be embedded to have forward compatible implementations.
@@ -352,6 +523,12 @@ type UnimplementedCityServer struct {
 
 func (*UnimplementedCityServer) Find(context.Context, *FindRequest) (*FindResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Find not implemented")
+}
+func (*UnimplementedCityServer) GetByIds(context.Context, *GetByIdsRequest) (*CitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetByIds not implemented")
+}
+func (*UnimplementedCityServer) GetAll(context.Context, *empty.Empty) (*CitiesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
 
 func RegisterCityServer(s *grpc.Server, srv CityServer) {
@@ -376,6 +553,42 @@ func _City_Find_Handler(srv interface{}, ctx context.Context, dec func(interface
 	return interceptor(ctx, in, info, handler)
 }
 
+func _City_GetByIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServer).GetByIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/city.City/GetByIds",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServer).GetByIds(ctx, req.(*GetByIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _City_GetAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CityServer).GetAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/city.City/GetAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CityServer).GetAll(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _City_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "city.City",
 	HandlerType: (*CityServer)(nil),
@@ -383,6 +596,14 @@ var _City_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Find",
 			Handler:    _City_Find_Handler,
+		},
+		{
+			MethodName: "GetByIds",
+			Handler:    _City_GetByIds_Handler,
+		},
+		{
+			MethodName: "GetAll",
+			Handler:    _City_GetAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

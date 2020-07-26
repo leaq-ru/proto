@@ -9,6 +9,8 @@ package category
 import (
 	context "context"
 	proto "github.com/golang/protobuf/proto"
+	empty "github.com/golang/protobuf/ptypes/empty"
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -29,6 +31,100 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type GetByIdsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CategoryIds []string `protobuf:"bytes,1,rep,name=category_ids,json=categoryIds,proto3" json:"category_ids,omitempty"`
+}
+
+func (x *GetByIdsRequest) Reset() {
+	*x = GetByIdsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_category_category_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetByIdsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByIdsRequest) ProtoMessage() {}
+
+func (x *GetByIdsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_category_category_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByIdsRequest.ProtoReflect.Descriptor instead.
+func (*GetByIdsRequest) Descriptor() ([]byte, []int) {
+	return file_category_category_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetByIdsRequest) GetCategoryIds() []string {
+	if x != nil {
+		return x.CategoryIds
+	}
+	return nil
+}
+
+type CategoriesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Categories []*CategoryItem `protobuf:"bytes,1,rep,name=categories,proto3" json:"categories,omitempty"`
+}
+
+func (x *CategoriesResponse) Reset() {
+	*x = CategoriesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_category_category_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CategoriesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CategoriesResponse) ProtoMessage() {}
+
+func (x *CategoriesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_category_category_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CategoriesResponse.ProtoReflect.Descriptor instead.
+func (*CategoriesResponse) Descriptor() ([]byte, []int) {
+	return file_category_category_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *CategoriesResponse) GetCategories() []*CategoryItem {
+	if x != nil {
+		return x.Categories
+	}
+	return nil
+}
+
 type FindRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -40,7 +136,7 @@ type FindRequest struct {
 func (x *FindRequest) Reset() {
 	*x = FindRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_category_category_proto_msgTypes[0]
+		mi := &file_category_category_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -53,7 +149,7 @@ func (x *FindRequest) String() string {
 func (*FindRequest) ProtoMessage() {}
 
 func (x *FindRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_category_category_proto_msgTypes[0]
+	mi := &file_category_category_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -66,7 +162,7 @@ func (x *FindRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FindRequest.ProtoReflect.Descriptor instead.
 func (*FindRequest) Descriptor() ([]byte, []int) {
-	return file_category_category_proto_rawDescGZIP(), []int{0}
+	return file_category_category_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *FindRequest) GetHtml() string {
@@ -87,7 +183,7 @@ type FindResponse struct {
 func (x *FindResponse) Reset() {
 	*x = FindResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_category_category_proto_msgTypes[1]
+		mi := &file_category_category_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -100,7 +196,7 @@ func (x *FindResponse) String() string {
 func (*FindResponse) ProtoMessage() {}
 
 func (x *FindResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_category_category_proto_msgTypes[1]
+	mi := &file_category_category_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -113,7 +209,7 @@ func (x *FindResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FindResponse.ProtoReflect.Descriptor instead.
 func (*FindResponse) Descriptor() ([]byte, []int) {
-	return file_category_category_proto_rawDescGZIP(), []int{1}
+	return file_category_category_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *FindResponse) GetCategoryId() string {
@@ -136,7 +232,7 @@ type CategoryItem struct {
 func (x *CategoryItem) Reset() {
 	*x = CategoryItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_category_category_proto_msgTypes[2]
+		mi := &file_category_category_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -149,7 +245,7 @@ func (x *CategoryItem) String() string {
 func (*CategoryItem) ProtoMessage() {}
 
 func (x *CategoryItem) ProtoReflect() protoreflect.Message {
-	mi := &file_category_category_proto_msgTypes[2]
+	mi := &file_category_category_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -162,7 +258,7 @@ func (x *CategoryItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CategoryItem.ProtoReflect.Descriptor instead.
 func (*CategoryItem) Descriptor() ([]byte, []int) {
-	return file_category_category_proto_rawDescGZIP(), []int{2}
+	return file_category_category_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *CategoryItem) GetId() string {
@@ -191,24 +287,48 @@ var File_category_category_proto protoreflect.FileDescriptor
 var file_category_category_proto_rawDesc = []byte{
 	0x0a, 0x17, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2f, 0x63, 0x61, 0x74, 0x65, 0x67,
 	0x6f, 0x72, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x08, 0x63, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x79, 0x22, 0x21, 0x0a, 0x0b, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
-	0x52, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x22, 0x2f, 0x0a, 0x0c, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65,
-	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
-	0x72, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x61, 0x74,
-	0x65, 0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x22, 0x48, 0x0a, 0x0c, 0x43, 0x61, 0x74, 0x65, 0x67,
-	0x6f, 0x72, 0x79, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a,
-	0x04, 0x73, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x73, 0x6c, 0x75,
-	0x67, 0x32, 0x41, 0x0a, 0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x35, 0x0a,
+	0x6f, 0x72, 0x79, 0x1a, 0x1b, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74,
+	0x6f, 0x62, 0x75, 0x66, 0x2f, 0x65, 0x6d, 0x70, 0x74, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x1a, 0x1c, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e,
+	0x6f, 0x74, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x34,
+	0x0a, 0x0f, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x5f, 0x69, 0x64,
+	0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72,
+	0x79, 0x49, 0x64, 0x73, 0x22, 0x4c, 0x0a, 0x12, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69,
+	0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x0a, 0x63, 0x61,
+	0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x16,
+	0x2e, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f,
+	0x72, 0x79, 0x49, 0x74, 0x65, 0x6d, 0x52, 0x0a, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69,
+	0x65, 0x73, 0x22, 0x21, 0x0a, 0x0b, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x12, 0x0a, 0x04, 0x68, 0x74, 0x6d, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x68, 0x74, 0x6d, 0x6c, 0x22, 0x2f, 0x0a, 0x0c, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72,
+	0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x61, 0x74, 0x65,
+	0x67, 0x6f, 0x72, 0x79, 0x49, 0x64, 0x22, 0x48, 0x0a, 0x0c, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f,
+	0x72, 0x79, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18,
+	0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x12, 0x12, 0x0a, 0x04,
+	0x73, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x73, 0x6c, 0x75, 0x67,
+	0x32, 0xfc, 0x01, 0x0a, 0x08, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x12, 0x35, 0x0a,
 	0x04, 0x46, 0x69, 0x6e, 0x64, 0x12, 0x15, 0x2e, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
 	0x2e, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x63,
 	0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x46, 0x69, 0x6e, 0x64, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x42, 0x2f, 0x5a, 0x2d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63,
-	0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x61, 0x74,
-	0x65, 0x67, 0x6f, 0x72, 0x79, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x5f, 0x0a, 0x08, 0x47, 0x65, 0x74, 0x42, 0x79, 0x49, 0x64, 0x73,
+	0x12, 0x19, 0x2e, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x47, 0x65, 0x74, 0x42,
+	0x79, 0x49, 0x64, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e, 0x63, 0x61,
+	0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x65,
+	0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1a, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x14, 0x12, 0x12, 0x2f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2f, 0x67, 0x65, 0x74,
+	0x42, 0x79, 0x49, 0x64, 0x73, 0x12, 0x58, 0x0a, 0x06, 0x47, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x12,
+	0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
+	0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x1a, 0x1c, 0x2e, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f,
+	0x72, 0x79, 0x2e, 0x43, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x69, 0x65, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x18, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x12, 0x12, 0x10, 0x2f,
+	0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2f, 0x67, 0x65, 0x74, 0x41, 0x6c, 0x6c, 0x42,
+	0x2f, 0x5a, 0x2d, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e,
+	0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64,
+	0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -223,20 +343,28 @@ func file_category_category_proto_rawDescGZIP() []byte {
 	return file_category_category_proto_rawDescData
 }
 
-var file_category_category_proto_msgTypes = make([]protoimpl.MessageInfo, 3)
+var file_category_category_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_category_category_proto_goTypes = []interface{}{
-	(*FindRequest)(nil),  // 0: category.FindRequest
-	(*FindResponse)(nil), // 1: category.FindResponse
-	(*CategoryItem)(nil), // 2: category.CategoryItem
+	(*GetByIdsRequest)(nil),    // 0: category.GetByIdsRequest
+	(*CategoriesResponse)(nil), // 1: category.CategoriesResponse
+	(*FindRequest)(nil),        // 2: category.FindRequest
+	(*FindResponse)(nil),       // 3: category.FindResponse
+	(*CategoryItem)(nil),       // 4: category.CategoryItem
+	(*empty.Empty)(nil),        // 5: google.protobuf.Empty
 }
 var file_category_category_proto_depIdxs = []int32{
-	0, // 0: category.Category.Find:input_type -> category.FindRequest
-	1, // 1: category.Category.Find:output_type -> category.FindResponse
-	1, // [1:2] is the sub-list for method output_type
-	0, // [0:1] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	4, // 0: category.CategoriesResponse.categories:type_name -> category.CategoryItem
+	2, // 1: category.Category.Find:input_type -> category.FindRequest
+	0, // 2: category.Category.GetByIds:input_type -> category.GetByIdsRequest
+	5, // 3: category.Category.GetAll:input_type -> google.protobuf.Empty
+	3, // 4: category.Category.Find:output_type -> category.FindResponse
+	1, // 5: category.Category.GetByIds:output_type -> category.CategoriesResponse
+	1, // 6: category.Category.GetAll:output_type -> category.CategoriesResponse
+	4, // [4:7] is the sub-list for method output_type
+	1, // [1:4] is the sub-list for method input_type
+	1, // [1:1] is the sub-list for extension type_name
+	1, // [1:1] is the sub-list for extension extendee
+	0, // [0:1] is the sub-list for field type_name
 }
 
 func init() { file_category_category_proto_init() }
@@ -246,7 +374,7 @@ func file_category_category_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_category_category_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindRequest); i {
+			switch v := v.(*GetByIdsRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -258,7 +386,7 @@ func file_category_category_proto_init() {
 			}
 		}
 		file_category_category_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FindResponse); i {
+			switch v := v.(*CategoriesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -270,6 +398,30 @@ func file_category_category_proto_init() {
 			}
 		}
 		file_category_category_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*FindRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_category_category_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*FindResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_category_category_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CategoryItem); i {
 			case 0:
 				return &v.state
@@ -288,7 +440,7 @@ func file_category_category_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_category_category_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   3,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -315,6 +467,8 @@ const _ = grpc.SupportPackageIsVersion6
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type CategoryClient interface {
 	Find(ctx context.Context, in *FindRequest, opts ...grpc.CallOption) (*FindResponse, error)
+	GetByIds(ctx context.Context, in *GetByIdsRequest, opts ...grpc.CallOption) (*CategoriesResponse, error)
+	GetAll(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*CategoriesResponse, error)
 }
 
 type categoryClient struct {
@@ -334,9 +488,29 @@ func (c *categoryClient) Find(ctx context.Context, in *FindRequest, opts ...grpc
 	return out, nil
 }
 
+func (c *categoryClient) GetByIds(ctx context.Context, in *GetByIdsRequest, opts ...grpc.CallOption) (*CategoriesResponse, error) {
+	out := new(CategoriesResponse)
+	err := c.cc.Invoke(ctx, "/category.Category/GetByIds", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *categoryClient) GetAll(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*CategoriesResponse, error) {
+	out := new(CategoriesResponse)
+	err := c.cc.Invoke(ctx, "/category.Category/GetAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CategoryServer is the server API for Category service.
 type CategoryServer interface {
 	Find(context.Context, *FindRequest) (*FindResponse, error)
+	GetByIds(context.Context, *GetByIdsRequest) (*CategoriesResponse, error)
+	GetAll(context.Context, *empty.Empty) (*CategoriesResponse, error)
 }
 
 // UnimplementedCategoryServer can be embedded to have forward compatible implementations.
@@ -345,6 +519,12 @@ type UnimplementedCategoryServer struct {
 
 func (*UnimplementedCategoryServer) Find(context.Context, *FindRequest) (*FindResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Find not implemented")
+}
+func (*UnimplementedCategoryServer) GetByIds(context.Context, *GetByIdsRequest) (*CategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetByIds not implemented")
+}
+func (*UnimplementedCategoryServer) GetAll(context.Context, *empty.Empty) (*CategoriesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetAll not implemented")
 }
 
 func RegisterCategoryServer(s *grpc.Server, srv CategoryServer) {
@@ -369,6 +549,42 @@ func _Category_Find_Handler(srv interface{}, ctx context.Context, dec func(inter
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Category_GetByIds_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByIdsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServer).GetByIds(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/category.Category/GetByIds",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServer).GetByIds(ctx, req.(*GetByIdsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Category_GetAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(empty.Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CategoryServer).GetAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/category.Category/GetAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CategoryServer).GetAll(ctx, req.(*empty.Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Category_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "category.Category",
 	HandlerType: (*CategoryServer)(nil),
@@ -376,6 +592,14 @@ var _Category_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Find",
 			Handler:    _Category_Find_Handler,
+		},
+		{
+			MethodName: "GetByIds",
+			Handler:    _Category_GetByIds_Handler,
+		},
+		{
+			MethodName: "GetAll",
+			Handler:    _Category_GetAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

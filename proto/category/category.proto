@@ -2,9 +2,29 @@ syntax = "proto3";
 
 package category;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/category";
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
 
 service Category {
   rpc Find(FindRequest) returns (FindResponse);
+  rpc GetByIds(GetByIdsRequest) returns (CategoriesResponse) {
+    option (google.api.http) = {
+      get: "/category/getByIds"
+    };
+  };
+  rpc GetAll(google.protobuf.Empty) returns (CategoriesResponse) {
+    option (google.api.http) = {
+      get: "/category/getAll"
+    };
+  };
+}
+
+message GetByIdsRequest {
+  repeated string category_ids = 1;
+}
+
+message CategoriesResponse {
+  repeated CategoryItem categories = 1;
 }
 
 message FindRequest {
