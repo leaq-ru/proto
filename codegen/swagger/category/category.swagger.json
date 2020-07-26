@@ -33,6 +33,36 @@
         ]
       }
     },
+    "/category/getById": {
+      "get": {
+        "operationId": "Category_GetById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/categoryCategoryItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Category"
+        ]
+      }
+    },
     "/category/getByIds": {
       "get": {
         "operationId": "Category_GetByIds",
@@ -60,6 +90,36 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "Category"
+        ]
+      }
+    },
+    "/category/getBySlug": {
+      "get": {
+        "operationId": "Category_GetBySlug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/categoryCategoryItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [

@@ -33,6 +33,36 @@
         ]
       }
     },
+    "/city/getById": {
+      "get": {
+        "operationId": "City_GetById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cityCityItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "cityId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "City"
+        ]
+      }
+    },
     "/city/getByIds": {
       "get": {
         "operationId": "City_GetByIds",
@@ -60,6 +90,36 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "City"
+        ]
+      }
+    },
+    "/city/getBySlug": {
+      "get": {
+        "operationId": "City_GetBySlug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/cityCityItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [

@@ -259,7 +259,7 @@
           "type": "string"
         },
         "location": {
-          "$ref": "#/definitions/parserLocation"
+          "$ref": "#/definitions/parserFullLocation"
         },
         "app": {
           "$ref": "#/definitions/parserApp"
@@ -274,6 +274,20 @@
           }
         },
         "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "parserFullLocation": {
+      "type": "object",
+      "properties": {
+        "city": {
+          "$ref": "#/definitions/cityCityItem"
+        },
+        "address": {
+          "type": "string"
+        },
+        "addressTitle": {
           "type": "string"
         }
       }
@@ -312,20 +326,6 @@
         "PRIVATE"
       ],
       "default": "OPEN"
-    },
-    "parserLocation": {
-      "type": "object",
-      "properties": {
-        "city": {
-          "$ref": "#/definitions/cityCityItem"
-        },
-        "address": {
-          "type": "string"
-        },
-        "addressTitle": {
-          "type": "string"
-        }
-      }
     },
     "parserPeople": {
       "type": "object",
@@ -380,6 +380,9 @@
         "categoryId": {
           "type": "string"
         },
+        "location": {
+          "$ref": "#/definitions/parserShortLocation"
+        },
         "url": {
           "type": "string"
         },
@@ -401,6 +404,20 @@
           "format": "double"
         },
         "avatar": {
+          "type": "string"
+        }
+      }
+    },
+    "parserShortLocation": {
+      "type": "object",
+      "properties": {
+        "cityId": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "addressTitle": {
           "type": "string"
         }
       }
