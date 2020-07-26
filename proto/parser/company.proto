@@ -72,7 +72,7 @@ message FullCompany {
   double ogrn = 12;
   Domain domain = 13;
   string avatar = 14;
-  Location location = 15;
+  FullLocation location = 15;
   App app = 16;
   Social social = 17;
   repeated People people = 18;
@@ -82,13 +82,14 @@ message FullCompany {
 message ShortCompany {
   string id = 1;
   string category_id = 2;
-  string url = 3;
-  string slug = 4;
-  string title = 5;
-  string email = 6;
-  bool online = 7;
-  double phone = 8;
-  string avatar = 9;
+  ShortLocation location = 3;
+  string url = 4;
+  string slug = 5;
+  string title = 6;
+  string email = 7;
+  bool online = 8;
+  double phone = 9;
+  string avatar = 10;
 }
 
 message People {
@@ -148,8 +149,14 @@ message Domain {
   string registration_date = 3;
 }
 
-message Location {
+message FullLocation {
   city.CityItem city = 1;
+  string address = 2;
+  string address_title = 3;
+}
+
+message ShortLocation {
+  string city_id = 1;
   string address = 2;
   string address_title = 3;
 }

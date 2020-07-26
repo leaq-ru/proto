@@ -7,6 +7,16 @@ import "google/api/annotations.proto";
 
 service Category {
   rpc Find(FindRequest) returns (FindResponse);
+  rpc GetById(GetByIdRequest) returns (CategoryItem) {
+    option (google.api.http) = {
+      get: "/category/getById"
+    };
+  };
+  rpc GetBySlug(GetBySlugRequest) returns (CategoryItem) {
+    option (google.api.http) = {
+      get: "/category/getBySlug"
+    };
+  };
   rpc GetByIds(GetByIdsRequest) returns (CategoriesResponse) {
     option (google.api.http) = {
       get: "/category/getByIds"
@@ -17,6 +27,14 @@ service Category {
       get: "/category/getAll"
     };
   };
+}
+
+message GetBySlugRequest {
+  string slug = 1;
+}
+
+message GetByIdRequest {
+  string category_id = 1;
 }
 
 message GetByIdsRequest {

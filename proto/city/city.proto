@@ -7,6 +7,16 @@ import "google/api/annotations.proto";
 
 service City {
   rpc Find(FindRequest) returns (FindResponse);
+  rpc GetById(GetByIdRequest) returns (CityItem) {
+    option (google.api.http) = {
+      get: "/city/getById"
+    };
+  };
+  rpc GetBySlug(GetBySlugRequest) returns (CityItem) {
+    option (google.api.http) = {
+      get: "/city/getBySlug"
+    };
+  };
   rpc GetByIds(GetByIdsRequest) returns (CitiesResponse) {
     option (google.api.http) = {
       get: "/city/getByIds"
@@ -17,6 +27,14 @@ service City {
       get: "/city/getAll"
     };
   };
+}
+
+message GetBySlugRequest {
+  string slug = 1;
+}
+
+message GetByIdRequest {
+  string city_id = 1;
 }
 
 message GetByIdsRequest {
