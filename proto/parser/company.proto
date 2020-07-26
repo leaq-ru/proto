@@ -4,6 +4,7 @@ package parser;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
+import "validate/validate.proto";
 import "city/city.proto";
 import "category/category.proto";
 import "opts/page.proto";
@@ -54,7 +55,7 @@ message GetResponse {
 message GetBySlugRequest {
   string slug = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
     required: "slug",
-  }];
+  }, (validate.rules).string.min_len = 1];
 }
 
 message FullCompany {

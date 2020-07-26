@@ -15,8 +15,9 @@ all: ./proto/*/
 		echo "Processing $$a..."; \
 		mkdir $(ROOT_DIR)/codegen/go/$$a; \
 		echo "  Generating go for $$a..."; \
-		protoc -I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
-			-I$(GOPATH)/src/github.com/grpc-ecosystem/grpc-gateway \
+		protoc -I$(GOPATH)/pkg/mod/github.com/envoyproxy/protoc-gen-validate@v0.1.0 \
+			-I$(GOPATH)/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.14.6 \
+			-I$(GOPATH)/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.14.6/third_party/googleapis \
 			--proto_path=proto $(GO_ARGS) proto/$$a/*.proto \
 			--grpc-gateway_out=logtostderr=true:$(GOPATH)/src \
             --swagger_out=logtostderr=true,json_names_for_fields=true:codegen/swagger; \
