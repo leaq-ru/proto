@@ -44,6 +44,8 @@ message GetRequest {
   opts.Opts opts = 1;
   string city_id = 2;
   string category_id = 3;
+  bool has_email = 4;
+  bool has_phone = 5;
 }
 
 message GetResponse {
