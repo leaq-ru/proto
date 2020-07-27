@@ -30,12 +30,11 @@
         },
         "parameters": [
           {
-            "name": "opts.skip",
+            "name": "opts.fromId",
+            "description": "Пагинация (skip)",
             "in": "query",
             "required": false,
-            "type": "integer",
-            "format": "int64",
-            "default": "0"
+            "type": "string"
           },
           {
             "name": "opts.limit",
@@ -169,10 +168,9 @@
     "optsOpts": {
       "type": "object",
       "properties": {
-        "skip": {
-          "type": "integer",
-          "format": "int64",
-          "default": "0"
+        "fromId": {
+          "type": "string",
+          "description": "Пагинация (skip)"
         },
         "limit": {
           "type": "integer",

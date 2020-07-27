@@ -5,9 +5,8 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/opts";
 import "protoc-gen-swagger/options/annotations.proto";
 
 message Opts {
-  uint32 skip = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    minimum: 0,
-    default: "0",
+  string from_id = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    description: "Пагинация (skip)",
   }];
   uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
     minimum: 1,
