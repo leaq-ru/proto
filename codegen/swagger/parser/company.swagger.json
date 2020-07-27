@@ -113,9 +113,10 @@
           {
             "name": "limit",
             "in": "query",
-            "required": true,
+            "required": false,
             "type": "integer",
-            "format": "int64"
+            "format": "int64",
+            "default": "5"
           },
           {
             "name": "cityId",

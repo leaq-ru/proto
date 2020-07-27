@@ -30,7 +30,7 @@ message GetRelatedRequest {
   uint32 limit = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
 	    minimum: 1,
       maximum: 10,
-      required: "limit",
+      default: "5",
   }];
   string city_id = 2;
   string category_id = 3;
