@@ -11,17 +11,17 @@ import "opts/page.proto";
 service Company {
   rpc GetBySlug(GetBySlugRequest) returns (FullCompany) {
     option (google.api.http) = {
-      get: "/company/getBySlug"
+      get: "/v1/company/getBySlug"
     };
   };
   rpc Get(GetRequest) returns (GetResponse) {
     option (google.api.http) = {
-      get: "/company/get"
+      get: "/v1/company/get"
     };
   };
   rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
     option (google.api.http) = {
-      get: "/company/getRelated"
+      get: "/v1/company/getRelated"
     };
   };
 }

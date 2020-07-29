@@ -11,7 +11,7 @@
     "application/json"
   ],
   "paths": {
-    "/company/get": {
+    "/v1/company/get": {
       "get": {
         "operationId": "Company_Get",
         "responses": {
@@ -76,7 +76,7 @@
         ]
       }
     },
-    "/company/getBySlug": {
+    "/v1/company/getBySlug": {
       "get": {
         "operationId": "Company_GetBySlug",
         "responses": {
@@ -106,7 +106,7 @@
         ]
       }
     },
-    "/company/getRelated": {
+    "/v1/company/getRelated": {
       "get": {
         "operationId": "Company_GetRelated",
         "responses": {

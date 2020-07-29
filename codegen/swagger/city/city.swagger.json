@@ -11,7 +11,7 @@
     "application/json"
   ],
   "paths": {
-    "/city/getAll": {
+    "/v1/city/getAll": {
       "get": {
         "operationId": "City_GetAll",
         "responses": {
@@ -33,7 +33,7 @@
         ]
       }
     },
-    "/city/getById": {
+    "/v1/city/getById": {
       "get": {
         "operationId": "City_GetById",
         "responses": {
@@ -63,7 +63,7 @@
         ]
       }
     },
-    "/city/getByIds": {
+    "/v1/city/getByIds": {
       "get": {
         "operationId": "City_GetByIds",
         "responses": {
@@ -97,7 +97,7 @@
         ]
       }
     },
-    "/city/getBySlug": {
+    "/v1/city/getBySlug": {
       "get": {
         "operationId": "City_GetBySlug",
         "responses": {

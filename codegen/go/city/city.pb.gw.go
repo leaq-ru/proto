@@ -368,13 +368,13 @@ func RegisterCityHandlerClient(ctx context.Context, mux *runtime.ServeMux, clien
 }
 
 var (
-	pattern_City_GetById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"city", "getById"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_City_GetById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "city", "getById"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_City_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"city", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_City_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "city", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_City_GetByIds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"city", "getByIds"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_City_GetByIds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "city", "getByIds"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_City_GetAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"city", "getAll"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_City_GetAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "city", "getAll"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

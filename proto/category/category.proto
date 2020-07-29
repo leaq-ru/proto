@@ -9,22 +9,22 @@ service Category {
   rpc Find(FindRequest) returns (FindResponse);
   rpc GetById(GetByIdRequest) returns (CategoryItem) {
     option (google.api.http) = {
-      get: "/category/getById"
+      get: "/v1/category/getById"
     };
   };
   rpc GetBySlug(GetBySlugRequest) returns (CategoryItem) {
     option (google.api.http) = {
-      get: "/category/getBySlug"
+      get: "/v1/category/getBySlug"
     };
   };
   rpc GetByIds(GetByIdsRequest) returns (CategoriesResponse) {
     option (google.api.http) = {
-      get: "/category/getByIds"
+      get: "/v1/category/getByIds"
     };
   };
   rpc GetAll(google.protobuf.Empty) returns (CategoriesResponse) {
     option (google.api.http) = {
-      get: "/category/getAll"
+      get: "/v1/category/getAll"
     };
   };
 }

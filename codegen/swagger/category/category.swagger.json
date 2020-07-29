@@ -11,7 +11,7 @@
     "application/json"
   ],
   "paths": {
-    "/category/getAll": {
+    "/v1/category/getAll": {
       "get": {
         "operationId": "Category_GetAll",
         "responses": {
@@ -33,7 +33,7 @@
         ]
       }
     },
-    "/category/getById": {
+    "/v1/category/getById": {
       "get": {
         "operationId": "Category_GetById",
         "responses": {
@@ -63,7 +63,7 @@
         ]
       }
     },
-    "/category/getByIds": {
+    "/v1/category/getByIds": {
       "get": {
         "operationId": "Category_GetByIds",
         "responses": {
@@ -97,7 +97,7 @@
         ]
       }
     },
-    "/category/getBySlug": {
+    "/v1/category/getBySlug": {
       "get": {
         "operationId": "Category_GetBySlug",
         "responses": {

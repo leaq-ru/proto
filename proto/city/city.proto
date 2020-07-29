@@ -9,22 +9,22 @@ service City {
   rpc Find(FindRequest) returns (FindResponse);
   rpc GetById(GetByIdRequest) returns (CityItem) {
     option (google.api.http) = {
-      get: "/city/getById"
+      get: "/v1/city/getById"
     };
   };
   rpc GetBySlug(GetBySlugRequest) returns (CityItem) {
     option (google.api.http) = {
-      get: "/city/getBySlug"
+      get: "/v1/city/getBySlug"
     };
   };
   rpc GetByIds(GetByIdsRequest) returns (CitiesResponse) {
     option (google.api.http) = {
-      get: "/city/getByIds"
+      get: "/v1/city/getByIds"
     };
   };
   rpc GetAll(google.protobuf.Empty) returns (CitiesResponse) {
     option (google.api.http) = {
-      get: "/city/getAll"
+      get: "/v1/city/getAll"
     };
   };
 }

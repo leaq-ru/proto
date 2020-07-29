@@ -309,11 +309,11 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 }
 
 var (
-	pattern_Company_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"company", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Company_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Company_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"company", "get"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Company_Get_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "get"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Company_GetRelated_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"company", "getRelated"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Company_GetRelated_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "getRelated"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

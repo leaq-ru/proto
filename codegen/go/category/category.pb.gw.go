@@ -368,13 +368,13 @@ func RegisterCategoryHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Category_GetById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"category", "getById"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Category_GetById_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "category", "getById"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Category_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"category", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Category_GetBySlug_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "category", "getBySlug"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Category_GetByIds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"category", "getByIds"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Category_GetByIds_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "category", "getByIds"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Category_GetAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"category", "getAll"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Category_GetAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "category", "getAll"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
