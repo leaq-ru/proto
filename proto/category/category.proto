@@ -4,6 +4,7 @@ package category;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/category";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
 
 service Category {
   rpc Find(FindRequest) returns (FindResponse);
@@ -27,6 +28,20 @@ service Category {
       get: "/v1/category/getAll"
     };
   };
+  rpc GetHints(GetHintsRequest) returns (CategoriesResponse) {
+    option (google.api.http) = {
+      get: "/v1/category/getHints"
+    };
+  };
+}
+
+message GetHintsRequest {
+  string title = 1;
+  uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    minimum: 1,
+    maximum: 100,
+    default: "20",
+  }];
 }
 
 message GetBySlugRequest {

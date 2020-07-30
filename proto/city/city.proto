@@ -4,6 +4,7 @@ package city;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/city";
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "protoc-gen-swagger/options/annotations.proto";
 
 service City {
   rpc Find(FindRequest) returns (FindResponse);
@@ -27,6 +28,20 @@ service City {
       get: "/v1/city/getAll"
     };
   };
+  rpc GetHints(GetHintsRequest) returns (CitiesResponse) {
+    option (google.api.http) = {
+      get: "/v1/city/getHints"
+    };
+  };
+}
+
+message GetHintsRequest {
+  string title = 1;
+  uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    minimum: 1,
+    maximum: 100,
+    default: "20",
+  }];
 }
 
 message GetBySlugRequest {
