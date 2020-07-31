@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package parser;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
+
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "city/city.proto";

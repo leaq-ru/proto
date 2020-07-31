@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package city;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/city";
+
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";

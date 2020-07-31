@@ -2,6 +2,7 @@ syntax = "proto3";
 
 package image;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/image";
+
 import "google/protobuf/empty.proto";
 
 service Image {
