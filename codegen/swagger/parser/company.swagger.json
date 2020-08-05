@@ -45,30 +45,194 @@
             "default": "20"
           },
           {
-            "name": "cityId",
+            "name": "cityIds",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
-            "name": "categoryId",
+            "name": "categoryIds",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "hasEmail",
             "in": "query",
             "required": false,
-            "type": "boolean",
-            "format": "boolean"
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
           },
           {
             "name": "hasPhone",
             "in": "query",
             "required": false,
-            "type": "boolean",
-            "format": "boolean"
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasOnline",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasInn",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasKpp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasOgrn",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasAppStore",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasGooglePlay",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasVk",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "vkMembersCount.from",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "vkMembersCount.to",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "hasInstagram",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasTwitter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasYoutube",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasFacebook",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
           }
         ],
         "tags": [
@@ -308,10 +472,10 @@
     "parserGetRelatedResponse": {
       "type": "object",
       "properties": {
-        "shortCompanies": {
+        "companies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parserShortCompany"
+            "$ref": "#/definitions/parserFullCompany"
           }
         }
       }
@@ -319,10 +483,10 @@
     "parserGetResponse": {
       "type": "object",
       "properties": {
-        "shortCompanies": {
+        "companies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parserShortCompany"
+            "$ref": "#/definitions/parserFullCompany"
           }
         },
         "totalCount": {
@@ -375,6 +539,15 @@
         }
       }
     },
+    "parserSelect": {
+      "type": "string",
+      "enum": [
+        "ANY",
+        "YES",
+        "NO"
+      ],
+      "default": "ANY"
+    },
     "parserSex": {
       "type": "string",
       "enum": [
@@ -383,57 +556,6 @@
         "MALE"
       ],
       "default": "NONE"
-    },
-    "parserShortCompany": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "categoryId": {
-          "type": "string"
-        },
-        "location": {
-          "$ref": "#/definitions/parserShortLocation"
-        },
-        "url": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "email": {
-          "type": "string"
-        },
-        "online": {
-          "type": "boolean",
-          "format": "boolean"
-        },
-        "phone": {
-          "type": "number",
-          "format": "double"
-        },
-        "avatar": {
-          "type": "string"
-        }
-      }
-    },
-    "parserShortLocation": {
-      "type": "object",
-      "properties": {
-        "cityId": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "addressTitle": {
-          "type": "string"
-        }
-      }
     },
     "parserSocial": {
       "type": "object",
@@ -488,6 +610,19 @@
         },
         "photo200": {
           "type": "string"
+        }
+      }
+    },
+    "parserVkMembersCount": {
+      "type": "object",
+      "properties": {
+        "from": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "to": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
