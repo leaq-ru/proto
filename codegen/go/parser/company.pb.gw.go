@@ -144,7 +144,7 @@ var (
 )
 
 func request_Company_GetEmailList_0(ctx context.Context, marshaler runtime.Marshaler, client CompanyClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRequest
+	var protoReq GetListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -160,7 +160,7 @@ func request_Company_GetEmailList_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_Company_GetEmailList_0(ctx context.Context, marshaler runtime.Marshaler, server CompanyServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRequest
+	var protoReq GetListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -180,7 +180,7 @@ var (
 )
 
 func request_Company_GetPhoneList_0(ctx context.Context, marshaler runtime.Marshaler, client CompanyClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRequest
+	var protoReq GetListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {
@@ -196,7 +196,7 @@ func request_Company_GetPhoneList_0(ctx context.Context, marshaler runtime.Marsh
 }
 
 func local_request_Company_GetPhoneList_0(ctx context.Context, marshaler runtime.Marshaler, server CompanyServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
-	var protoReq GetRequest
+	var protoReq GetListRequest
 	var metadata runtime.ServerMetadata
 
 	if err := req.ParseForm(); err != nil {

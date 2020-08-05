@@ -289,21 +289,6 @@
         },
         "parameters": [
           {
-            "name": "opts.fromId",
-            "description": "Пагинация (skip)",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "opts.limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64",
-            "default": "20"
-          },
-          {
             "name": "cityIds",
             "in": "query",
             "required": false,
@@ -517,21 +502,6 @@
           }
         },
         "parameters": [
-          {
-            "name": "opts.fromId",
-            "description": "Пагинация (skip)",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "opts.limit",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64",
-            "default": "20"
-          },
           {
             "name": "cityIds",
             "in": "query",
