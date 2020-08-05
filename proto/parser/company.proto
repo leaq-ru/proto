@@ -25,6 +25,24 @@ service Company {
       get: "/v1/company/getRelated"
     };
   };
+  rpc GetEmailList(GetRequest) returns (GetEmailListResponse) {
+    option (google.api.http) = {
+      get: "/v1/company/getEmailList"
+    };
+  };
+  rpc GetPhoneList(GetRequest) returns (GetPhoneListResponse) {
+    option (google.api.http) = {
+      get: "/v1/company/getPhoneList"
+    };
+  };
+}
+
+message GetEmailListResponse {
+  repeated string emails = 1;
+}
+
+message GetPhoneListResponse {
+  repeated double phones = 1;
 }
 
 message GetRelatedRequest {

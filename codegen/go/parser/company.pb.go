@@ -181,6 +181,100 @@ func (IsClosed) EnumDescriptor() ([]byte, []int) {
 	return file_parser_company_proto_rawDescGZIP(), []int{2}
 }
 
+type GetEmailListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Emails []string `protobuf:"bytes,1,rep,name=emails,proto3" json:"emails,omitempty"`
+}
+
+func (x *GetEmailListResponse) Reset() {
+	*x = GetEmailListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_parser_company_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetEmailListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetEmailListResponse) ProtoMessage() {}
+
+func (x *GetEmailListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_parser_company_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetEmailListResponse.ProtoReflect.Descriptor instead.
+func (*GetEmailListResponse) Descriptor() ([]byte, []int) {
+	return file_parser_company_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetEmailListResponse) GetEmails() []string {
+	if x != nil {
+		return x.Emails
+	}
+	return nil
+}
+
+type GetPhoneListResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Phones []float64 `protobuf:"fixed64,1,rep,packed,name=phones,proto3" json:"phones,omitempty"`
+}
+
+func (x *GetPhoneListResponse) Reset() {
+	*x = GetPhoneListResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_parser_company_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetPhoneListResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetPhoneListResponse) ProtoMessage() {}
+
+func (x *GetPhoneListResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_parser_company_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetPhoneListResponse.ProtoReflect.Descriptor instead.
+func (*GetPhoneListResponse) Descriptor() ([]byte, []int) {
+	return file_parser_company_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetPhoneListResponse) GetPhones() []float64 {
+	if x != nil {
+		return x.Phones
+	}
+	return nil
+}
+
 type GetRelatedRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -194,7 +288,7 @@ type GetRelatedRequest struct {
 func (x *GetRelatedRequest) Reset() {
 	*x = GetRelatedRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[0]
+		mi := &file_parser_company_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -207,7 +301,7 @@ func (x *GetRelatedRequest) String() string {
 func (*GetRelatedRequest) ProtoMessage() {}
 
 func (x *GetRelatedRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[0]
+	mi := &file_parser_company_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -220,7 +314,7 @@ func (x *GetRelatedRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRelatedRequest.ProtoReflect.Descriptor instead.
 func (*GetRelatedRequest) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{0}
+	return file_parser_company_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GetRelatedRequest) GetLimit() uint32 {
@@ -255,7 +349,7 @@ type GetRelatedResponse struct {
 func (x *GetRelatedResponse) Reset() {
 	*x = GetRelatedResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[1]
+		mi := &file_parser_company_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -268,7 +362,7 @@ func (x *GetRelatedResponse) String() string {
 func (*GetRelatedResponse) ProtoMessage() {}
 
 func (x *GetRelatedResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[1]
+	mi := &file_parser_company_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -281,7 +375,7 @@ func (x *GetRelatedResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRelatedResponse.ProtoReflect.Descriptor instead.
 func (*GetRelatedResponse) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{1}
+	return file_parser_company_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetRelatedResponse) GetCompanies() []*FullCompany {
@@ -303,7 +397,7 @@ type VkMembersCount struct {
 func (x *VkMembersCount) Reset() {
 	*x = VkMembersCount{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[2]
+		mi := &file_parser_company_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -316,7 +410,7 @@ func (x *VkMembersCount) String() string {
 func (*VkMembersCount) ProtoMessage() {}
 
 func (x *VkMembersCount) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[2]
+	mi := &file_parser_company_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -329,7 +423,7 @@ func (x *VkMembersCount) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use VkMembersCount.ProtoReflect.Descriptor instead.
 func (*VkMembersCount) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{2}
+	return file_parser_company_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *VkMembersCount) GetFrom() uint32 {
@@ -373,7 +467,7 @@ type GetRequest struct {
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[3]
+		mi := &file_parser_company_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -386,7 +480,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[3]
+	mi := &file_parser_company_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -399,7 +493,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{3}
+	return file_parser_company_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetRequest) GetOpts() *opts.Opts {
@@ -533,7 +627,7 @@ type GetResponse struct {
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[4]
+		mi := &file_parser_company_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -546,7 +640,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[4]
+	mi := &file_parser_company_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -559,7 +653,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{4}
+	return file_parser_company_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetResponse) GetCompanies() []*FullCompany {
@@ -587,7 +681,7 @@ type GetBySlugRequest struct {
 func (x *GetBySlugRequest) Reset() {
 	*x = GetBySlugRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[5]
+		mi := &file_parser_company_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -600,7 +694,7 @@ func (x *GetBySlugRequest) String() string {
 func (*GetBySlugRequest) ProtoMessage() {}
 
 func (x *GetBySlugRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[5]
+	mi := &file_parser_company_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -613,7 +707,7 @@ func (x *GetBySlugRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBySlugRequest.ProtoReflect.Descriptor instead.
 func (*GetBySlugRequest) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{5}
+	return file_parser_company_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetBySlugRequest) GetSlug() string {
@@ -652,7 +746,7 @@ type FullCompany struct {
 func (x *FullCompany) Reset() {
 	*x = FullCompany{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[6]
+		mi := &file_parser_company_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -665,7 +759,7 @@ func (x *FullCompany) String() string {
 func (*FullCompany) ProtoMessage() {}
 
 func (x *FullCompany) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[6]
+	mi := &file_parser_company_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -678,7 +772,7 @@ func (x *FullCompany) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FullCompany.ProtoReflect.Descriptor instead.
 func (*FullCompany) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{6}
+	return file_parser_company_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *FullCompany) GetId() string {
@@ -833,7 +927,7 @@ type People struct {
 func (x *People) Reset() {
 	*x = People{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[7]
+		mi := &file_parser_company_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -846,7 +940,7 @@ func (x *People) String() string {
 func (*People) ProtoMessage() {}
 
 func (x *People) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[7]
+	mi := &file_parser_company_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -859,7 +953,7 @@ func (x *People) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use People.ProtoReflect.Descriptor instead.
 func (*People) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{7}
+	return file_parser_company_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *People) GetVkId() float64 {
@@ -940,7 +1034,7 @@ type Social struct {
 func (x *Social) Reset() {
 	*x = Social{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[8]
+		mi := &file_parser_company_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -953,7 +1047,7 @@ func (x *Social) String() string {
 func (*Social) ProtoMessage() {}
 
 func (x *Social) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[8]
+	mi := &file_parser_company_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -966,7 +1060,7 @@ func (x *Social) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Social.ProtoReflect.Descriptor instead.
 func (*Social) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{8}
+	return file_parser_company_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *Social) GetVk() *Vk {
@@ -1021,7 +1115,7 @@ type Vk struct {
 func (x *Vk) Reset() {
 	*x = Vk{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[9]
+		mi := &file_parser_company_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1034,7 +1128,7 @@ func (x *Vk) String() string {
 func (*Vk) ProtoMessage() {}
 
 func (x *Vk) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[9]
+	mi := &file_parser_company_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1047,7 +1141,7 @@ func (x *Vk) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Vk.ProtoReflect.Descriptor instead.
 func (*Vk) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{9}
+	return file_parser_company_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *Vk) GetGroupId() float64 {
@@ -1111,7 +1205,7 @@ type App struct {
 func (x *App) Reset() {
 	*x = App{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[10]
+		mi := &file_parser_company_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1124,7 +1218,7 @@ func (x *App) String() string {
 func (*App) ProtoMessage() {}
 
 func (x *App) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[10]
+	mi := &file_parser_company_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1137,7 +1231,7 @@ func (x *App) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use App.ProtoReflect.Descriptor instead.
 func (*App) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{10}
+	return file_parser_company_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *App) GetAppStore() *UrlItem {
@@ -1165,7 +1259,7 @@ type UrlItem struct {
 func (x *UrlItem) Reset() {
 	*x = UrlItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[11]
+		mi := &file_parser_company_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1178,7 +1272,7 @@ func (x *UrlItem) String() string {
 func (*UrlItem) ProtoMessage() {}
 
 func (x *UrlItem) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[11]
+	mi := &file_parser_company_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1191,7 +1285,7 @@ func (x *UrlItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use UrlItem.ProtoReflect.Descriptor instead.
 func (*UrlItem) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{11}
+	return file_parser_company_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *UrlItem) GetUrl() string {
@@ -1214,7 +1308,7 @@ type Domain struct {
 func (x *Domain) Reset() {
 	*x = Domain{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[12]
+		mi := &file_parser_company_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1227,7 +1321,7 @@ func (x *Domain) String() string {
 func (*Domain) ProtoMessage() {}
 
 func (x *Domain) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[12]
+	mi := &file_parser_company_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1240,7 +1334,7 @@ func (x *Domain) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Domain.ProtoReflect.Descriptor instead.
 func (*Domain) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{12}
+	return file_parser_company_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *Domain) GetAddress() string {
@@ -1277,7 +1371,7 @@ type FullLocation struct {
 func (x *FullLocation) Reset() {
 	*x = FullLocation{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_parser_company_proto_msgTypes[13]
+		mi := &file_parser_company_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1290,7 +1384,7 @@ func (x *FullLocation) String() string {
 func (*FullLocation) ProtoMessage() {}
 
 func (x *FullLocation) ProtoReflect() protoreflect.Message {
-	mi := &file_parser_company_proto_msgTypes[13]
+	mi := &file_parser_company_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1303,7 +1397,7 @@ func (x *FullLocation) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FullLocation.ProtoReflect.Descriptor instead.
 func (*FullLocation) Descriptor() ([]byte, []int) {
-	return file_parser_company_proto_rawDescGZIP(), []int{13}
+	return file_parser_company_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *FullLocation) GetCity() *city.CityItem {
@@ -1340,7 +1434,13 @@ var file_parser_company_proto_rawDesc = []byte{
 	0x2f, 0x63, 0x69, 0x74, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x17, 0x63, 0x61, 0x74,
 	0x65, 0x67, 0x6f, 0x72, 0x79, 0x2f, 0x63, 0x61, 0x74, 0x65, 0x67, 0x6f, 0x72, 0x79, 0x2e, 0x70,
 	0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x0f, 0x6f, 0x70, 0x74, 0x73, 0x2f, 0x70, 0x61, 0x67, 0x65, 0x2e,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x7d, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6c, 0x61,
+	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x2e, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x45, 0x6d, 0x61, 0x69,
+	0x6c, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a,
+	0x06, 0x65, 0x6d, 0x61, 0x69, 0x6c, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x06, 0x65,
+	0x6d, 0x61, 0x69, 0x6c, 0x73, 0x22, 0x2e, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x6e,
+	0x65, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a,
+	0x06, 0x70, 0x68, 0x6f, 0x6e, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x01, 0x52, 0x06, 0x70,
+	0x68, 0x6f, 0x6e, 0x65, 0x73, 0x22, 0x7d, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6c, 0x61,
 	0x74, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x2e, 0x0a, 0x05, 0x6c, 0x69,
 	0x6d, 0x69, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x42, 0x18, 0x92, 0x41, 0x15, 0x3a, 0x01,
 	0x35, 0x59, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x24, 0x40, 0x69, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -1524,7 +1624,7 @@ var file_parser_company_proto_rawDesc = []byte{
 	0x4d, 0x41, 0x4c, 0x45, 0x10, 0x02, 0x2a, 0x2c, 0x0a, 0x08, 0x49, 0x73, 0x43, 0x6c, 0x6f, 0x73,
 	0x65, 0x64, 0x12, 0x08, 0x0a, 0x04, 0x4f, 0x50, 0x45, 0x4e, 0x10, 0x00, 0x12, 0x09, 0x0a, 0x05,
 	0x43, 0x4c, 0x4f, 0x53, 0x45, 0x10, 0x01, 0x12, 0x0b, 0x0a, 0x07, 0x50, 0x52, 0x49, 0x56, 0x41,
-	0x54, 0x45, 0x10, 0x02, 0x32, 0x92, 0x02, 0x0a, 0x07, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79,
+	0x54, 0x45, 0x10, 0x02, 0x32, 0xda, 0x03, 0x0a, 0x07, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79,
 	0x12, 0x59, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x12, 0x18, 0x2e,
 	0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67,
 	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72,
@@ -1541,10 +1641,23 @@ var file_parser_company_proto_rawDesc = []byte{
 	0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x65,
 	0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1e, 0x82, 0xd3, 0xe4, 0x93, 0x02,
 	0x18, 0x12, 0x16, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x2f, 0x67,
-	0x65, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x42, 0x2d, 0x5a, 0x2b, 0x67, 0x69, 0x74,
-	0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72,
-	0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67,
-	0x6f, 0x2f, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x65, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x12, 0x62, 0x0a, 0x0c, 0x47, 0x65, 0x74,
+	0x45, 0x6d, 0x61, 0x69, 0x6c, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x12, 0x2e, 0x70, 0x61, 0x72, 0x73,
+	0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1c, 0x2e,
+	0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x4c,
+	0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x20, 0x82, 0xd3, 0xe4,
+	0x93, 0x02, 0x1a, 0x12, 0x18, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79,
+	0x2f, 0x67, 0x65, 0x74, 0x45, 0x6d, 0x61, 0x69, 0x6c, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x62, 0x0a,
+	0x0c, 0x47, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x12, 0x12, 0x2e,
+	0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1c, 0x2e, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72, 0x2e, 0x47, 0x65, 0x74, 0x50, 0x68,
+	0x6f, 0x6e, 0x65, 0x4c, 0x69, 0x73, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x20, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1a, 0x12, 0x18, 0x2f, 0x76, 0x31, 0x2f, 0x63, 0x6f, 0x6d,
+	0x70, 0x61, 0x6e, 0x79, 0x2f, 0x67, 0x65, 0x74, 0x50, 0x68, 0x6f, 0x6e, 0x65, 0x4c, 0x69, 0x73,
+	0x74, 0x42, 0x2d, 0x5a, 0x2b, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f,
+	0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63,
+	0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x70, 0x61, 0x72, 0x73, 0x65, 0x72,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1560,32 +1673,34 @@ func file_parser_company_proto_rawDescGZIP() []byte {
 }
 
 var file_parser_company_proto_enumTypes = make([]protoimpl.EnumInfo, 3)
-var file_parser_company_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
+var file_parser_company_proto_msgTypes = make([]protoimpl.MessageInfo, 16)
 var file_parser_company_proto_goTypes = []interface{}{
 	(Select)(0),                   // 0: parser.Select
 	(Sex)(0),                      // 1: parser.Sex
 	(IsClosed)(0),                 // 2: parser.IsClosed
-	(*GetRelatedRequest)(nil),     // 3: parser.GetRelatedRequest
-	(*GetRelatedResponse)(nil),    // 4: parser.GetRelatedResponse
-	(*VkMembersCount)(nil),        // 5: parser.VkMembersCount
-	(*GetRequest)(nil),            // 6: parser.GetRequest
-	(*GetResponse)(nil),           // 7: parser.GetResponse
-	(*GetBySlugRequest)(nil),      // 8: parser.GetBySlugRequest
-	(*FullCompany)(nil),           // 9: parser.FullCompany
-	(*People)(nil),                // 10: parser.People
-	(*Social)(nil),                // 11: parser.Social
-	(*Vk)(nil),                    // 12: parser.Vk
-	(*App)(nil),                   // 13: parser.App
-	(*UrlItem)(nil),               // 14: parser.UrlItem
-	(*Domain)(nil),                // 15: parser.Domain
-	(*FullLocation)(nil),          // 16: parser.FullLocation
-	(*opts.Opts)(nil),             // 17: opts.Opts
-	(*category.CategoryItem)(nil), // 18: category.CategoryItem
-	(*city.CityItem)(nil),         // 19: city.CityItem
+	(*GetEmailListResponse)(nil),  // 3: parser.GetEmailListResponse
+	(*GetPhoneListResponse)(nil),  // 4: parser.GetPhoneListResponse
+	(*GetRelatedRequest)(nil),     // 5: parser.GetRelatedRequest
+	(*GetRelatedResponse)(nil),    // 6: parser.GetRelatedResponse
+	(*VkMembersCount)(nil),        // 7: parser.VkMembersCount
+	(*GetRequest)(nil),            // 8: parser.GetRequest
+	(*GetResponse)(nil),           // 9: parser.GetResponse
+	(*GetBySlugRequest)(nil),      // 10: parser.GetBySlugRequest
+	(*FullCompany)(nil),           // 11: parser.FullCompany
+	(*People)(nil),                // 12: parser.People
+	(*Social)(nil),                // 13: parser.Social
+	(*Vk)(nil),                    // 14: parser.Vk
+	(*App)(nil),                   // 15: parser.App
+	(*UrlItem)(nil),               // 16: parser.UrlItem
+	(*Domain)(nil),                // 17: parser.Domain
+	(*FullLocation)(nil),          // 18: parser.FullLocation
+	(*opts.Opts)(nil),             // 19: opts.Opts
+	(*category.CategoryItem)(nil), // 20: category.CategoryItem
+	(*city.CityItem)(nil),         // 21: city.CityItem
 }
 var file_parser_company_proto_depIdxs = []int32{
-	9,  // 0: parser.GetRelatedResponse.companies:type_name -> parser.FullCompany
-	17, // 1: parser.GetRequest.opts:type_name -> opts.Opts
+	11, // 0: parser.GetRelatedResponse.companies:type_name -> parser.FullCompany
+	19, // 1: parser.GetRequest.opts:type_name -> opts.Opts
 	0,  // 2: parser.GetRequest.has_email:type_name -> parser.Select
 	0,  // 3: parser.GetRequest.has_phone:type_name -> parser.Select
 	0,  // 4: parser.GetRequest.has_online:type_name -> parser.Select
@@ -1595,36 +1710,40 @@ var file_parser_company_proto_depIdxs = []int32{
 	0,  // 8: parser.GetRequest.has_app_store:type_name -> parser.Select
 	0,  // 9: parser.GetRequest.has_google_play:type_name -> parser.Select
 	0,  // 10: parser.GetRequest.has_vk:type_name -> parser.Select
-	5,  // 11: parser.GetRequest.vk_members_count:type_name -> parser.VkMembersCount
+	7,  // 11: parser.GetRequest.vk_members_count:type_name -> parser.VkMembersCount
 	0,  // 12: parser.GetRequest.has_instagram:type_name -> parser.Select
 	0,  // 13: parser.GetRequest.has_twitter:type_name -> parser.Select
 	0,  // 14: parser.GetRequest.has_youtube:type_name -> parser.Select
 	0,  // 15: parser.GetRequest.has_facebook:type_name -> parser.Select
-	9,  // 16: parser.GetResponse.companies:type_name -> parser.FullCompany
-	18, // 17: parser.FullCompany.category:type_name -> category.CategoryItem
-	15, // 18: parser.FullCompany.domain:type_name -> parser.Domain
-	16, // 19: parser.FullCompany.location:type_name -> parser.FullLocation
-	13, // 20: parser.FullCompany.app:type_name -> parser.App
-	11, // 21: parser.FullCompany.social:type_name -> parser.Social
-	10, // 22: parser.FullCompany.people:type_name -> parser.People
+	11, // 16: parser.GetResponse.companies:type_name -> parser.FullCompany
+	20, // 17: parser.FullCompany.category:type_name -> category.CategoryItem
+	17, // 18: parser.FullCompany.domain:type_name -> parser.Domain
+	18, // 19: parser.FullCompany.location:type_name -> parser.FullLocation
+	15, // 20: parser.FullCompany.app:type_name -> parser.App
+	13, // 21: parser.FullCompany.social:type_name -> parser.Social
+	12, // 22: parser.FullCompany.people:type_name -> parser.People
 	1,  // 23: parser.People.sex:type_name -> parser.Sex
-	12, // 24: parser.Social.vk:type_name -> parser.Vk
-	14, // 25: parser.Social.instagram:type_name -> parser.UrlItem
-	14, // 26: parser.Social.twitter:type_name -> parser.UrlItem
-	14, // 27: parser.Social.youtube:type_name -> parser.UrlItem
-	14, // 28: parser.Social.facebook:type_name -> parser.UrlItem
+	14, // 24: parser.Social.vk:type_name -> parser.Vk
+	16, // 25: parser.Social.instagram:type_name -> parser.UrlItem
+	16, // 26: parser.Social.twitter:type_name -> parser.UrlItem
+	16, // 27: parser.Social.youtube:type_name -> parser.UrlItem
+	16, // 28: parser.Social.facebook:type_name -> parser.UrlItem
 	2,  // 29: parser.Vk.is_closed:type_name -> parser.IsClosed
-	14, // 30: parser.App.app_store:type_name -> parser.UrlItem
-	14, // 31: parser.App.google_play:type_name -> parser.UrlItem
-	19, // 32: parser.FullLocation.city:type_name -> city.CityItem
-	8,  // 33: parser.Company.GetBySlug:input_type -> parser.GetBySlugRequest
-	6,  // 34: parser.Company.Get:input_type -> parser.GetRequest
-	3,  // 35: parser.Company.GetRelated:input_type -> parser.GetRelatedRequest
-	9,  // 36: parser.Company.GetBySlug:output_type -> parser.FullCompany
-	7,  // 37: parser.Company.Get:output_type -> parser.GetResponse
-	4,  // 38: parser.Company.GetRelated:output_type -> parser.GetRelatedResponse
-	36, // [36:39] is the sub-list for method output_type
-	33, // [33:36] is the sub-list for method input_type
+	16, // 30: parser.App.app_store:type_name -> parser.UrlItem
+	16, // 31: parser.App.google_play:type_name -> parser.UrlItem
+	21, // 32: parser.FullLocation.city:type_name -> city.CityItem
+	10, // 33: parser.Company.GetBySlug:input_type -> parser.GetBySlugRequest
+	8,  // 34: parser.Company.Get:input_type -> parser.GetRequest
+	5,  // 35: parser.Company.GetRelated:input_type -> parser.GetRelatedRequest
+	8,  // 36: parser.Company.GetEmailList:input_type -> parser.GetRequest
+	8,  // 37: parser.Company.GetPhoneList:input_type -> parser.GetRequest
+	11, // 38: parser.Company.GetBySlug:output_type -> parser.FullCompany
+	9,  // 39: parser.Company.Get:output_type -> parser.GetResponse
+	6,  // 40: parser.Company.GetRelated:output_type -> parser.GetRelatedResponse
+	3,  // 41: parser.Company.GetEmailList:output_type -> parser.GetEmailListResponse
+	4,  // 42: parser.Company.GetPhoneList:output_type -> parser.GetPhoneListResponse
+	38, // [38:43] is the sub-list for method output_type
+	33, // [33:38] is the sub-list for method input_type
 	33, // [33:33] is the sub-list for extension type_name
 	33, // [33:33] is the sub-list for extension extendee
 	0,  // [0:33] is the sub-list for field type_name
@@ -1637,7 +1756,7 @@ func file_parser_company_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_parser_company_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetRelatedRequest); i {
+			switch v := v.(*GetEmailListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1649,7 +1768,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetRelatedResponse); i {
+			switch v := v.(*GetPhoneListResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1661,7 +1780,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*VkMembersCount); i {
+			switch v := v.(*GetRelatedRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1673,7 +1792,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetRequest); i {
+			switch v := v.(*GetRelatedResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1685,7 +1804,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetResponse); i {
+			switch v := v.(*VkMembersCount); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1697,7 +1816,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBySlugRequest); i {
+			switch v := v.(*GetRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1709,7 +1828,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*FullCompany); i {
+			switch v := v.(*GetResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1721,7 +1840,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*People); i {
+			switch v := v.(*GetBySlugRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1733,7 +1852,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Social); i {
+			switch v := v.(*FullCompany); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1745,7 +1864,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Vk); i {
+			switch v := v.(*People); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1757,7 +1876,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*App); i {
+			switch v := v.(*Social); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1769,7 +1888,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UrlItem); i {
+			switch v := v.(*Vk); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1781,7 +1900,7 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Domain); i {
+			switch v := v.(*App); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1793,6 +1912,30 @@ func file_parser_company_proto_init() {
 			}
 		}
 		file_parser_company_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UrlItem); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_parser_company_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*Domain); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_parser_company_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*FullLocation); i {
 			case 0:
 				return &v.state
@@ -1811,7 +1954,7 @@ func file_parser_company_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_parser_company_proto_rawDesc,
 			NumEnums:      3,
-			NumMessages:   14,
+			NumMessages:   16,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -1841,6 +1984,8 @@ type CompanyClient interface {
 	GetBySlug(ctx context.Context, in *GetBySlugRequest, opts ...grpc.CallOption) (*FullCompany, error)
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	GetRelated(ctx context.Context, in *GetRelatedRequest, opts ...grpc.CallOption) (*GetRelatedResponse, error)
+	GetEmailList(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetEmailListResponse, error)
+	GetPhoneList(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetPhoneListResponse, error)
 }
 
 type companyClient struct {
@@ -1878,11 +2023,31 @@ func (c *companyClient) GetRelated(ctx context.Context, in *GetRelatedRequest, o
 	return out, nil
 }
 
+func (c *companyClient) GetEmailList(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetEmailListResponse, error) {
+	out := new(GetEmailListResponse)
+	err := c.cc.Invoke(ctx, "/parser.Company/GetEmailList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *companyClient) GetPhoneList(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetPhoneListResponse, error) {
+	out := new(GetPhoneListResponse)
+	err := c.cc.Invoke(ctx, "/parser.Company/GetPhoneList", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CompanyServer is the server API for Company service.
 type CompanyServer interface {
 	GetBySlug(context.Context, *GetBySlugRequest) (*FullCompany, error)
 	Get(context.Context, *GetRequest) (*GetResponse, error)
 	GetRelated(context.Context, *GetRelatedRequest) (*GetRelatedResponse, error)
+	GetEmailList(context.Context, *GetRequest) (*GetEmailListResponse, error)
+	GetPhoneList(context.Context, *GetRequest) (*GetPhoneListResponse, error)
 }
 
 // UnimplementedCompanyServer can be embedded to have forward compatible implementations.
@@ -1897,6 +2062,12 @@ func (*UnimplementedCompanyServer) Get(context.Context, *GetRequest) (*GetRespon
 }
 func (*UnimplementedCompanyServer) GetRelated(context.Context, *GetRelatedRequest) (*GetRelatedResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRelated not implemented")
+}
+func (*UnimplementedCompanyServer) GetEmailList(context.Context, *GetRequest) (*GetEmailListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetEmailList not implemented")
+}
+func (*UnimplementedCompanyServer) GetPhoneList(context.Context, *GetRequest) (*GetPhoneListResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetPhoneList not implemented")
 }
 
 func RegisterCompanyServer(s *grpc.Server, srv CompanyServer) {
@@ -1957,6 +2128,42 @@ func _Company_GetRelated_Handler(srv interface{}, ctx context.Context, dec func(
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Company_GetEmailList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).GetEmailList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/parser.Company/GetEmailList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).GetEmailList(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Company_GetPhoneList_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CompanyServer).GetPhoneList(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/parser.Company/GetPhoneList",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CompanyServer).GetPhoneList(ctx, req.(*GetRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _Company_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "parser.Company",
 	HandlerType: (*CompanyServer)(nil),
@@ -1972,6 +2179,14 @@ var _Company_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetRelated",
 			Handler:    _Company_GetRelated_Handler,
+		},
+		{
+			MethodName: "GetEmailList",
+			Handler:    _Company_GetEmailList_Handler,
+		},
+		{
+			MethodName: "GetPhoneList",
+			Handler:    _Company_GetPhoneList_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
