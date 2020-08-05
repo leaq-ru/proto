@@ -25,16 +25,35 @@ service Company {
       get: "/v1/company/getRelated"
     };
   };
-  rpc GetEmailList(GetRequest) returns (GetEmailListResponse) {
+  rpc GetEmailList(GetListRequest) returns (GetEmailListResponse) {
     option (google.api.http) = {
       get: "/v1/company/getEmailList"
     };
   };
-  rpc GetPhoneList(GetRequest) returns (GetPhoneListResponse) {
+  rpc GetPhoneList(GetListRequest) returns (GetPhoneListResponse) {
     option (google.api.http) = {
       get: "/v1/company/getPhoneList"
     };
   };
+}
+
+message GetListRequest {
+  repeated string city_ids = 1;
+  repeated string category_ids = 2;
+  Select has_email = 3;
+  Select has_phone = 4;
+  Select has_online = 5;
+  Select has_inn = 6;
+  Select has_kpp = 7;
+  Select has_ogrn = 8;
+  Select has_app_store = 9;
+  Select has_google_play = 10;
+  Select has_vk = 11;
+  VkMembersCount vk_members_count = 12;
+  Select has_instagram = 13;
+  Select has_twitter = 14;
+  Select has_youtube = 15;
+  Select has_facebook = 16;
 }
 
 message GetEmailListResponse {
