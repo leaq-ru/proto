@@ -38,19 +38,42 @@ message GetRelatedRequest {
 }
 
 message GetRelatedResponse {
-  repeated ShortCompany short_companies = 1;
+  repeated FullCompany companies = 1;
+}
+
+enum Select {
+  ANY = 0;
+  YES = 1;
+  NO = 2;
+}
+
+message VkMembersCount {
+  uint32 from = 1;
+  uint32 to = 2;
 }
 
 message GetRequest {
   opts.Opts opts = 1;
-  string city_id = 2;
-  string category_id = 3;
-  bool has_email = 4;
-  bool has_phone = 5;
+  repeated string city_ids = 2;
+  repeated string category_ids = 3;
+  Select has_email = 4;
+  Select has_phone = 5;
+  Select has_online = 6;
+  Select has_inn = 7;
+  Select has_kpp = 8;
+  Select has_ogrn = 9;
+  Select has_app_store = 10;
+  Select has_google_play = 11;
+  Select has_vk = 12;
+  VkMembersCount vk_members_count = 13;
+  Select has_instagram = 14;
+  Select has_twitter = 15;
+  Select has_youtube = 16;
+  Select has_facebook = 17;
 }
 
 message GetResponse {
-  repeated ShortCompany short_companies = 1;
+  repeated FullCompany companies = 1;
   uint32 total_count = 2;
 }
 
@@ -80,19 +103,6 @@ message FullCompany {
   Social social = 17;
   repeated People people = 18;
   string updated_at = 19;
-}
-
-message ShortCompany {
-  string id = 1;
-  string category_id = 2;
-  ShortLocation location = 3;
-  string url = 4;
-  string slug = 5;
-  string title = 6;
-  string email = 7;
-  bool online = 8;
-  double phone = 9;
-  string avatar = 10;
 }
 
 message People {
@@ -154,12 +164,6 @@ message Domain {
 
 message FullLocation {
   city.CityItem city = 1;
-  string address = 2;
-  string address_title = 3;
-}
-
-message ShortLocation {
-  string city_id = 1;
   string address = 2;
   string address_title = 3;
 }
