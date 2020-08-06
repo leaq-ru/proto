@@ -31,18 +31,18 @@
         "parameters": [
           {
             "name": "opts.fromId",
-            "description": "Пагинация (skip)",
+            "description": "Pagination (skip)",
             "in": "query",
             "required": false,
             "type": "string"
           },
           {
             "name": "opts.limit",
+            "description": "20 default",
             "in": "query",
             "required": false,
-            "type": "string",
-            "format": "int64",
-            "default": "20"
+            "type": "integer",
+            "format": "int64"
           },
           {
             "name": "cityIds",
@@ -777,12 +777,14 @@
       "properties": {
         "fromId": {
           "type": "string",
-          "description": "Пагинация (skip)"
+          "description": "Pagination (skip)"
         },
         "limit": {
-          "type": "string",
+          "type": "integer",
           "format": "int64",
-          "default": "20"
+          "description": "20 default",
+          "maximum": 100,
+          "minimum": 1
         }
       }
     },
