@@ -116,7 +116,7 @@ message GetResponse {
 
 message GetBySlugRequest {
   string slug = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    required: "slug",
+    required: "slug"
   }];
 }
 

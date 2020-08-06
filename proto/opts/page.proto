@@ -7,11 +7,10 @@ import "protoc-gen-swagger/options/annotations.proto";
 
 message Opts {
   string from_id = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    description: "Пагинация (skip)",
+    description: "Пагинация (skip)"
   }];
   uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    minimum: 1,
-    maximum: 100,
-    default: "20",
+    type: STRING
+    default: "20"
   }];
 }

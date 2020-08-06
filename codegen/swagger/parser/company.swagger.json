@@ -40,7 +40,7 @@
             "name": "opts.limit",
             "in": "query",
             "required": false,
-            "type": "integer",
+            "type": "string",
             "format": "int64",
             "default": "20"
           },
@@ -780,11 +780,9 @@
           "description": "Пагинация (skip)"
         },
         "limit": {
-          "type": "integer",
+          "type": "string",
           "format": "int64",
-          "default": "20",
-          "maximum": 100,
-          "minimum": 1
+          "default": "20"
         }
       }
     },

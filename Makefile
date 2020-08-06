@@ -18,4 +18,4 @@ all: ./proto/*/
 			--proto_path=proto --go_opt=paths=source_relative --go_out=plugins=grpc:codegen/go proto/$$a/*.proto \
 			--grpc-gateway_out=logtostderr=true:$(GOPATH)/src \
             --swagger_out=logtostderr=true,json_names_for_fields=true:codegen/swagger; \
-	done;
+	done; \
