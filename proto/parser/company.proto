@@ -66,9 +66,9 @@ message GetPhoneListResponse {
 
 message GetRelatedRequest {
   uint32 limit = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-	    minimum: 1,
-      maximum: 10,
-      default: "5",
+      description: "5 default"
+	    minimum: 1
+      maximum: 10
   }];
   string city_id = 2;
   string category_id = 3;
