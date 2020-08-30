@@ -4,6 +4,8 @@ package parser;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
 
 import "google/api/annotations.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 import "city/city.proto";
 import "category/category.proto";
@@ -35,6 +37,13 @@ service Company {
       get: "/v1/company/getPhoneList"
     };
   };
+  rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
+}
+
+message ReindexRequest {
+  string url = 1;
+  string registrar = 2;
+  google.protobuf.Timestamp registration_date = 3;
 }
 
 message GetListRequest {
