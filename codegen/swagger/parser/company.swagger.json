@@ -939,10 +939,6 @@
           "items": {
             "$ref": "#/definitions/parserFullCompany"
           }
-        },
-        "totalCount": {
-          "type": "integer",
-          "format": "int64"
         }
       }
     },

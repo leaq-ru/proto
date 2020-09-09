@@ -120,9 +120,6 @@ message GetRequest {
 
 message GetResponse {
   repeated FullCompany companies = 1;
-  uint32 total_count = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
-    description: "100000 в данном поле стоит подразумевать как 'результатов >= 100000'. Точное значение рассчитывается только для запросов где результатов менее 100000"
-  }];
 }
 
 message GetBySlugRequest {
