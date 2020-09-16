@@ -27,12 +27,12 @@ service Company {
       get: "/v1/company/getRelated"
     };
   };
-  rpc GetEmailList(GetListRequest) returns (GetEmailListResponse) {
+  rpc GetEmailList(GetListRequest) returns (GetListResponse) {
     option (google.api.http) = {
       get: "/v1/company/getEmailList"
     };
   };
-  rpc GetPhoneList(GetListRequest) returns (GetPhoneListResponse) {
+  rpc GetPhoneList(GetListRequest) returns (GetListResponse) {
     option (google.api.http) = {
       get: "/v1/company/getPhoneList"
     };
@@ -65,12 +65,8 @@ message GetListRequest {
   Select has_facebook = 16;
 }
 
-message GetEmailListResponse {
-  repeated string emails = 1;
-}
-
-message GetPhoneListResponse {
-  repeated double phones = 1;
+message GetListResponse {
+  string download_url = 1;
 }
 
 message GetRelatedRequest {
