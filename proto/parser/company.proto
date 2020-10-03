@@ -38,6 +38,15 @@ service Company {
     };
   };
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
+  rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
+}
+
+message IsCompanyAvatarExistsRequest {
+  string avatar_s3_url = 1;
+}
+
+message IsCompanyAvatarExistsResponse {
+  bool is_exists = 1;
 }
 
 message ReindexRequest {

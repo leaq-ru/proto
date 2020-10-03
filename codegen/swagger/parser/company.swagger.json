@@ -936,6 +936,15 @@
       ],
       "default": "OPEN"
     },
+    "parserIsCompanyAvatarExistsResponse": {
+      "type": "object",
+      "properties": {
+        "isExists": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "parserPeople": {
       "type": "object",
       "properties": {
