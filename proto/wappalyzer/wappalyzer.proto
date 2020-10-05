@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package wappalyzer;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/wappalyzer";
+
+service Wappalyzer {
+  rpc Analyze(AnalyzeRequest) returns (AnalyzeResponse) {};
+}
+
+message AnalyzeRequest {
+  string url = 1;
+}
+
+message Url {
+  uint32 status = 1;
+}
+
+message Category {
+  uint32 id = 1;
+  string slug = 2;
+  string name = 3;
+}
+
+message Technology {
+  string slug = 1;
+  string name = 2;
+  uint32 confidence = 3;
+  string version = 4;
+  string icon = 5;
+  string website = 6;
+  string cpe = 7;
+  repeated Category categories = 8;
+}
+
+message AnalyzeResponse {
+  map<string, Url> urls = 1;
+  repeated Technology technologies = 2;
+}
