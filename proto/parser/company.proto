@@ -22,6 +22,7 @@ service Company {
       get: "/v1/company/get"
     };
   };
+  // DEPRECATED: use Get instead
   rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
     option (google.api.http) = {
       get: "/v1/company/getRelated"
@@ -121,6 +122,7 @@ message GetRequest {
   Select has_twitter = 15;
   Select has_youtube = 16;
   Select has_facebook = 17;
+  repeated string exclude_ids = 18;
 }
 
 message GetResponse {
