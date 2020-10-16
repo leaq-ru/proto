@@ -252,6 +252,7 @@
     },
     "/v1/company/getBySlug": {
       "get": {
+        "summary": "DEPRECATED",
         "operationId": "Company_GetBySlug",
         "responses": {
           "200": {
@@ -710,7 +711,7 @@
     },
     "/v1/company/getRelated": {
       "get": {
-        "summary": "DEPRECATED: use Get instead",
+        "summary": "DEPRECATED: use /v1/company/get with cityIds, categoryIds and excludeIds",
         "operationId": "Company_GetRelated",
         "responses": {
           "200": {
@@ -745,6 +746,36 @@
             "name": "categoryId",
             "in": "query",
             "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/v2/company/getBySlug": {
+      "get": {
+        "operationId": "Company_GetBySlugV2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserGetBySlugResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": true,
             "type": "string"
           }
         ],
@@ -908,6 +939,25 @@
         }
       }
     },
+    "parserGetBySlugResponse": {
+      "type": "object",
+      "properties": {
+        "fullCompany": {
+          "$ref": "#/definitions/parserFullCompany"
+        },
+        "technologyCategories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserTechnologyCategory"
+          }
+        },
+        "pageSpeed": {
+          "type": "integer",
+          "format": "int64",
+          "title": "milliseconds"
+        }
+      }
+    },
     "parserGetListResponse": {
       "type": "object",
       "properties": {
@@ -1026,6 +1076,43 @@
         },
         "facebook": {
           "$ref": "#/definitions/parserUrlItem"
+        }
+      }
+    },
+    "parserTechnologyCategory": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "technologies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserTechnologyItem"
+          }
+        }
+      }
+    },
+    "parserTechnologyItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
         }
       }
     },
