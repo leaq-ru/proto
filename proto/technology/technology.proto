@@ -20,8 +20,8 @@ message CategoryItem {
 message TechnologyItem {
   string id = 1;
   string name = 2;
-  string version = 4;
-  repeated CategoryItem categories = 5;
+  string version = 3;
+  repeated CategoryItem categories = 4;
 }
 
 message GetByIdsResponse {
