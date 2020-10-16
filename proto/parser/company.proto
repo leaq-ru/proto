@@ -12,6 +12,12 @@ import "category/category.proto";
 import "opts/page.proto";
 
 service Company {
+  rpc GetBySlugV2(GetBySlugRequest) returns (GetBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v2/company/getBySlug"
+    };
+  };
+  // DEPRECATED
   rpc GetBySlug(GetBySlugRequest) returns (FullCompany) {
     option (google.api.http) = {
       get: "/v1/company/getBySlug"
@@ -22,7 +28,7 @@ service Company {
       get: "/v1/company/get"
     };
   };
-  // DEPRECATED: use Get instead
+  // DEPRECATED: use /v1/company/get with cityIds, categoryIds and excludeIds
   rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
     option (google.api.http) = {
       get: "/v1/company/getRelated"
@@ -155,6 +161,27 @@ message FullCompany {
   Social social = 17;
   repeated People people = 18;
   string updated_at = 19;
+}
+
+message TechnologyItem {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  string version = 4;
+}
+
+message TechnologyCategory {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  repeated TechnologyItem technologies = 4;
+}
+
+message GetBySlugResponse {
+  FullCompany full_company = 1;
+  repeated TechnologyCategory technology_categories = 2;
+  // milliseconds
+  uint32 page_speed = 3;
 }
 
 message People {

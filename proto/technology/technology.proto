@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+package technology;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/technology";
+
+service Technology {
+  rpc Find(FindRequest) returns (FindResponse) {};
+  rpc GetByIds(GetByIdsRequest) returns (GetByIdsResponse) {};
+}
+
+message GetByIdsRequest {
+  repeated string ids = 1;
+}
+
+message CategoryItem {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+}
+
+message TechnologyItem {
+  string id = 1;
+  string name = 2;
+  string slug = 3;
+  string version = 4;
+  repeated CategoryItem categories = 5;
+}
+
+message GetByIdsResponse {
+  repeated TechnologyItem technologies = 1;
+}
+
+message FindRequest {
+  string url = 1;
+}
+
+message FindResponse {
+  repeated string technology_ids = 1;
+}
