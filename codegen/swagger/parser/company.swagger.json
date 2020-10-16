@@ -1088,9 +1088,6 @@
         "name": {
           "type": "string"
         },
-        "slug": {
-          "type": "string"
-        },
         "technologies": {
           "type": "array",
           "items": {
@@ -1106,9 +1103,6 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
-        },
-        "slug": {
           "type": "string"
         },
         "version": {

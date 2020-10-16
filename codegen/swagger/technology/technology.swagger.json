@@ -53,9 +53,6 @@
         },
         "name": {
           "type": "string"
-        },
-        "slug": {
-          "type": "string"
         }
       }
     },
@@ -88,9 +85,6 @@
           "type": "string"
         },
         "name": {
-          "type": "string"
-        },
-        "slug": {
           "type": "string"
         },
         "version": {

@@ -166,15 +166,13 @@ message FullCompany {
 message TechnologyItem {
   string id = 1;
   string name = 2;
-  string slug = 3;
-  string version = 4;
+  string version = 3;
 }
 
 message TechnologyCategory {
   string id = 1;
   string name = 2;
-  string slug = 3;
-  repeated TechnologyItem technologies = 4;
+  repeated TechnologyItem technologies = 3;
 }
 
 message GetBySlugResponse {
