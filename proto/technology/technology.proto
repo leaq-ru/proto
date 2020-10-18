@@ -30,8 +30,9 @@ message GetIdResponse {
 }
 
 message GetHintsRequest {
-  string title = 1;
-  uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+  string name = 1;
+  repeated string exclude_ids = 2;
+  uint32 limit = 3 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
     description: "20 default"
     minimum: 1
     maximum: 100

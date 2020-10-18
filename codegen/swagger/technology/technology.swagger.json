@@ -30,10 +30,20 @@
         },
         "parameters": [
           {
-            "name": "title",
+            "name": "name",
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "excludeIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "limit",
