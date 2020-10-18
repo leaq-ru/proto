@@ -243,6 +243,16 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -488,6 +498,16 @@
               "NO"
             ],
             "default": "ANY"
+          },
+          {
+            "name": "technologyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -702,6 +722,16 @@
               "NO"
             ],
             "default": "ANY"
+          },
+          {
+            "name": "technologyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -711,7 +741,7 @@
     },
     "/v1/company/getRelated": {
       "get": {
-        "summary": "DEPRECATED: use /v1/company/get with cityIds, categoryIds and excludeIds",
+        "summary": "DEPRECATED: to get related companies use /v1/company/get with cityIds, categoryIds and excludeIds",
         "operationId": "Company_GetRelated",
         "responses": {
           "200": {
@@ -1106,6 +1136,9 @@
           "type": "string"
         },
         "version": {
+          "type": "string"
+        },
+        "slug": {
           "type": "string"
         }
       }
