@@ -519,6 +519,17 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyFindRule",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ONE_OF",
+              "ALL"
+            ],
+            "default": "ONE_OF"
           }
         ],
         "tags": [
@@ -743,6 +754,17 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyFindRule",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ONE_OF",
+              "ALL"
+            ],
+            "default": "ONE_OF"
           }
         ],
         "tags": [

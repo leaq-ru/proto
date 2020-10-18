@@ -80,6 +80,7 @@ message GetListRequest {
   Select has_youtube = 15;
   Select has_facebook = 16;
   repeated string technology_ids = 17;
+  FindRule technology_find_rule = 18;
 }
 
 message GetListResponse {
