@@ -3,9 +3,49 @@ syntax = "proto3";
 package technology;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/technology";
 
+import "protoc-gen-swagger/options/annotations.proto";
+import "google/api/annotations.proto";
+
 service Technology {
   rpc Find(FindRequest) returns (FindResponse) {};
   rpc GetByIds(GetByIdsRequest) returns (GetByIdsResponse) {};
+  rpc GetHints(GetHintsRequest) returns (GetHintsResponse) {
+    option (google.api.http) = {
+      get: "/v1/technology/getHints"
+    };
+  };
+  rpc GetId(GetIdRequest) returns (GetIdResponse) {
+    option (google.api.http) = {
+      get: "/v1/technology/getId"
+    };
+  };
+}
+
+message GetIdRequest {
+  string slug = 1;
+}
+
+message GetIdResponse {
+  string id = 1;
+}
+
+message GetHintsRequest {
+  string title = 1;
+  uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    description: "20 default"
+    minimum: 1
+    maximum: 100
+  }];
+}
+
+message HintTechnologyItem {
+  string id = 1;
+  string name = 2;
+  string version = 3;
+}
+
+message GetHintsResponse {
+  repeated HintTechnologyItem technologies = 1;
 }
 
 message GetByIdsRequest {
@@ -34,5 +74,5 @@ message FindRequest {
 }
 
 message FindResponse {
-  repeated string technology_ids = 1;
+  repeated string ids = 1;
 }
