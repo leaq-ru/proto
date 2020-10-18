@@ -111,6 +111,11 @@ message VkMembersCount {
   uint32 to = 2;
 }
 
+enum FindRule {
+  ONE_OF = 0;
+  ALL = 1;
+}
+
 message GetRequest {
   opts.Opts opts = 1;
   repeated string city_ids = 2;
@@ -131,6 +136,7 @@ message GetRequest {
   Select has_facebook = 17;
   repeated string exclude_ids = 18;
   repeated string technology_ids = 19;
+  FindRule technology_find_rule = 20;
 }
 
 message GetResponse {

@@ -253,6 +253,17 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyFindRule",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ONE_OF",
+              "ALL"
+            ],
+            "default": "ONE_OF"
           }
         ],
         "tags": [
@@ -884,6 +895,14 @@
           "type": "string"
         }
       }
+    },
+    "parserFindRule": {
+      "type": "string",
+      "enum": [
+        "ONE_OF",
+        "ALL"
+      ],
+      "default": "ONE_OF"
     },
     "parserFullCompany": {
       "type": "object",
