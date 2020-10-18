@@ -22,6 +22,7 @@ message TechnologyItem {
   string name = 2;
   string version = 3;
   repeated CategoryItem categories = 4;
+  string slug = 5;
 }
 
 message GetByIdsResponse {
