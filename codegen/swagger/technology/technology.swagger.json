@@ -11,6 +11,36 @@
     "application/json"
   ],
   "paths": {
+    "/v1/technology/getBySlug": {
+      "get": {
+        "operationId": "Technology_GetBySlug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/technologyGetBySlugResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Technology"
+        ]
+      }
+    },
     "/v1/technology/getHints": {
       "get": {
         "operationId": "Technology_GetHints",
@@ -52,36 +82,6 @@
             "required": false,
             "type": "integer",
             "format": "int64"
-          }
-        ],
-        "tags": [
-          "Technology"
-        ]
-      }
-    },
-    "/v1/technology/getId": {
-      "get": {
-        "operationId": "Technology_GetId",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/technologyGetIdResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "slug",
-            "in": "query",
-            "required": false,
-            "type": "string"
           }
         ],
         "tags": [
@@ -160,6 +160,14 @@
         }
       }
     },
+    "technologyGetBySlugResponse": {
+      "type": "object",
+      "properties": {
+        "technology": {
+          "$ref": "#/definitions/technologyTechnologyItem"
+        }
+      }
+    },
     "technologyGetHintsResponse": {
       "type": "object",
       "properties": {
@@ -168,14 +176,6 @@
           "items": {
             "$ref": "#/definitions/technologyHintTechnologyItem"
           }
-        }
-      }
-    },
-    "technologyGetIdResponse": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
         }
       }
     },

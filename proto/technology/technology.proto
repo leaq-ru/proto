@@ -14,19 +14,19 @@ service Technology {
       get: "/v1/technology/getHints"
     };
   };
-  rpc GetId(GetIdRequest) returns (GetIdResponse) {
+  rpc GetBySlug(GetBySlugRequest) returns (GetBySlugResponse) {
     option (google.api.http) = {
-      get: "/v1/technology/getId"
+      get: "/v1/technology/getBySlug"
     };
   };
 }
 
-message GetIdRequest {
+message GetBySlugRequest {
   string slug = 1;
 }
 
-message GetIdResponse {
-  string id = 1;
+message GetBySlugResponse {
+  TechnologyItem technology = 1;
 }
 
 message GetHintsRequest {
