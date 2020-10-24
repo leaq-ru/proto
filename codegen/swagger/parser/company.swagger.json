@@ -13,6 +13,7 @@
   "paths": {
     "/v1/company/get": {
       "get": {
+        "summary": "DEPRECATED",
         "operationId": "Company_Get",
         "responses": {
           "200": {
@@ -774,7 +775,7 @@
     },
     "/v1/company/getRelated": {
       "get": {
-        "summary": "DEPRECATED: to get related companies use /v1/company/get with cityIds, categoryIds and excludeIds",
+        "summary": "DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds",
         "operationId": "Company_GetRelated",
         "responses": {
           "200": {
@@ -810,6 +811,266 @@
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/v2/company/get": {
+      "get": {
+        "operationId": "Company_GetV2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserGetV2Response"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "opts.fromId",
+            "description": "Pagination (skip)",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "cityIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "categoryIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "hasEmail",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasPhone",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasOnline",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasInn",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasKpp",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasOgrn",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasAppStore",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasGooglePlay",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasVk",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "vkMembersCount.from",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "vkMembersCount.to",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "hasInstagram",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasTwitter",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasYoutube",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "hasFacebook",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ANY",
+              "YES",
+              "NO"
+            ],
+            "default": "ANY"
+          },
+          {
+            "name": "excludeIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "technologyFindRule",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "enum": [
+              "ONE_OF",
+              "ALL"
+            ],
+            "default": "ONE_OF"
           }
         ],
         "tags": [
@@ -1067,6 +1328,17 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/parserFullCompany"
+          }
+        }
+      }
+    },
+    "parserGetV2Response": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserShortCompany"
           }
         }
       }

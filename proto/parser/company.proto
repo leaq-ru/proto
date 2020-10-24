@@ -24,12 +24,18 @@ service Company {
       get: "/v1/company/getBySlug"
     };
   };
+  rpc GetV2(GetRequest) returns (GetV2Response) {
+    option (google.api.http) = {
+      get: "/v2/company/get"
+    };
+  };
+  // DEPRECATED
   rpc Get(GetRequest) returns (GetResponse) {
     option (google.api.http) = {
       get: "/v1/company/get"
     };
   };
-  // DEPRECATED: to get related companies use /v1/company/get with cityIds, categoryIds and excludeIds
+  // DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds
   rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
     option (google.api.http) = {
       get: "/v1/company/getRelated"
@@ -139,6 +145,10 @@ message GetRequest {
   repeated string exclude_ids = 18;
   repeated string technology_ids = 19;
   FindRule technology_find_rule = 20;
+}
+
+message GetV2Response {
+  repeated ShortCompany companies = 1;
 }
 
 message GetResponse {
