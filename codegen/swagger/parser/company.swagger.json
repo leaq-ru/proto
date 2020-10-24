@@ -1026,6 +1026,18 @@
           "type": "integer",
           "format": "int64",
           "title": "milliseconds"
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserShortCompany"
+          }
+        },
+        "posts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserPostItem"
+          }
         }
       }
     },
@@ -1112,6 +1124,40 @@
         }
       }
     },
+    "parserPhotoItem": {
+      "type": "object",
+      "properties": {
+        "urlM": {
+          "type": "string"
+        },
+        "urlR": {
+          "type": "string"
+        }
+      }
+    },
+    "parserPostItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "companyId": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserPhotoItem"
+          }
+        }
+      }
+    },
     "parserSelect": {
       "type": "string",
       "enum": [
@@ -1129,6 +1175,80 @@
         "MALE"
       ],
       "default": "NONE"
+    },
+    "parserShortCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/categoryCategoryItem"
+        },
+        "url": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "number",
+          "format": "double"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "city": {
+          "$ref": "#/definitions/cityCityItem"
+        },
+        "app": {
+          "$ref": "#/definitions/parserApp"
+        },
+        "social": {
+          "$ref": "#/definitions/parserShortSocial"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "parserShortSocial": {
+      "type": "object",
+      "properties": {
+        "vk": {
+          "$ref": "#/definitions/parserShortVk"
+        },
+        "instagram": {
+          "$ref": "#/definitions/parserUrlItem"
+        },
+        "twitter": {
+          "$ref": "#/definitions/parserUrlItem"
+        },
+        "youtube": {
+          "$ref": "#/definitions/parserUrlItem"
+        },
+        "facebook": {
+          "$ref": "#/definitions/parserUrlItem"
+        }
+      }
+    },
+    "parserShortVk": {
+      "type": "object",
+      "properties": {
+        "screenName": {
+          "type": "string"
+        },
+        "membersCount": {
+          "type": "number",
+          "format": "double"
+        }
+      }
     },
     "parserSocial": {
       "type": "object",

@@ -10,6 +10,7 @@ import "protoc-gen-swagger/options/annotations.proto";
 import "city/city.proto";
 import "category/category.proto";
 import "opts/page.proto";
+import "parser/post.proto";
 
 service Company {
   rpc GetBySlugV2(GetBySlugRequest) returns (GetBySlugResponse) {
@@ -185,11 +186,28 @@ message TechnologyCategory {
   repeated TechnologyItem technologies = 3;
 }
 
+message ShortCompany {
+  string id = 1;
+  category.CategoryItem category = 2;
+  string url = 3;
+  string slug = 4;
+  string title = 5;
+  string email = 6;
+  double phone = 7;
+  string avatar = 8;
+  city.CityItem city = 9;
+  App app = 10;
+  ShortSocial social = 11;
+  string updated_at = 12;
+}
+
 message GetBySlugResponse {
   FullCompany full_company = 1;
   repeated TechnologyCategory technology_categories = 2;
   // milliseconds
   uint32 page_speed = 3;
+  repeated ShortCompany related = 4;
+  repeated PostItem posts = 5;
 }
 
 message People {
@@ -216,6 +234,19 @@ message Social {
   UrlItem twitter = 3;
   UrlItem youtube = 4;
   UrlItem facebook = 5;
+}
+
+message ShortSocial {
+  ShortVk vk = 1;
+  UrlItem instagram = 2;
+  UrlItem twitter = 3;
+  UrlItem youtube = 4;
+  UrlItem facebook = 5;
+}
+
+message ShortVk {
+  string screen_name = 1;
+  double members_count = 2;
 }
 
 message Vk {

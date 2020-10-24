@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
+
+import "google/api/annotations.proto";
+import "opts/page.proto";
+
+service Post {
+  rpc GetPosts(GetPostsRequest) returns (GetPostsResponse) {
+    option (google.api.http) = {
+      get: "/v1/post/get"
+    };
+  };
+}
+
+message GetPostsRequest {
+  opts.Page opts = 1;
+  string company_id = 2;
+}
+
+message PhotoItem {
+  string url_m = 1;
+  string url_r = 2;
+}
+
+message PostItem {
+  string id = 1;
+  string company_id = 2;
+  string date = 3;
+  string text = 4;
+  repeated PhotoItem photos = 5;
+}
+
+message GetPostsResponse {
+  repeated PostItem posts = 1;
+}
