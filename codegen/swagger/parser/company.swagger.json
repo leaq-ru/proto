@@ -1609,6 +1609,10 @@
         "membersCount": {
           "type": "number",
           "format": "double"
+        },
+        "groupId": {
+          "type": "number",
+          "format": "double"
         }
       }
     },
