@@ -35,7 +35,7 @@ service Company {
       get: "/v1/company/get"
     };
   };
-  // DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds
+  // DEPRECATED: to get related companies use /v{latest}/company/get with cityIds, categoryIds and excludeIds
   rpc GetRelated(GetRelatedRequest) returns (GetRelatedResponse) {
     option (google.api.http) = {
       get: "/v1/company/getRelated"

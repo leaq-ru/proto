@@ -842,7 +842,7 @@
     },
     "/v1/company/getRelated": {
       "get": {
-        "summary": "DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds",
+        "summary": "DEPRECATED: to get related companies use /v{latest}/company/get with cityIds, categoryIds and excludeIds",
         "operationId": "Company_GetRelated",
         "responses": {
           "200": {

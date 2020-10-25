@@ -3610,7 +3610,7 @@ type CompanyClient interface {
 	GetV2(ctx context.Context, in *GetV2Request, opts ...grpc.CallOption) (*ShortCompanies, error)
 	// DEPRECATED
 	Get(ctx context.Context, in *GetRequest, opts ...grpc.CallOption) (*GetResponse, error)
-	// DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds
+	// DEPRECATED: to get related companies use /v{latest}/company/get with cityIds, categoryIds and excludeIds
 	GetRelated(ctx context.Context, in *GetRelatedRequest, opts ...grpc.CallOption) (*GetRelatedResponse, error)
 	GetEmailList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error)
 	GetPhoneList(ctx context.Context, in *GetListRequest, opts ...grpc.CallOption) (*GetListResponse, error)
@@ -3725,7 +3725,7 @@ type CompanyServer interface {
 	GetV2(context.Context, *GetV2Request) (*ShortCompanies, error)
 	// DEPRECATED
 	Get(context.Context, *GetRequest) (*GetResponse, error)
-	// DEPRECATED: to get related companies use /v2/company/get with cityIds, categoryIds and excludeIds
+	// DEPRECATED: to get related companies use /v{latest}/company/get with cityIds, categoryIds and excludeIds
 	GetRelated(context.Context, *GetRelatedRequest) (*GetRelatedResponse, error)
 	GetEmailList(context.Context, *GetListRequest) (*GetListResponse, error)
 	GetPhoneList(context.Context, *GetListRequest) (*GetListResponse, error)
