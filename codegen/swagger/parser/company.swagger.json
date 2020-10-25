@@ -303,6 +303,73 @@
         ]
       }
     },
+    "/v1/company/getBySlugs": {
+      "get": {
+        "operationId": "Company_GetBySlugs",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserShortCompanies"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.excludeIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "citySlug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "categorySlug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "technologySlug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
     "/v1/company/getEmailList": {
       "get": {
         "operationId": "Company_GetEmailList",
@@ -825,7 +892,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/parserGetV2Response"
+              "$ref": "#/definitions/parserShortCompanies"
             }
           },
           "default": {
@@ -837,11 +904,11 @@
         },
         "parameters": [
           {
-            "name": "opts.fromId",
-            "description": "Pagination (skip)",
+            "name": "opts.skip",
             "in": "query",
             "required": false,
-            "type": "string"
+            "type": "integer",
+            "format": "int64"
           },
           {
             "name": "opts.limit",
@@ -850,6 +917,16 @@
             "required": false,
             "type": "integer",
             "format": "int64"
+          },
+          {
+            "name": "opts.excludeIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           },
           {
             "name": "cityIds",
@@ -1042,16 +1119,6 @@
             "default": "ANY"
           },
           {
-            "name": "excludeIds",
-            "in": "query",
-            "required": false,
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "collectionFormat": "multi"
-          },
-          {
             "name": "technologyIds",
             "in": "query",
             "required": false,
@@ -1151,6 +1218,29 @@
           "description": "20 default",
           "maximum": 100,
           "minimum": 1
+        }
+      }
+    },
+    "optsPage": {
+      "type": "object",
+      "properties": {
+        "skip": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "20 default",
+          "maximum": 100,
+          "minimum": 1
+        },
+        "excludeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -1332,17 +1422,6 @@
         }
       }
     },
-    "parserGetV2Response": {
-      "type": "object",
-      "properties": {
-        "companies": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/parserShortCompany"
-          }
-        }
-      }
-    },
     "parserIsClosed": {
       "type": "string",
       "enum": [
@@ -1447,6 +1526,17 @@
         "MALE"
       ],
       "default": "NONE"
+    },
+    "parserShortCompanies": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserShortCompany"
+          }
+        }
+      }
     },
     "parserShortCompany": {
       "type": "object",

@@ -24,7 +24,7 @@ service Company {
       get: "/v1/company/getBySlug"
     };
   };
-  rpc GetV2(GetRequest) returns (GetV2Response) {
+  rpc GetV2(GetV2Request) returns (ShortCompanies) {
     option (google.api.http) = {
       get: "/v2/company/get"
     };
@@ -51,8 +51,20 @@ service Company {
       get: "/v1/company/getPhoneList"
     };
   };
+  rpc GetBySlugs(GetBySlugsRequest) returns (ShortCompanies) {
+    option (google.api.http) = {
+      get: "/v1/company/getBySlugs"
+    };
+  };
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
+}
+
+message GetBySlugsRequest {
+  opts.Page opts = 1;
+  string city_slug = 2;
+  string category_slug = 3;
+  string technology_slug = 4;
 }
 
 message IsCompanyAvatarExistsRequest {
@@ -147,7 +159,29 @@ message GetRequest {
   FindRule technology_find_rule = 20;
 }
 
-message GetV2Response {
+message GetV2Request {
+  opts.Page opts = 1;
+  repeated string city_ids = 2;
+  repeated string category_ids = 3;
+  Select has_email = 4;
+  Select has_phone = 5;
+  Select has_online = 6;
+  Select has_inn = 7;
+  Select has_kpp = 8;
+  Select has_ogrn = 9;
+  Select has_app_store = 10;
+  Select has_google_play = 11;
+  Select has_vk = 12;
+  VkMembersCount vk_members_count = 13;
+  Select has_instagram = 14;
+  Select has_twitter = 15;
+  Select has_youtube = 16;
+  Select has_facebook = 17;
+  repeated string technology_ids = 18;
+  FindRule technology_find_rule = 19;
+}
+
+message ShortCompanies {
   repeated ShortCompany companies = 1;
 }
 

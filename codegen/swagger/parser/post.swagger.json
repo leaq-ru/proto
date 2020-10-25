@@ -45,6 +45,16 @@
             "format": "int64"
           },
           {
+            "name": "opts.excludeIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
             "name": "companyId",
             "in": "query",
             "required": false,
@@ -72,6 +82,12 @@
           "description": "20 default",
           "maximum": 100,
           "minimum": 1
+        },
+        "excludeIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },

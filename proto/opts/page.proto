@@ -25,4 +25,5 @@ message Page {
     minimum: 1
     maximum: 100
   }];
+  repeated string exclude_ids = 3;
 }
