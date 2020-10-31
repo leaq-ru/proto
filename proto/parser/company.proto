@@ -58,6 +58,11 @@ service Company {
   };
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
+  rpc Delete(DeleteRequest) returns (google.protobuf.Empty) {};
+}
+
+message DeleteRequest {
+  repeated string ids = 1;
 }
 
 message GetBySlugsRequest {
