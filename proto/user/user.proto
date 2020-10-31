@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package user;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
+
+import "google/api/annotations.proto";
+
+service User {
+  // https://vk.com/dev/Auth
+  rpc VkAuth(VkAuthRequest) returns (FullUser) {
+    option (google.api.http) = {
+      get: "/v1/user/vkAuth"
+    };
+  };
+}
+
+message VkAuthRequest {
+  string uid = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string photo = 4;
+  string photo_rec = 5;
+  string hash = 6;
+}
+
+message FullUser {
+  string id = 1;
+  string token = 2;
+}
