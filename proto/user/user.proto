@@ -7,7 +7,7 @@ import "google/api/annotations.proto";
 
 service User {
   // https://vk.com/dev/Auth
-  rpc VkAuth(VkAuthRequest) returns (FullUser) {
+  rpc VkAuth(VkAuthRequest) returns (SelfUser) {
     option (google.api.http) = {
       get: "/v1/user/vkAuth"
     };
@@ -23,7 +23,12 @@ message VkAuthRequest {
   string hash = 6;
 }
 
-message FullUser {
+message SelfUser {
   string id = 1;
   string token = 2;
+  string vk_id = 3;
+  string first_name = 4;
+  string last_name = 5;
+  string photo = 6;
+  string photo_rec = 7;
 }
