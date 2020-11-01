@@ -29,6 +29,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userVkAuthRequest"
+            }
+          }
+        ],
         "tags": [
           "User"
         ]
@@ -92,6 +102,30 @@
           "type": "string"
         },
         "photoRec": {
+          "type": "string"
+        }
+      }
+    },
+    "userVkAuthRequest": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "photoRec": {
+          "type": "string"
+        },
+        "hash": {
           "type": "string"
         }
       }

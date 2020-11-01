@@ -10,6 +10,7 @@ service User {
   rpc VkAuth(VkAuthRequest) returns (SelfUser) {
     option (google.api.http) = {
       post: "/v1/user/vkAuth"
+      body: '*'
     };
   };
 }
