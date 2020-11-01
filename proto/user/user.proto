@@ -15,7 +15,7 @@ service User {
 }
 
 message VkAuthRequest {
-  string uid = 1;
+  uint32 uid = 1;
   string first_name = 2;
   string last_name = 3;
   string photo = 4;
@@ -25,8 +25,8 @@ message VkAuthRequest {
 
 message SelfUser {
   string id = 1;
-  string token = 2;
-  string vk_id = 3;
+  uint32 vk_id = 2;
+  string token = 3;
   string first_name = 4;
   string last_name = 5;
   string photo = 6;
