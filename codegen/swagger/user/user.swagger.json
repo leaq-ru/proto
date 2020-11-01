@@ -12,7 +12,7 @@
   ],
   "paths": {
     "/v1/user/vkAuth": {
-      "get": {
+      "post": {
         "summary": "https://vk.com/dev/Auth",
         "operationId": "User_VkAuth",
         "responses": {
@@ -29,45 +29,6 @@
             }
           }
         },
-        "parameters": [
-          {
-            "name": "uid",
-            "in": "query",
-            "required": false,
-            "type": "integer",
-            "format": "int64"
-          },
-          {
-            "name": "firstName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "lastName",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "photo",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "photoRec",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "hash",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
         "tags": [
           "User"
         ]
