@@ -59,6 +59,15 @@ service Company {
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
   rpc Delete(DeleteRequest) returns (google.protobuf.Empty) {};
+  rpc GetTotalCount(google.protobuf.Empty) returns (GetTotalCountResponse) {
+    option (google.api.http) = {
+      get: "/v1/company/getTotalCount"
+    };
+  };
+}
+
+message GetTotalCountResponse {
+  uint32 total_count = 1;
 }
 
 message DeleteRequest {

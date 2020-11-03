@@ -15,6 +15,7 @@ import (
 
 	"github.com/golang/protobuf/descriptor"
 	"github.com/golang/protobuf/proto"
+	"github.com/golang/protobuf/ptypes/empty"
 	"github.com/grpc-ecosystem/grpc-gateway/runtime"
 	"github.com/grpc-ecosystem/grpc-gateway/utilities"
 	"google.golang.org/grpc"
@@ -319,6 +320,24 @@ func local_request_Company_GetBySlugs_0(ctx context.Context, marshaler runtime.M
 
 }
 
+func request_Company_GetTotalCount_0(ctx context.Context, marshaler runtime.Marshaler, client CompanyClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq empty.Empty
+	var metadata runtime.ServerMetadata
+
+	msg, err := client.GetTotalCount(ctx, &protoReq, grpc.Header(&metadata.HeaderMD), grpc.Trailer(&metadata.TrailerMD))
+	return msg, metadata, err
+
+}
+
+func local_request_Company_GetTotalCount_0(ctx context.Context, marshaler runtime.Marshaler, server CompanyServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+	var protoReq empty.Empty
+	var metadata runtime.ServerMetadata
+
+	msg, err := server.GetTotalCount(ctx, &protoReq)
+	return msg, metadata, err
+
+}
+
 // RegisterCompanyHandlerServer registers the http handlers for service Company to "mux".
 // UnaryRPC     :call CompanyServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
@@ -481,6 +500,26 @@ func RegisterCompanyHandlerServer(ctx context.Context, mux *runtime.ServeMux, se
 		}
 
 		forward_Company_GetBySlugs_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
+	mux.Handle("GET", pattern_Company_GetTotalCount_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateIncomingContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := local_request_Company_GetTotalCount_0(rctx, inboundMarshaler, server, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Company_GetTotalCount_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -685,6 +724,26 @@ func RegisterCompanyHandlerClient(ctx context.Context, mux *runtime.ServeMux, cl
 
 	})
 
+	mux.Handle("GET", pattern_Company_GetTotalCount_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+		ctx, cancel := context.WithCancel(req.Context())
+		defer cancel()
+		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
+		rctx, err := runtime.AnnotateContext(ctx, mux, req)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+		resp, md, err := request_Company_GetTotalCount_0(rctx, inboundMarshaler, client, req, pathParams)
+		ctx = runtime.NewServerMetadataContext(ctx, md)
+		if err != nil {
+			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
+			return
+		}
+
+		forward_Company_GetTotalCount_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+
+	})
+
 	return nil
 }
 
@@ -704,6 +763,8 @@ var (
 	pattern_Company_GetPhoneList_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "getPhoneList"}, "", runtime.AssumeColonVerbOpt(true)))
 
 	pattern_Company_GetBySlugs_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "getBySlugs"}, "", runtime.AssumeColonVerbOpt(true)))
+
+	pattern_Company_GetTotalCount_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "company", "getTotalCount"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
@@ -722,4 +783,6 @@ var (
 	forward_Company_GetPhoneList_0 = runtime.ForwardResponseMessage
 
 	forward_Company_GetBySlugs_0 = runtime.ForwardResponseMessage
+
+	forward_Company_GetTotalCount_0 = runtime.ForwardResponseMessage
 )
