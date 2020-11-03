@@ -109,23 +109,7 @@
     "userVkAuthRequest": {
       "type": "object",
       "properties": {
-        "uid": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "photo": {
-          "type": "string"
-        },
-        "photoRec": {
-          "type": "string"
-        },
-        "hash": {
+        "code": {
           "type": "string"
         }
       }

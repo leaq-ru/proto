@@ -16,12 +16,7 @@ service User {
 }
 
 message VkAuthRequest {
-  uint32 uid = 1;
-  string first_name = 2;
-  string last_name = 3;
-  string photo = 4;
-  string photo_rec = 5;
-  string hash = 6;
+  string code = 1;
 }
 
 message SelfUser {
