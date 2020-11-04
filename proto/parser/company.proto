@@ -76,6 +76,7 @@ service Company {
   rpc Edit(EditRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       patch: "/v1/company/edit"
+      body: '*'
     };
   }
 }
@@ -99,6 +100,8 @@ message EditRequest {
   google.protobuf.DoubleValue kpp = 16;
   google.protobuf.DoubleValue ogrn = 17;
   google.protobuf.StringValue avatar_base64 = 18;
+  google.protobuf.StringValue city_id = 19;
+  google.protobuf.StringValue category_id = 20;
 }
 
 message GetMyRequest {

@@ -29,6 +29,16 @@
             }
           }
         },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/parserEditRequest"
+            }
+          }
+        ],
         "tags": [
           "Company"
         ]
@@ -1367,6 +1377,75 @@
           "type": "string"
         },
         "registrationDate": {
+          "type": "string"
+        }
+      }
+    },
+    "parserEditRequest": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "number",
+          "format": "double"
+        },
+        "addressStreet": {
+          "type": "string"
+        },
+        "addressHouse": {
+          "type": "string"
+        },
+        "vkSlug": {
+          "type": "string"
+        },
+        "instagramUrl": {
+          "type": "string"
+        },
+        "youtubeUrl": {
+          "type": "string"
+        },
+        "facebookUrl": {
+          "type": "string"
+        },
+        "twitterUrl": {
+          "type": "string"
+        },
+        "appStoreUrl": {
+          "type": "string"
+        },
+        "googlePlayUrl": {
+          "type": "string"
+        },
+        "inn": {
+          "type": "number",
+          "format": "double"
+        },
+        "kpp": {
+          "type": "number",
+          "format": "double"
+        },
+        "ogrn": {
+          "type": "number",
+          "format": "double"
+        },
+        "avatarBase64": {
+          "type": "string"
+        },
+        "cityId": {
+          "type": "string"
+        },
+        "categoryId": {
           "type": "string"
         }
       }
