@@ -7,15 +7,31 @@ import "protoc-gen-swagger/options/annotations.proto";
 
 option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
   info: {
-    title: "LEAQ API";
-    version: "1.0.0";
-    description: "API сервиса доступно бесплатно и без ограничений на кол-во запросов в день/месяц. Единственный лимит - 10 запросов в секунду с одного IP адреса.";
+    title: "LEAQ API"
+    version: "1.0.0"
+    description: "API сервиса доступно бесплатно и без ограничений на кол-во запросов в день/месяц. Единственный лимит - 10 запросов в секунду с одного IP адреса."
     contact: {
-      name: "Поддержка";
-      url: "https://vk.me/leaq_ru";
-    };
-  };
-  schemes: HTTPS;
-  consumes: "application/json";
-  produces: "application/json";
+      name: "Поддержка"
+      url: "https://vk.me/leaq_ru"
+    }
+  }
+  schemes: HTTPS
+  consumes: "application/json"
+  produces: "application/json"
+  security_definitions: {
+    security: {
+      key: "apiKey",
+      value : {
+        description: "Paste 'Bearer XXXXX', not 'XXXXX'"
+        type: TYPE_API_KEY
+        in: IN_HEADER
+        name: 'Authorization'
+      }
+    }
+  }
+  security: {
+    security_requirement:{
+      key: "apiKey"
+    }
+  }
 };

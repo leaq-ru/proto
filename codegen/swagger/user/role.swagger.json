@@ -1,0 +1,265 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "user/role.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/role/addCompanyAdmin": {
+      "post": {
+        "summary": "only owner can set admins (up to 100)",
+        "operationId": "Role_AddCompanyAdmin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userAddCompanyAdminRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/v1/role/applyCompanyOwner": {
+      "post": {
+        "summary": "create request to apply current user as company owner. company can have only one owner",
+        "operationId": "Role_ApplyCompanyOwner",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userApplyCompanyOwnerResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userApplyCompanyOwnerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/v1/role/removeCompanyAdmin": {
+      "delete": {
+        "operationId": "Role_RemoveCompanyAdmin",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/v1/role/setCompanyOwner": {
+      "post": {
+        "summary": "company owner can move self owner-role to another user. this action is irreversible",
+        "operationId": "Role_SetCompanyOwner",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userSetCompanyOwnerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/v1/role/verifyCompanyOwner": {
+      "post": {
+        "operationId": "Role_VerifyCompanyOwner",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userVerifyCompanyOwnerRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Role"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "userAddCompanyAdminRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "userApplyCompanyOwnerRequest": {
+      "type": "object",
+      "properties": {
+        "companyUrl": {
+          "type": "string"
+        }
+      },
+      "title": "example.com"
+    },
+    "userApplyCompanyOwnerResponse": {
+      "type": "object",
+      "properties": {
+        "metaName": {
+          "type": "string"
+        },
+        "metaContent": {
+          "type": "string"
+        }
+      }
+    },
+    "userCanEditCompanyResponse": {
+      "type": "object",
+      "properties": {
+        "canEdit": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "userSetCompanyOwnerRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        }
+      }
+    },
+    "userVerifyCompanyOwnerRequest": {
+      "type": "object",
+      "properties": {
+        "companyUrl": {
+          "type": "string"
+        }
+      },
+      "title": "example.com"
+    }
+  }
+}

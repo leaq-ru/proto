@@ -1,0 +1,84 @@
+syntax = "proto3";
+
+package user;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+
+service Role {
+  // create request to apply current user as company owner. company can have only one owner
+  rpc ApplyCompanyOwner(ApplyCompanyOwnerRequest) returns (ApplyCompanyOwnerResponse) {
+    option (google.api.http) = {
+      post: "/v1/role/applyCompanyOwner"
+      body: '*'
+    };
+  }
+  rpc VerifyCompanyOwner(VerifyCompanyOwnerRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/role/verifyCompanyOwner"
+      body: '*'
+    };
+  }
+  // only owner can set admins (up to 100)
+  rpc AddCompanyAdmin(AddCompanyAdminRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/role/addCompanyAdmin"
+      body: '*'
+    };
+  }
+  rpc RemoveCompanyAdmin(RemoveCompanyAdminRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/v1/role/removeCompanyAdmin"
+    };
+  }
+  // company owner can move self owner-role to another user. this action is irreversible
+  rpc SetCompanyOwner(SetCompanyOwnerRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/role/setCompanyOwner"
+      body: '*'
+    };
+  }
+  rpc CanEditCompany(CanEditCompanyRequest) returns (CanEditCompanyResponse) {};
+}
+
+message CanEditCompanyRequest {
+  string company_id = 1;
+  string user_id = 2;
+}
+
+message CanEditCompanyResponse {
+  bool can_edit = 1;
+}
+
+message AddCompanyAdminRequest {
+  string user_id = 1;
+}
+
+message RemoveCompanyAdminRequest {
+  string user_id = 1;
+}
+
+message SetCompanyOwnerRequest {
+  string user_id = 1;
+}
+
+// example.com
+message ApplyCompanyOwnerRequest {
+  string company_url = 1;
+}
+
+// example.com
+message VerifyCompanyOwnerRequest {
+  string company_url = 1;
+}
+
+message ApplyCompanyOwnerResponse {
+  string meta_name = 1;
+  string meta_content = 2;
+}
+
+message SetCompanyAdminRequest {
+  string company_id = 1;
+  string user_id = 2;
+}

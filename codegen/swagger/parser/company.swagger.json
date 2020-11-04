@@ -11,6 +11,29 @@
     "application/json"
   ],
   "paths": {
+    "/v1/company/edit": {
+      "patch": {
+        "summary": "edit companies where current user is owner or admin",
+        "operationId": "Company_Edit",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Company"
+        ]
+      }
+    },
     "/v1/company/get": {
       "get": {
         "summary": "DEPRECATED",
@@ -598,6 +621,46 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          }
+        ],
+        "tags": [
+          "Company"
+        ]
+      }
+    },
+    "/v1/company/getMy": {
+      "get": {
+        "summary": "get companies where current user is owner or admin",
+        "operationId": "Company_GetMy",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserShortCompanies"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
           }
         ],
         "tags": [
@@ -1266,6 +1329,23 @@
         }
       }
     },
+    "optsSkipLimit": {
+      "type": "object",
+      "properties": {
+        "skip": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "20 default",
+          "maximum": 100,
+          "minimum": 1
+        }
+      }
+    },
     "parserApp": {
       "type": "object",
       "properties": {
@@ -1411,6 +1491,11 @@
           "items": {
             "$ref": "#/definitions/parserPostItem"
           }
+        },
+        "verified": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "company has owner"
         }
       }
     },
@@ -1608,6 +1693,11 @@
         },
         "updatedAt": {
           "type": "string"
+        },
+        "verified": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "company has owner"
         }
       }
     },
