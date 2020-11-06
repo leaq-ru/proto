@@ -89,7 +89,7 @@ message EditRequest {
   google.protobuf.DoubleValue phone = 5;
   google.protobuf.StringValue address_street = 6;
   google.protobuf.StringValue address_house = 7;
-  google.protobuf.StringValue vk_slug = 8;
+  google.protobuf.StringValue vk_url = 8;
   google.protobuf.StringValue instagram_url = 9;
   google.protobuf.StringValue youtube_url = 10;
   google.protobuf.StringValue facebook_url = 11;
