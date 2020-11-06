@@ -84,7 +84,8 @@ message RemoveCompanyAdminRequest {
 }
 
 message SetCompanyOwnerRequest {
-  string user_id = 1;
+  string company_id = 1;
+  string user_id = 2;
 }
 
 // example.com
