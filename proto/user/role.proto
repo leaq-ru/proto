@@ -5,6 +5,7 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
+import "opts/page.proto";
 
 service Role {
   // create request to apply current user as company owner. company can have only one owner
@@ -39,7 +40,28 @@ service Role {
       body: '*'
     };
   }
+  rpc GetAdmins(GetAdminsRequest) returns (GetAdminsResponse) {
+    option (google.api.http) = {
+      get: "/v1/role/getAdmins"
+    };
+  }
   rpc CanEditCompany(CanEditCompanyRequest) returns (CanEditCompanyResponse) {};
+}
+
+message GetAdminsRequest {
+  string company_id = 1;
+  opts.SkipLimit opts = 2;
+}
+
+message ShortUser {
+  string id = 1;
+  string first_name = 2;
+  string last_name = 3;
+  string photo = 4;
+}
+
+message GetAdminsResponse {
+  repeated ShortUser admins = 1;
 }
 
 message CanEditCompanyRequest {
@@ -52,11 +74,13 @@ message CanEditCompanyResponse {
 }
 
 message AddCompanyAdminRequest {
-  string user_id = 1;
+  string company_id = 1;
+  string user_id = 2;
 }
 
 message RemoveCompanyAdminRequest {
-  string user_id = 1;
+  string company_id = 1;
+  string user_id = 2;
 }
 
 message SetCompanyOwnerRequest {
