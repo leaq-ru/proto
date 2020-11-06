@@ -329,6 +329,17 @@
         }
       }
     },
+    "userGetOwnCompaniesResponse": {
+      "type": "object",
+      "properties": {
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "userSetCompanyOwnerRequest": {
       "type": "object",
       "properties": {

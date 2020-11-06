@@ -46,6 +46,17 @@ service Role {
     };
   }
   rpc CanEditCompany(CanEditCompanyRequest) returns (CanEditCompanyResponse) {};
+  // where current user is owner or admin
+  rpc GetOwnCompanies(GetOwnCompaniesRequest) returns (GetOwnCompaniesResponse) {};
+}
+
+message GetOwnCompaniesRequest {
+  string user_id = 1;
+  opts.SkipLimit opts = 2;
+}
+
+message GetOwnCompaniesResponse {
+  repeated string company_ids = 1;
 }
 
 message GetAdminsRequest {
