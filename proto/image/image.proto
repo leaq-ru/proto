@@ -7,7 +7,12 @@ import "google/protobuf/empty.proto";
 
 service Image {
   rpc Put(PutRequest) returns (PutResponse);
+  rpc PutBase64(PutBase64Request) returns (PutResponse);
   rpc Remove(RemoveRequest) returns (google.protobuf.Empty);
+}
+
+message PutBase64Request {
+  string base64 = 1;
 }
 
 message PutRequest {
