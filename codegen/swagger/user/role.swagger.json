@@ -77,14 +77,14 @@
         ]
       }
     },
-    "/v1/role/getAdmins": {
+    "/v1/role/getManagers": {
       "get": {
-        "operationId": "Role_GetAdmins",
+        "operationId": "Role_GetManagers",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/userGetAdminsResponse"
+              "$ref": "#/definitions/userGetManagersResponse"
             }
           },
           "default": {
@@ -318,13 +318,13 @@
         }
       }
     },
-    "userGetAdminsResponse": {
+    "userGetManagersResponse": {
       "type": "object",
       "properties": {
-        "admins": {
+        "managers": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/userShortUser"
+            "$ref": "#/definitions/userManagerItem"
           }
         }
       }
@@ -340,18 +340,16 @@
         }
       }
     },
-    "userSetCompanyOwnerRequest": {
-      "type": "object",
-      "properties": {
-        "companyId": {
-          "type": "string"
-        },
-        "userId": {
-          "type": "string"
-        }
-      }
+    "userGrant": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "OWNER",
+        "ADMIN"
+      ],
+      "default": "NONE"
     },
-    "userShortUser": {
+    "userManagerItem": {
       "type": "object",
       "properties": {
         "id": {
@@ -364,6 +362,20 @@
           "type": "string"
         },
         "photo": {
+          "type": "string"
+        },
+        "grant": {
+          "$ref": "#/definitions/userGrant"
+        }
+      }
+    },
+    "userSetCompanyOwnerRequest": {
+      "type": "object",
+      "properties": {
+        "companyId": {
+          "type": "string"
+        },
+        "userId": {
           "type": "string"
         }
       }

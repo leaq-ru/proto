@@ -40,9 +40,9 @@ service Role {
       body: '*'
     };
   }
-  rpc GetAdmins(GetAdminsRequest) returns (GetAdminsResponse) {
+  rpc GetManagers(GetManagersRequest) returns (GetManagersResponse) {
     option (google.api.http) = {
-      get: "/v1/role/getAdmins"
+      get: "/v1/role/getManagers"
     };
   }
   rpc CanEditCompany(CanEditCompanyRequest) returns (CanEditCompanyResponse) {};
@@ -59,20 +59,27 @@ message GetOwnCompaniesResponse {
   repeated string company_ids = 1;
 }
 
-message GetAdminsRequest {
+message GetManagersRequest {
   string company_id = 1;
   opts.SkipLimit opts = 2;
 }
 
-message ShortUser {
+enum Grant {
+  NONE = 0;
+  OWNER = 2;
+  ADMIN = 3;
+}
+
+message ManagerItem {
   string id = 1;
   string first_name = 2;
   string last_name = 3;
   string photo = 4;
+  Grant grant = 5;
 }
 
-message GetAdminsResponse {
-  repeated ShortUser admins = 1;
+message GetManagersResponse {
+  repeated ManagerItem managers = 1;
 }
 
 message CanEditCompanyRequest {
