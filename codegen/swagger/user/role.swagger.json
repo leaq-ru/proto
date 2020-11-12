@@ -13,7 +13,7 @@
   "paths": {
     "/v1/role/addCompanyAdmin": {
       "post": {
-        "summary": "only owner can set admins (up to 100)",
+        "summary": "only owner can set admins (up to 50)",
         "operationId": "Role_AddCompanyAdmin",
         "responses": {
           "200": {

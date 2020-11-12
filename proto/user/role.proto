@@ -21,7 +21,7 @@ service Role {
       body: '*'
     };
   }
-  // only owner can set admins (up to 100)
+  // only owner can set admins (up to 50)
   rpc AddCompanyAdmin(AddCompanyAdminRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       post: "/v1/role/addCompanyAdmin"

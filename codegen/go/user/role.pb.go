@@ -1251,7 +1251,7 @@ type RoleClient interface {
 	// create request to apply current user as company owner. company can have only one owner
 	ApplyCompanyOwner(ctx context.Context, in *ApplyCompanyOwnerRequest, opts ...grpc.CallOption) (*ApplyCompanyOwnerResponse, error)
 	VerifyCompanyOwner(ctx context.Context, in *VerifyCompanyOwnerRequest, opts ...grpc.CallOption) (*empty.Empty, error)
-	// only owner can set admins (up to 100)
+	// only owner can set admins (up to 50)
 	AddCompanyAdmin(ctx context.Context, in *AddCompanyAdminRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	RemoveCompanyAdmin(ctx context.Context, in *RemoveCompanyAdminRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	// company owner can move self owner-role to another user. this action is irreversible
@@ -1347,7 +1347,7 @@ type RoleServer interface {
 	// create request to apply current user as company owner. company can have only one owner
 	ApplyCompanyOwner(context.Context, *ApplyCompanyOwnerRequest) (*ApplyCompanyOwnerResponse, error)
 	VerifyCompanyOwner(context.Context, *VerifyCompanyOwnerRequest) (*empty.Empty, error)
-	// only owner can set admins (up to 100)
+	// only owner can set admins (up to 50)
 	AddCompanyAdmin(context.Context, *AddCompanyAdminRequest) (*empty.Empty, error)
 	RemoveCompanyAdmin(context.Context, *RemoveCompanyAdminRequest) (*empty.Empty, error)
 	// company owner can move self owner-role to another user. this action is irreversible
