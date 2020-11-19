@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+package billing;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/billing";
+
+import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+service Billing {
+  rpc CreateInvoice(CreateInvoiceRequest) returns (CreateInvoiceResponse) {
+    option (google.api.http) = {
+      post: "/v1/billing/createInvoice"
+      body: "*"
+    };
+  }
+  rpc RobokassaWebhook(RobokassaWebhookRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/billing/robokassaWebhook/{secret}"
+      body: "*"
+    };
+  }
+  rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/billing/renewCompanyPremium"
+      body: "*"
+    };
+  };
+  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse) {};
+}
+
+message RenewCompanyPremiumRequest {
+  string company_id = 1;
+  uint32 month_amount = 2;
+}
+
+message GetBalanceRequest {
+  string user_id = 1;
+}
+
+message GetBalanceResponse {
+  uint32 balance = 1;
+}
+
+message RobokassaWebhookRequest {
+  string secret = 1;
+  string inv_id = 2 [json_name = "InvId"];
+  // e.g. 101.66
+  float out_sum = 3 [json_name = "OutSum"];
+  string signature_value = 4 [json_name = "SignatureValue"];
+}
+
+message CreateInvoiceRequest {
+  // russian penny
+  uint32 amount = 1;
+}
+
+message CreateInvoiceResponse {
+  string url = 1;
+}

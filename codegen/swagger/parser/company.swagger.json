@@ -1575,6 +1575,10 @@
           "type": "boolean",
           "format": "boolean",
           "title": "company has owner"
+        },
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },
@@ -1777,6 +1781,10 @@
           "type": "boolean",
           "format": "boolean",
           "title": "company has owner"
+        },
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },

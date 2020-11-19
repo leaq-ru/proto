@@ -305,6 +305,7 @@ message ShortCompany {
   string updated_at = 12;
   // company has owner
   bool verified = 13;
+  bool premium = 14;
 }
 
 message GetBySlugResponse {
@@ -316,6 +317,7 @@ message GetBySlugResponse {
   repeated PostItem posts = 5;
   // company has owner
   bool verified = 6;
+  bool premium = 7;
 }
 
 message People {
