@@ -15,8 +15,7 @@ service Billing {
   }
   rpc RobokassaWebhook(RobokassaWebhookRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
-      post: "/v1/billing/robokassaWebhook/{secret}"
-      body: "*"
+      get: "/v1/billing/robokassaWebhook/{secret}"
     };
   }
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {

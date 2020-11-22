@@ -76,7 +76,7 @@
       }
     },
     "/v1/billing/robokassaWebhook/{secret}": {
-      "post": {
+      "get": {
         "operationId": "Billing_RobokassaWebhook",
         "responses": {
           "200": {
@@ -100,12 +100,24 @@
             "type": "string"
           },
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/billingRobokassaWebhookRequest"
-            }
+            "name": "InvId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "OutSum",
+            "description": "e.g. 101.66.",
+            "in": "query",
+            "required": false,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "SignatureValue",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -151,25 +163,6 @@
         "monthAmount": {
           "type": "integer",
           "format": "int64"
-        }
-      }
-    },
-    "billingRobokassaWebhookRequest": {
-      "type": "object",
-      "properties": {
-        "secret": {
-          "type": "string"
-        },
-        "InvId": {
-          "type": "string"
-        },
-        "OutSum": {
-          "type": "number",
-          "format": "float",
-          "title": "e.g. 101.66"
-        },
-        "SignatureValue": {
-          "type": "string"
         }
       }
     },
