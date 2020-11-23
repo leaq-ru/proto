@@ -14,6 +14,20 @@ service User {
     };
   };
   rpc Auth(AuthRequest) returns (SelfUser) {};
+  rpc GetById(GetByIdRequest) returns (ShortUser) {};
+}
+
+message ShortUser {
+  string id = 1;
+  uint32 vk_id = 2;
+  string first_name = 3;
+  string last_name = 4;
+  string photo = 5;
+  string photo_rec = 6;
+}
+
+message GetByIdRequest {
+  string user_id = 1;
 }
 
 message AuthRequest {
