@@ -24,7 +24,25 @@ service Billing {
       body: "*"
     };
   };
-  rpc GetBalance(GetBalanceRequest) returns (GetBalanceResponse) {};
+  rpc GetMyBalance(google.protobuf.Empty) returns (GetBalanceResponse) {
+    option (google.api.http) = {
+      get: "/v1/billing/getMyBalance"
+    };
+  };
+  rpc ManualDebit(ManualDebitRequest) returns (google.protobuf.Empty) {};
+  rpc ManualCredit(ManualCreditRequest) returns (google.protobuf.Empty) {};
+}
+
+message ManualCreditRequest {
+  string user_id = 1;
+  // russian penny
+  uint32 amount = 2;
+}
+
+message ManualDebitRequest {
+  string user_id = 1;
+  // russian penny
+  uint32 amount = 2;
 }
 
 message RenewCompanyPremiumRequest {

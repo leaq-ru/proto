@@ -43,6 +43,28 @@
         ]
       }
     },
+    "/v1/billing/getMyBalance": {
+      "get": {
+        "operationId": "Billing_GetMyBalance",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billingGetBalanceResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "Billing"
+        ]
+      }
+    },
     "/v1/billing/renewCompanyPremium": {
       "post": {
         "operationId": "Billing_RenewCompanyPremium",

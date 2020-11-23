@@ -57,9 +57,6 @@ service Company {
       get: "/v1/company/getBySlugs"
     };
   };
-  rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
-  rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
-  rpc Delete(DeleteRequest) returns (google.protobuf.Empty) {};
   rpc GetTotalCount(google.protobuf.Empty) returns (GetTotalCountResponse) {
     option (google.api.http) = {
       get: "/v1/company/getTotalCount"
@@ -67,7 +64,7 @@ service Company {
   };
   rpc GetBy(GetByRequest) returns (ShortCompany) {};
   // get companies where current user is owner or admin
-  rpc GetMy(GetMyRequest) returns (ShortCompanies) {
+  rpc GetMy(GetMyRequest) returns (GetMyResponse) {
     option (google.api.http) = {
       get: "/v1/company/getMy"
     };
@@ -79,6 +76,15 @@ service Company {
       body: '*'
     };
   }
+  rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
+  rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
+  rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
+  rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
+}
+
+message RenewCompanyPremiumRequest {
+  string company_id = 1;
+  uint32 month_amount = 2;
 }
 
 message EditRequest {
@@ -114,10 +120,6 @@ message GetByRequest {
 
 message GetTotalCountResponse {
   uint32 total_count = 1;
-}
-
-message DeleteRequest {
-  repeated string ids = 1;
 }
 
 message GetBySlugsRequest {
@@ -239,6 +241,29 @@ message GetV2Request {
   Select has_facebook = 17;
   repeated string technology_ids = 18;
   FindRule technology_find_rule = 19;
+}
+
+message MyCompany {
+  string id = 1;
+  category.CategoryItem category = 2;
+  string url = 3;
+  string slug = 4;
+  string title = 5;
+  string email = 6;
+  double phone = 7;
+  string avatar = 8;
+  city.CityItem city = 9;
+  App app = 10;
+  ShortSocial social = 11;
+  string updated_at = 12;
+  // company has owner
+  bool verified = 13;
+  bool premium = 14;
+  string premium_deadline = 15;
+}
+
+message GetMyResponse {
+  repeated MyCompany companies = 1;
 }
 
 message ShortCompanies {

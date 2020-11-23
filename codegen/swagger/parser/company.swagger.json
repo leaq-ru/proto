@@ -646,7 +646,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/parserShortCompanies"
+              "$ref": "#/definitions/parserGetMyResponse"
             }
           },
           "default": {
@@ -1590,6 +1590,17 @@
         }
       }
     },
+    "parserGetMyResponse": {
+      "type": "object",
+      "properties": {
+        "companies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserMyCompany"
+          }
+        }
+      }
+    },
     "parserGetRelatedResponse": {
       "type": "object",
       "properties": {
@@ -1636,6 +1647,60 @@
         "isExists": {
           "type": "boolean",
           "format": "boolean"
+        }
+      }
+    },
+    "parserMyCompany": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/categoryCategoryItem"
+        },
+        "url": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "number",
+          "format": "double"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "city": {
+          "$ref": "#/definitions/cityCityItem"
+        },
+        "app": {
+          "$ref": "#/definitions/parserApp"
+        },
+        "social": {
+          "$ref": "#/definitions/parserShortSocial"
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "verified": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "company has owner"
+        },
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "premiumDeadline": {
+          "type": "string"
         }
       }
     },
