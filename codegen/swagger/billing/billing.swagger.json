@@ -50,7 +50,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/billingGetBalanceResponse"
+              "$ref": "#/definitions/billingGetMyBalanceResponse"
             }
           },
           "default": {
@@ -167,7 +167,7 @@
         }
       }
     },
-    "billingGetBalanceResponse": {
+    "billingGetMyBalanceResponse": {
       "type": "object",
       "properties": {
         "balance": {
