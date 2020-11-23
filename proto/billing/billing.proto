@@ -30,13 +30,6 @@ service Billing {
     };
   };
   rpc ManualDebit(ManualDebitRequest) returns (google.protobuf.Empty) {};
-  rpc ManualCredit(ManualCreditRequest) returns (google.protobuf.Empty) {};
-}
-
-message ManualCreditRequest {
-  string user_id = 1;
-  // russian penny
-  uint32 amount = 2;
 }
 
 message ManualDebitRequest {
