@@ -24,7 +24,7 @@ service Billing {
       body: "*"
     };
   };
-  rpc GetMyBalance(google.protobuf.Empty) returns (GetBalanceResponse) {
+  rpc GetMyBalance(google.protobuf.Empty) returns (GetMyBalanceResponse) {
     option (google.api.http) = {
       get: "/v1/billing/getMyBalance"
     };
@@ -47,7 +47,7 @@ message GetBalanceRequest {
   string user_id = 1;
 }
 
-message GetBalanceResponse {
+message GetMyBalanceResponse {
   uint32 balance = 1;
 }
 
