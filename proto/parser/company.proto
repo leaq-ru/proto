@@ -62,7 +62,6 @@ service Company {
       get: "/v1/company/getTotalCount"
     };
   };
-  rpc GetBy(GetByRequest) returns (ShortCompany) {};
   // get companies where current user is owner or admin
   rpc GetMy(GetMyRequest) returns (GetMyResponse) {
     option (google.api.http) = {
@@ -76,15 +75,11 @@ service Company {
       body: '*'
     };
   }
+  rpc GetBy(GetByRequest) returns (ShortCompany) {};
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
   rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
-  rpc GetById(GetByIdRequest) returns (ShortCompany) {};
-}
-
-message GetByIdRequest {
-  string company_id = 1;
 }
 
 message RenewCompanyPremiumRequest {
@@ -121,6 +116,7 @@ message GetMyRequest {
 
 message GetByRequest {
   string url = 1;
+  string company_id = 2;
 }
 
 message GetTotalCountResponse {
