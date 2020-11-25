@@ -10,6 +10,7 @@ import (
 	context "context"
 	proto "github.com/golang/protobuf/proto"
 	empty "github.com/golang/protobuf/ptypes/empty"
+	opts "github.com/nnqq/scr-proto/codegen/go/opts"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
@@ -31,6 +32,406 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
+type Status int32
+
+const (
+	Status_STATUS_NONE Status = 0
+	Status_PENDING     Status = 1
+	Status_SUCCESS     Status = 2
+)
+
+// Enum value maps for Status.
+var (
+	Status_name = map[int32]string{
+		0: "STATUS_NONE",
+		1: "PENDING",
+		2: "SUCCESS",
+	}
+	Status_value = map[string]int32{
+		"STATUS_NONE": 0,
+		"PENDING":     1,
+		"SUCCESS":     2,
+	}
+)
+
+func (x Status) Enum() *Status {
+	p := new(Status)
+	*p = x
+	return p
+}
+
+func (x Status) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Status) Descriptor() protoreflect.EnumDescriptor {
+	return file_billing_billing_proto_enumTypes[0].Descriptor()
+}
+
+func (Status) Type() protoreflect.EnumType {
+	return &file_billing_billing_proto_enumTypes[0]
+}
+
+func (x Status) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Status.Descriptor instead.
+func (Status) EnumDescriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{0}
+}
+
+type Kind int32
+
+const (
+	Kind_KIND_NONE              Kind = 0
+	Kind_DEBIT_ROBOKASSA        Kind = 1
+	Kind_CREDIT_COMPANY_PREMIUM Kind = 2
+	Kind_DEBIT_MANUAL           Kind = 3
+)
+
+// Enum value maps for Kind.
+var (
+	Kind_name = map[int32]string{
+		0: "KIND_NONE",
+		1: "DEBIT_ROBOKASSA",
+		2: "CREDIT_COMPANY_PREMIUM",
+		3: "DEBIT_MANUAL",
+	}
+	Kind_value = map[string]int32{
+		"KIND_NONE":              0,
+		"DEBIT_ROBOKASSA":        1,
+		"CREDIT_COMPANY_PREMIUM": 2,
+		"DEBIT_MANUAL":           3,
+	}
+)
+
+func (x Kind) Enum() *Kind {
+	p := new(Kind)
+	*p = x
+	return p
+}
+
+func (x Kind) String() string {
+	return protoimpl.X.EnumStringOf(x.Descriptor(), protoreflect.EnumNumber(x))
+}
+
+func (Kind) Descriptor() protoreflect.EnumDescriptor {
+	return file_billing_billing_proto_enumTypes[1].Descriptor()
+}
+
+func (Kind) Type() protoreflect.EnumType {
+	return &file_billing_billing_proto_enumTypes[1]
+}
+
+func (x Kind) Number() protoreflect.EnumNumber {
+	return protoreflect.EnumNumber(x)
+}
+
+// Deprecated: Use Kind.Descriptor instead.
+func (Kind) EnumDescriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{1}
+}
+
+type GetMyInvoicesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Opts *opts.SkipLimit `protobuf:"bytes,1,opt,name=opts,proto3" json:"opts,omitempty"`
+}
+
+func (x *GetMyInvoicesRequest) Reset() {
+	*x = GetMyInvoicesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_billing_billing_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMyInvoicesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMyInvoicesRequest) ProtoMessage() {}
+
+func (x *GetMyInvoicesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMyInvoicesRequest.ProtoReflect.Descriptor instead.
+func (*GetMyInvoicesRequest) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetMyInvoicesRequest) GetOpts() *opts.SkipLimit {
+	if x != nil {
+		return x.Opts
+	}
+	return nil
+}
+
+type DebitRobokassa struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	InvoiceId uint64 `protobuf:"varint,1,opt,name=invoice_id,json=invoiceId,proto3" json:"invoice_id,omitempty"`
+}
+
+func (x *DebitRobokassa) Reset() {
+	*x = DebitRobokassa{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_billing_billing_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DebitRobokassa) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DebitRobokassa) ProtoMessage() {}
+
+func (x *DebitRobokassa) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DebitRobokassa.ProtoReflect.Descriptor instead.
+func (*DebitRobokassa) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *DebitRobokassa) GetInvoiceId() uint64 {
+	if x != nil {
+		return x.InvoiceId
+	}
+	return 0
+}
+
+type CreditCompanyPremium struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CompanyId   string `protobuf:"bytes,1,opt,name=company_id,json=companyId,proto3" json:"company_id,omitempty"`
+	MonthAmount uint32 `protobuf:"varint,2,opt,name=month_amount,json=monthAmount,proto3" json:"month_amount,omitempty"`
+	CompanySlug string `protobuf:"bytes,3,opt,name=company_slug,json=companySlug,proto3" json:"company_slug,omitempty"`
+}
+
+func (x *CreditCompanyPremium) Reset() {
+	*x = CreditCompanyPremium{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_billing_billing_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CreditCompanyPremium) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CreditCompanyPremium) ProtoMessage() {}
+
+func (x *CreditCompanyPremium) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CreditCompanyPremium.ProtoReflect.Descriptor instead.
+func (*CreditCompanyPremium) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *CreditCompanyPremium) GetCompanyId() string {
+	if x != nil {
+		return x.CompanyId
+	}
+	return ""
+}
+
+func (x *CreditCompanyPremium) GetMonthAmount() uint32 {
+	if x != nil {
+		return x.MonthAmount
+	}
+	return 0
+}
+
+func (x *CreditCompanyPremium) GetCompanySlug() string {
+	if x != nil {
+		return x.CompanySlug
+	}
+	return ""
+}
+
+type InvoiceItem struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id                   string                `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	CreatedAt            string                `protobuf:"bytes,2,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
+	Amount               uint32                `protobuf:"varint,3,opt,name=amount,proto3" json:"amount,omitempty"`
+	Status               Status                `protobuf:"varint,4,opt,name=status,proto3,enum=billing.Status" json:"status,omitempty"`
+	Kind                 Kind                  `protobuf:"varint,5,opt,name=kind,proto3,enum=billing.Kind" json:"kind,omitempty"`
+	DebitRobokassa       *DebitRobokassa       `protobuf:"bytes,6,opt,name=debit_robokassa,json=debitRobokassa,proto3" json:"debit_robokassa,omitempty"`
+	CreditCompanyPremium *CreditCompanyPremium `protobuf:"bytes,7,opt,name=credit_company_premium,json=creditCompanyPremium,proto3" json:"credit_company_premium,omitempty"`
+}
+
+func (x *InvoiceItem) Reset() {
+	*x = InvoiceItem{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_billing_billing_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *InvoiceItem) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*InvoiceItem) ProtoMessage() {}
+
+func (x *InvoiceItem) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use InvoiceItem.ProtoReflect.Descriptor instead.
+func (*InvoiceItem) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *InvoiceItem) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *InvoiceItem) GetCreatedAt() string {
+	if x != nil {
+		return x.CreatedAt
+	}
+	return ""
+}
+
+func (x *InvoiceItem) GetAmount() uint32 {
+	if x != nil {
+		return x.Amount
+	}
+	return 0
+}
+
+func (x *InvoiceItem) GetStatus() Status {
+	if x != nil {
+		return x.Status
+	}
+	return Status_STATUS_NONE
+}
+
+func (x *InvoiceItem) GetKind() Kind {
+	if x != nil {
+		return x.Kind
+	}
+	return Kind_KIND_NONE
+}
+
+func (x *InvoiceItem) GetDebitRobokassa() *DebitRobokassa {
+	if x != nil {
+		return x.DebitRobokassa
+	}
+	return nil
+}
+
+func (x *InvoiceItem) GetCreditCompanyPremium() *CreditCompanyPremium {
+	if x != nil {
+		return x.CreditCompanyPremium
+	}
+	return nil
+}
+
+type GetMyInvoicesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Invoices []*InvoiceItem `protobuf:"bytes,1,rep,name=invoices,proto3" json:"invoices,omitempty"`
+}
+
+func (x *GetMyInvoicesResponse) Reset() {
+	*x = GetMyInvoicesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_billing_billing_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetMyInvoicesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetMyInvoicesResponse) ProtoMessage() {}
+
+func (x *GetMyInvoicesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_billing_billing_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetMyInvoicesResponse.ProtoReflect.Descriptor instead.
+func (*GetMyInvoicesResponse) Descriptor() ([]byte, []int) {
+	return file_billing_billing_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *GetMyInvoicesResponse) GetInvoices() []*InvoiceItem {
+	if x != nil {
+		return x.Invoices
+	}
+	return nil
+}
+
 type ManualDebitRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -44,7 +445,7 @@ type ManualDebitRequest struct {
 func (x *ManualDebitRequest) Reset() {
 	*x = ManualDebitRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[0]
+		mi := &file_billing_billing_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -57,7 +458,7 @@ func (x *ManualDebitRequest) String() string {
 func (*ManualDebitRequest) ProtoMessage() {}
 
 func (x *ManualDebitRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[0]
+	mi := &file_billing_billing_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -70,7 +471,7 @@ func (x *ManualDebitRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ManualDebitRequest.ProtoReflect.Descriptor instead.
 func (*ManualDebitRequest) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{0}
+	return file_billing_billing_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *ManualDebitRequest) GetUserId() string {
@@ -99,7 +500,7 @@ type RenewCompanyPremiumRequest struct {
 func (x *RenewCompanyPremiumRequest) Reset() {
 	*x = RenewCompanyPremiumRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[1]
+		mi := &file_billing_billing_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -112,7 +513,7 @@ func (x *RenewCompanyPremiumRequest) String() string {
 func (*RenewCompanyPremiumRequest) ProtoMessage() {}
 
 func (x *RenewCompanyPremiumRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[1]
+	mi := &file_billing_billing_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -125,7 +526,7 @@ func (x *RenewCompanyPremiumRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RenewCompanyPremiumRequest.ProtoReflect.Descriptor instead.
 func (*RenewCompanyPremiumRequest) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{1}
+	return file_billing_billing_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *RenewCompanyPremiumRequest) GetCompanyId() string {
@@ -153,7 +554,7 @@ type GetBalanceRequest struct {
 func (x *GetBalanceRequest) Reset() {
 	*x = GetBalanceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[2]
+		mi := &file_billing_billing_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -166,7 +567,7 @@ func (x *GetBalanceRequest) String() string {
 func (*GetBalanceRequest) ProtoMessage() {}
 
 func (x *GetBalanceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[2]
+	mi := &file_billing_billing_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -179,7 +580,7 @@ func (x *GetBalanceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBalanceRequest.ProtoReflect.Descriptor instead.
 func (*GetBalanceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{2}
+	return file_billing_billing_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *GetBalanceRequest) GetUserId() string {
@@ -200,7 +601,7 @@ type GetMyBalanceResponse struct {
 func (x *GetMyBalanceResponse) Reset() {
 	*x = GetMyBalanceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[3]
+		mi := &file_billing_billing_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -213,7 +614,7 @@ func (x *GetMyBalanceResponse) String() string {
 func (*GetMyBalanceResponse) ProtoMessage() {}
 
 func (x *GetMyBalanceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[3]
+	mi := &file_billing_billing_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -226,7 +627,7 @@ func (x *GetMyBalanceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetMyBalanceResponse.ProtoReflect.Descriptor instead.
 func (*GetMyBalanceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{3}
+	return file_billing_billing_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *GetMyBalanceResponse) GetBalance() uint32 {
@@ -251,7 +652,7 @@ type RobokassaWebhookRequest struct {
 func (x *RobokassaWebhookRequest) Reset() {
 	*x = RobokassaWebhookRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[4]
+		mi := &file_billing_billing_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -264,7 +665,7 @@ func (x *RobokassaWebhookRequest) String() string {
 func (*RobokassaWebhookRequest) ProtoMessage() {}
 
 func (x *RobokassaWebhookRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[4]
+	mi := &file_billing_billing_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -277,7 +678,7 @@ func (x *RobokassaWebhookRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use RobokassaWebhookRequest.ProtoReflect.Descriptor instead.
 func (*RobokassaWebhookRequest) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{4}
+	return file_billing_billing_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *RobokassaWebhookRequest) GetSecret() string {
@@ -320,7 +721,7 @@ type CreateInvoiceRequest struct {
 func (x *CreateInvoiceRequest) Reset() {
 	*x = CreateInvoiceRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[5]
+		mi := &file_billing_billing_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -333,7 +734,7 @@ func (x *CreateInvoiceRequest) String() string {
 func (*CreateInvoiceRequest) ProtoMessage() {}
 
 func (x *CreateInvoiceRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[5]
+	mi := &file_billing_billing_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -346,7 +747,7 @@ func (x *CreateInvoiceRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInvoiceRequest.ProtoReflect.Descriptor instead.
 func (*CreateInvoiceRequest) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{5}
+	return file_billing_billing_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *CreateInvoiceRequest) GetAmount() uint32 {
@@ -367,7 +768,7 @@ type CreateInvoiceResponse struct {
 func (x *CreateInvoiceResponse) Reset() {
 	*x = CreateInvoiceResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_billing_billing_proto_msgTypes[6]
+		mi := &file_billing_billing_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -380,7 +781,7 @@ func (x *CreateInvoiceResponse) String() string {
 func (*CreateInvoiceResponse) ProtoMessage() {}
 
 func (x *CreateInvoiceResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_billing_billing_proto_msgTypes[6]
+	mi := &file_billing_billing_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -393,7 +794,7 @@ func (x *CreateInvoiceResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreateInvoiceResponse.ProtoReflect.Descriptor instead.
 func (*CreateInvoiceResponse) Descriptor() ([]byte, []int) {
-	return file_billing_billing_proto_rawDescGZIP(), []int{6}
+	return file_billing_billing_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *CreateInvoiceResponse) GetUrl() string {
@@ -411,38 +812,87 @@ var file_billing_billing_proto_rawDesc = []byte{
 	0x1a, 0x1b, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75,
 	0x66, 0x2f, 0x65, 0x6d, 0x70, 0x74, 0x79, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x1c, 0x67,
 	0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x61, 0x6e, 0x6e, 0x6f, 0x74, 0x61,
-	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x45, 0x0a, 0x12, 0x4d,
-	0x61, 0x6e, 0x75, 0x61, 0x6c, 0x44, 0x65, 0x62, 0x69, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
-	0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d,
-	0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75,
-	0x6e, 0x74, 0x22, 0x5e, 0x0a, 0x1a, 0x52, 0x65, 0x6e, 0x65, 0x77, 0x43, 0x6f, 0x6d, 0x70, 0x61,
-	0x6e, 0x79, 0x50, 0x72, 0x65, 0x6d, 0x69, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01,
-	0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x12,
-	0x21, 0x0a, 0x0c, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18,
-	0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x41, 0x6d, 0x6f, 0x75,
-	0x6e, 0x74, 0x22, 0x2c, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f,
-	0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64,
-	0x22, 0x30, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x62, 0x61, 0x6c, 0x61,
-	0x6e, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x62, 0x61, 0x6c, 0x61, 0x6e,
-	0x63, 0x65, 0x22, 0x8a, 0x01, 0x0a, 0x17, 0x52, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73, 0x61,
-	0x57, 0x65, 0x62, 0x68, 0x6f, 0x6f, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16,
-	0x0a, 0x06, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06,
-	0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x15, 0x0a, 0x06, 0x69, 0x6e, 0x76, 0x5f, 0x69, 0x64,
-	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x49, 0x6e, 0x76, 0x49, 0x64, 0x12, 0x17, 0x0a,
-	0x07, 0x6f, 0x75, 0x74, 0x5f, 0x73, 0x75, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28, 0x02, 0x52, 0x06,
-	0x4f, 0x75, 0x74, 0x53, 0x75, 0x6d, 0x12, 0x27, 0x0a, 0x0f, 0x73, 0x69, 0x67, 0x6e, 0x61, 0x74,
-	0x75, 0x72, 0x65, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x0e, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x56, 0x61, 0x6c, 0x75, 0x65, 0x22,
-	0x2e, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
-	0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x22,
-	0x29, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x32, 0xab, 0x04, 0x0a, 0x07, 0x42,
+	0x74, 0x69, 0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x0f, 0x6f, 0x70, 0x74,
+	0x73, 0x2f, 0x70, 0x61, 0x67, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x3b, 0x0a, 0x14,
+	0x47, 0x65, 0x74, 0x4d, 0x79, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x12, 0x23, 0x0a, 0x04, 0x6f, 0x70, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x6f, 0x70, 0x74, 0x73, 0x2e, 0x53, 0x6b, 0x69, 0x70, 0x4c, 0x69,
+	0x6d, 0x69, 0x74, 0x52, 0x04, 0x6f, 0x70, 0x74, 0x73, 0x22, 0x2f, 0x0a, 0x0e, 0x44, 0x65, 0x62,
+	0x69, 0x74, 0x52, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73, 0x61, 0x12, 0x1d, 0x0a, 0x0a, 0x69,
+	0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x04, 0x52,
+	0x09, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x49, 0x64, 0x22, 0x7b, 0x0a, 0x14, 0x43, 0x72,
+	0x65, 0x64, 0x69, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x50, 0x72, 0x65, 0x6d, 0x69,
+	0x75, 0x6d, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f, 0x69, 0x64,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49,
+	0x64, 0x12, 0x21, 0x0a, 0x0c, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e,
+	0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x41, 0x6d,
+	0x6f, 0x75, 0x6e, 0x74, 0x12, 0x21, 0x0a, 0x0c, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f,
+	0x73, 0x6c, 0x75, 0x67, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6d, 0x70,
+	0x61, 0x6e, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x22, 0xb7, 0x02, 0x0a, 0x0b, 0x49, 0x6e, 0x76, 0x6f,
+	0x69, 0x63, 0x65, 0x49, 0x74, 0x65, 0x6d, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x72, 0x65, 0x61, 0x74,
+	0x65, 0x64, 0x5f, 0x61, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x72, 0x65,
+	0x61, 0x74, 0x65, 0x64, 0x41, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x12, 0x27,
+	0x0a, 0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x0f,
+	0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52,
+	0x06, 0x73, 0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x21, 0x0a, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x18,
+	0x05, 0x20, 0x01, 0x28, 0x0e, 0x32, 0x0d, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e,
+	0x4b, 0x69, 0x6e, 0x64, 0x52, 0x04, 0x6b, 0x69, 0x6e, 0x64, 0x12, 0x40, 0x0a, 0x0f, 0x64, 0x65,
+	0x62, 0x69, 0x74, 0x5f, 0x72, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73, 0x61, 0x18, 0x06, 0x20,
+	0x01, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x44, 0x65,
+	0x62, 0x69, 0x74, 0x52, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73, 0x61, 0x52, 0x0e, 0x64, 0x65,
+	0x62, 0x69, 0x74, 0x52, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73, 0x61, 0x12, 0x53, 0x0a, 0x16,
+	0x63, 0x72, 0x65, 0x64, 0x69, 0x74, 0x5f, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f, 0x70,
+	0x72, 0x65, 0x6d, 0x69, 0x75, 0x6d, 0x18, 0x07, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x62,
+	0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x43, 0x72, 0x65, 0x64, 0x69, 0x74, 0x43, 0x6f, 0x6d,
+	0x70, 0x61, 0x6e, 0x79, 0x50, 0x72, 0x65, 0x6d, 0x69, 0x75, 0x6d, 0x52, 0x14, 0x63, 0x72, 0x65,
+	0x64, 0x69, 0x74, 0x43, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x50, 0x72, 0x65, 0x6d, 0x69, 0x75,
+	0x6d, 0x22, 0x49, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x4d, 0x79, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x30, 0x0a, 0x08, 0x69, 0x6e,
+	0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x62,
+	0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x49, 0x74,
+	0x65, 0x6d, 0x52, 0x08, 0x69, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x22, 0x45, 0x0a, 0x12,
+	0x4d, 0x61, 0x6e, 0x75, 0x61, 0x6c, 0x44, 0x65, 0x62, 0x69, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49, 0x64, 0x12, 0x16, 0x0a, 0x06, 0x61,
+	0x6d, 0x6f, 0x75, 0x6e, 0x74, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x61, 0x6d, 0x6f,
+	0x75, 0x6e, 0x74, 0x22, 0x5e, 0x0a, 0x1a, 0x52, 0x65, 0x6e, 0x65, 0x77, 0x43, 0x6f, 0x6d, 0x70,
+	0x61, 0x6e, 0x79, 0x50, 0x72, 0x65, 0x6d, 0x69, 0x75, 0x6d, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x1d, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f, 0x69, 0x64, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64,
+	0x12, 0x21, 0x0a, 0x0c, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x5f, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0b, 0x6d, 0x6f, 0x6e, 0x74, 0x68, 0x41, 0x6d, 0x6f,
+	0x75, 0x6e, 0x74, 0x22, 0x2c, 0x0a, 0x11, 0x47, 0x65, 0x74, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x17, 0x0a, 0x07, 0x75, 0x73, 0x65, 0x72,
+	0x5f, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x75, 0x73, 0x65, 0x72, 0x49,
+	0x64, 0x22, 0x30, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x4d, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x62, 0x61, 0x6c,
+	0x61, 0x6e, 0x63, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x07, 0x62, 0x61, 0x6c, 0x61,
+	0x6e, 0x63, 0x65, 0x22, 0x8a, 0x01, 0x0a, 0x17, 0x52, 0x6f, 0x62, 0x6f, 0x6b, 0x61, 0x73, 0x73,
+	0x61, 0x57, 0x65, 0x62, 0x68, 0x6f, 0x6f, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x16, 0x0a, 0x06, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x06, 0x73, 0x65, 0x63, 0x72, 0x65, 0x74, 0x12, 0x15, 0x0a, 0x06, 0x69, 0x6e, 0x76, 0x5f, 0x69,
+	0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x49, 0x6e, 0x76, 0x49, 0x64, 0x12, 0x17,
+	0x0a, 0x07, 0x6f, 0x75, 0x74, 0x5f, 0x73, 0x75, 0x6d, 0x18, 0x03, 0x20, 0x01, 0x28, 0x02, 0x52,
+	0x06, 0x4f, 0x75, 0x74, 0x53, 0x75, 0x6d, 0x12, 0x27, 0x0a, 0x0f, 0x73, 0x69, 0x67, 0x6e, 0x61,
+	0x74, 0x75, 0x72, 0x65, 0x5f, 0x76, 0x61, 0x6c, 0x75, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x0e, 0x53, 0x69, 0x67, 0x6e, 0x61, 0x74, 0x75, 0x72, 0x65, 0x56, 0x61, 0x6c, 0x75, 0x65,
+	0x22, 0x2e, 0x0a, 0x14, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x16, 0x0a, 0x06, 0x61, 0x6d, 0x6f, 0x75,
+	0x6e, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x06, 0x61, 0x6d, 0x6f, 0x75, 0x6e, 0x74,
+	0x22, 0x29, 0x0a, 0x15, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x10, 0x0a, 0x03, 0x75, 0x72, 0x6c,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x75, 0x72, 0x6c, 0x2a, 0x33, 0x0a, 0x06, 0x53,
+	0x74, 0x61, 0x74, 0x75, 0x73, 0x12, 0x0f, 0x0a, 0x0b, 0x53, 0x54, 0x41, 0x54, 0x55, 0x53, 0x5f,
+	0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x0b, 0x0a, 0x07, 0x50, 0x45, 0x4e, 0x44, 0x49, 0x4e,
+	0x47, 0x10, 0x01, 0x12, 0x0b, 0x0a, 0x07, 0x53, 0x55, 0x43, 0x43, 0x45, 0x53, 0x53, 0x10, 0x02,
+	0x2a, 0x58, 0x0a, 0x04, 0x4b, 0x69, 0x6e, 0x64, 0x12, 0x0d, 0x0a, 0x09, 0x4b, 0x49, 0x4e, 0x44,
+	0x5f, 0x4e, 0x4f, 0x4e, 0x45, 0x10, 0x00, 0x12, 0x13, 0x0a, 0x0f, 0x44, 0x45, 0x42, 0x49, 0x54,
+	0x5f, 0x52, 0x4f, 0x42, 0x4f, 0x4b, 0x41, 0x53, 0x53, 0x41, 0x10, 0x01, 0x12, 0x1a, 0x0a, 0x16,
+	0x43, 0x52, 0x45, 0x44, 0x49, 0x54, 0x5f, 0x43, 0x4f, 0x4d, 0x50, 0x41, 0x4e, 0x59, 0x5f, 0x50,
+	0x52, 0x45, 0x4d, 0x49, 0x55, 0x4d, 0x10, 0x02, 0x12, 0x10, 0x0a, 0x0c, 0x44, 0x45, 0x42, 0x49,
+	0x54, 0x5f, 0x4d, 0x41, 0x4e, 0x55, 0x41, 0x4c, 0x10, 0x03, 0x32, 0x9e, 0x05, 0x0a, 0x07, 0x42,
 	0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x12, 0x74, 0x0a, 0x0d, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65,
 	0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x12, 0x1d, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e,
 	0x67, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x52,
@@ -473,14 +923,22 @@ var file_billing_billing_proto_rawDesc = []byte{
 	0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e, 0x63, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x22, 0x20, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1a, 0x12, 0x18, 0x2f, 0x76, 0x31, 0x2f, 0x62, 0x69,
 	0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x4d, 0x79, 0x42, 0x61, 0x6c, 0x61, 0x6e,
-	0x63, 0x65, 0x12, 0x44, 0x0a, 0x0b, 0x4d, 0x61, 0x6e, 0x75, 0x61, 0x6c, 0x44, 0x65, 0x62, 0x69,
-	0x74, 0x12, 0x1b, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x4d, 0x61, 0x6e, 0x75,
-	0x61, 0x6c, 0x44, 0x65, 0x62, 0x69, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16,
-	0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x62, 0x75, 0x66,
-	0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x42, 0x2e, 0x5a, 0x2c, 0x67, 0x69, 0x74, 0x68,
-	0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f,
-	0x2f, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x63, 0x65, 0x12, 0x71, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x4d, 0x79, 0x49, 0x6e, 0x76, 0x6f, 0x69,
+	0x63, 0x65, 0x73, 0x12, 0x1d, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x47, 0x65,
+	0x74, 0x4d, 0x79, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1e, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x47, 0x65, 0x74,
+	0x4d, 0x79, 0x49, 0x6e, 0x76, 0x6f, 0x69, 0x63, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x21, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1b, 0x12, 0x19, 0x2f, 0x76, 0x31, 0x2f,
+	0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x4d, 0x79, 0x49, 0x6e, 0x76,
+	0x6f, 0x69, 0x63, 0x65, 0x73, 0x12, 0x44, 0x0a, 0x0b, 0x4d, 0x61, 0x6e, 0x75, 0x61, 0x6c, 0x44,
+	0x65, 0x62, 0x69, 0x74, 0x12, 0x1b, 0x2e, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x2e, 0x4d,
+	0x61, 0x6e, 0x75, 0x61, 0x6c, 0x44, 0x65, 0x62, 0x69, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x16, 0x2e, 0x67, 0x6f, 0x6f, 0x67, 0x6c, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x62, 0x75, 0x66, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x22, 0x00, 0x42, 0x2e, 0x5a, 0x2c, 0x67,
+	0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73,
+	0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e,
+	0x2f, 0x67, 0x6f, 0x2f, 0x62, 0x69, 0x6c, 0x6c, 0x69, 0x6e, 0x67, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -495,33 +953,50 @@ func file_billing_billing_proto_rawDescGZIP() []byte {
 	return file_billing_billing_proto_rawDescData
 }
 
-var file_billing_billing_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_billing_billing_proto_enumTypes = make([]protoimpl.EnumInfo, 2)
+var file_billing_billing_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
 var file_billing_billing_proto_goTypes = []interface{}{
-	(*ManualDebitRequest)(nil),         // 0: billing.ManualDebitRequest
-	(*RenewCompanyPremiumRequest)(nil), // 1: billing.RenewCompanyPremiumRequest
-	(*GetBalanceRequest)(nil),          // 2: billing.GetBalanceRequest
-	(*GetMyBalanceResponse)(nil),       // 3: billing.GetMyBalanceResponse
-	(*RobokassaWebhookRequest)(nil),    // 4: billing.RobokassaWebhookRequest
-	(*CreateInvoiceRequest)(nil),       // 5: billing.CreateInvoiceRequest
-	(*CreateInvoiceResponse)(nil),      // 6: billing.CreateInvoiceResponse
-	(*empty.Empty)(nil),                // 7: google.protobuf.Empty
+	(Status)(0),                        // 0: billing.Status
+	(Kind)(0),                          // 1: billing.Kind
+	(*GetMyInvoicesRequest)(nil),       // 2: billing.GetMyInvoicesRequest
+	(*DebitRobokassa)(nil),             // 3: billing.DebitRobokassa
+	(*CreditCompanyPremium)(nil),       // 4: billing.CreditCompanyPremium
+	(*InvoiceItem)(nil),                // 5: billing.InvoiceItem
+	(*GetMyInvoicesResponse)(nil),      // 6: billing.GetMyInvoicesResponse
+	(*ManualDebitRequest)(nil),         // 7: billing.ManualDebitRequest
+	(*RenewCompanyPremiumRequest)(nil), // 8: billing.RenewCompanyPremiumRequest
+	(*GetBalanceRequest)(nil),          // 9: billing.GetBalanceRequest
+	(*GetMyBalanceResponse)(nil),       // 10: billing.GetMyBalanceResponse
+	(*RobokassaWebhookRequest)(nil),    // 11: billing.RobokassaWebhookRequest
+	(*CreateInvoiceRequest)(nil),       // 12: billing.CreateInvoiceRequest
+	(*CreateInvoiceResponse)(nil),      // 13: billing.CreateInvoiceResponse
+	(*opts.SkipLimit)(nil),             // 14: opts.SkipLimit
+	(*empty.Empty)(nil),                // 15: google.protobuf.Empty
 }
 var file_billing_billing_proto_depIdxs = []int32{
-	5, // 0: billing.Billing.CreateInvoice:input_type -> billing.CreateInvoiceRequest
-	4, // 1: billing.Billing.RobokassaWebhook:input_type -> billing.RobokassaWebhookRequest
-	1, // 2: billing.Billing.RenewCompanyPremium:input_type -> billing.RenewCompanyPremiumRequest
-	7, // 3: billing.Billing.GetMyBalance:input_type -> google.protobuf.Empty
-	0, // 4: billing.Billing.ManualDebit:input_type -> billing.ManualDebitRequest
-	6, // 5: billing.Billing.CreateInvoice:output_type -> billing.CreateInvoiceResponse
-	7, // 6: billing.Billing.RobokassaWebhook:output_type -> google.protobuf.Empty
-	7, // 7: billing.Billing.RenewCompanyPremium:output_type -> google.protobuf.Empty
-	3, // 8: billing.Billing.GetMyBalance:output_type -> billing.GetMyBalanceResponse
-	7, // 9: billing.Billing.ManualDebit:output_type -> google.protobuf.Empty
-	5, // [5:10] is the sub-list for method output_type
-	0, // [0:5] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	14, // 0: billing.GetMyInvoicesRequest.opts:type_name -> opts.SkipLimit
+	0,  // 1: billing.InvoiceItem.status:type_name -> billing.Status
+	1,  // 2: billing.InvoiceItem.kind:type_name -> billing.Kind
+	3,  // 3: billing.InvoiceItem.debit_robokassa:type_name -> billing.DebitRobokassa
+	4,  // 4: billing.InvoiceItem.credit_company_premium:type_name -> billing.CreditCompanyPremium
+	5,  // 5: billing.GetMyInvoicesResponse.invoices:type_name -> billing.InvoiceItem
+	12, // 6: billing.Billing.CreateInvoice:input_type -> billing.CreateInvoiceRequest
+	11, // 7: billing.Billing.RobokassaWebhook:input_type -> billing.RobokassaWebhookRequest
+	8,  // 8: billing.Billing.RenewCompanyPremium:input_type -> billing.RenewCompanyPremiumRequest
+	15, // 9: billing.Billing.GetMyBalance:input_type -> google.protobuf.Empty
+	2,  // 10: billing.Billing.GetMyInvoices:input_type -> billing.GetMyInvoicesRequest
+	7,  // 11: billing.Billing.ManualDebit:input_type -> billing.ManualDebitRequest
+	13, // 12: billing.Billing.CreateInvoice:output_type -> billing.CreateInvoiceResponse
+	15, // 13: billing.Billing.RobokassaWebhook:output_type -> google.protobuf.Empty
+	15, // 14: billing.Billing.RenewCompanyPremium:output_type -> google.protobuf.Empty
+	10, // 15: billing.Billing.GetMyBalance:output_type -> billing.GetMyBalanceResponse
+	6,  // 16: billing.Billing.GetMyInvoices:output_type -> billing.GetMyInvoicesResponse
+	15, // 17: billing.Billing.ManualDebit:output_type -> google.protobuf.Empty
+	12, // [12:18] is the sub-list for method output_type
+	6,  // [6:12] is the sub-list for method input_type
+	6,  // [6:6] is the sub-list for extension type_name
+	6,  // [6:6] is the sub-list for extension extendee
+	0,  // [0:6] is the sub-list for field type_name
 }
 
 func init() { file_billing_billing_proto_init() }
@@ -531,7 +1006,7 @@ func file_billing_billing_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_billing_billing_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ManualDebitRequest); i {
+			switch v := v.(*GetMyInvoicesRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -543,7 +1018,7 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RenewCompanyPremiumRequest); i {
+			switch v := v.(*DebitRobokassa); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -555,7 +1030,7 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBalanceRequest); i {
+			switch v := v.(*CreditCompanyPremium); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -567,7 +1042,7 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetMyBalanceResponse); i {
+			switch v := v.(*InvoiceItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -579,7 +1054,7 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*RobokassaWebhookRequest); i {
+			switch v := v.(*GetMyInvoicesResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -591,7 +1066,7 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*CreateInvoiceRequest); i {
+			switch v := v.(*ManualDebitRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -603,6 +1078,66 @@ func file_billing_billing_proto_init() {
 			}
 		}
 		file_billing_billing_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RenewCompanyPremiumRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_billing_billing_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetBalanceRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_billing_billing_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetMyBalanceResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_billing_billing_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RobokassaWebhookRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_billing_billing_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CreateInvoiceRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_billing_billing_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*CreateInvoiceResponse); i {
 			case 0:
 				return &v.state
@@ -620,13 +1155,14 @@ func file_billing_billing_proto_init() {
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_billing_billing_proto_rawDesc,
-			NumEnums:      0,
-			NumMessages:   7,
+			NumEnums:      2,
+			NumMessages:   12,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
 		GoTypes:           file_billing_billing_proto_goTypes,
 		DependencyIndexes: file_billing_billing_proto_depIdxs,
+		EnumInfos:         file_billing_billing_proto_enumTypes,
 		MessageInfos:      file_billing_billing_proto_msgTypes,
 	}.Build()
 	File_billing_billing_proto = out.File
@@ -651,6 +1187,7 @@ type BillingClient interface {
 	RobokassaWebhook(ctx context.Context, in *RobokassaWebhookRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	RenewCompanyPremium(ctx context.Context, in *RenewCompanyPremiumRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	GetMyBalance(ctx context.Context, in *empty.Empty, opts ...grpc.CallOption) (*GetMyBalanceResponse, error)
+	GetMyInvoices(ctx context.Context, in *GetMyInvoicesRequest, opts ...grpc.CallOption) (*GetMyInvoicesResponse, error)
 	ManualDebit(ctx context.Context, in *ManualDebitRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 }
 
@@ -698,6 +1235,15 @@ func (c *billingClient) GetMyBalance(ctx context.Context, in *empty.Empty, opts 
 	return out, nil
 }
 
+func (c *billingClient) GetMyInvoices(ctx context.Context, in *GetMyInvoicesRequest, opts ...grpc.CallOption) (*GetMyInvoicesResponse, error) {
+	out := new(GetMyInvoicesResponse)
+	err := c.cc.Invoke(ctx, "/billing.Billing/GetMyInvoices", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *billingClient) ManualDebit(ctx context.Context, in *ManualDebitRequest, opts ...grpc.CallOption) (*empty.Empty, error) {
 	out := new(empty.Empty)
 	err := c.cc.Invoke(ctx, "/billing.Billing/ManualDebit", in, out, opts...)
@@ -713,6 +1259,7 @@ type BillingServer interface {
 	RobokassaWebhook(context.Context, *RobokassaWebhookRequest) (*empty.Empty, error)
 	RenewCompanyPremium(context.Context, *RenewCompanyPremiumRequest) (*empty.Empty, error)
 	GetMyBalance(context.Context, *empty.Empty) (*GetMyBalanceResponse, error)
+	GetMyInvoices(context.Context, *GetMyInvoicesRequest) (*GetMyInvoicesResponse, error)
 	ManualDebit(context.Context, *ManualDebitRequest) (*empty.Empty, error)
 }
 
@@ -731,6 +1278,9 @@ func (*UnimplementedBillingServer) RenewCompanyPremium(context.Context, *RenewCo
 }
 func (*UnimplementedBillingServer) GetMyBalance(context.Context, *empty.Empty) (*GetMyBalanceResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetMyBalance not implemented")
+}
+func (*UnimplementedBillingServer) GetMyInvoices(context.Context, *GetMyInvoicesRequest) (*GetMyInvoicesResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMyInvoices not implemented")
 }
 func (*UnimplementedBillingServer) ManualDebit(context.Context, *ManualDebitRequest) (*empty.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ManualDebit not implemented")
@@ -812,6 +1362,24 @@ func _Billing_GetMyBalance_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Billing_GetMyInvoices_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMyInvoicesRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(BillingServer).GetMyInvoices(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/billing.Billing/GetMyInvoices",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(BillingServer).GetMyInvoices(ctx, req.(*GetMyInvoicesRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Billing_ManualDebit_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ManualDebitRequest)
 	if err := dec(in); err != nil {
@@ -849,6 +1417,10 @@ var _Billing_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetMyBalance",
 			Handler:    _Billing_GetMyBalance_Handler,
+		},
+		{
+			MethodName: "GetMyInvoices",
+			Handler:    _Billing_GetMyInvoices_Handler,
 		},
 		{
 			MethodName: "ManualDebit",

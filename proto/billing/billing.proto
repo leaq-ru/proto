@@ -5,6 +5,7 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/billing";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
+import "opts/page.proto";
 
 service Billing {
   rpc CreateInvoice(CreateInvoiceRequest) returns (CreateInvoiceResponse) {
@@ -29,7 +30,53 @@ service Billing {
       get: "/v1/billing/getMyBalance"
     };
   };
+  rpc GetMyInvoices(GetMyInvoicesRequest) returns (GetMyInvoicesResponse) {
+    option (google.api.http) = {
+      get: "/v1/billing/getMyInvoices"
+    };
+  };
   rpc ManualDebit(ManualDebitRequest) returns (google.protobuf.Empty) {};
+}
+
+message GetMyInvoicesRequest {
+  opts.SkipLimit opts = 1;
+}
+
+enum Status {
+  STATUS_NONE = 0;
+  PENDING = 1;
+  SUCCESS = 2;
+}
+
+enum Kind {
+  KIND_NONE = 0;
+  DEBIT_ROBOKASSA = 1;
+  CREDIT_COMPANY_PREMIUM = 2;
+  DEBIT_MANUAL = 3;
+}
+
+message DebitRobokassa {
+  uint64 invoice_id = 1;
+}
+
+message CreditCompanyPremium {
+  string company_id = 1;
+  uint32 month_amount = 2;
+  string company_slug = 3;
+}
+
+message InvoiceItem {
+  string id = 1;
+  string created_at = 2;
+  uint32 amount = 3;
+  Status status = 4;
+  Kind kind = 5;
+  DebitRobokassa debit_robokassa = 6;
+  CreditCompanyPremium credit_company_premium = 7;
+}
+
+message GetMyInvoicesResponse {
+  repeated InvoiceItem invoices = 1;
 }
 
 message ManualDebitRequest {
