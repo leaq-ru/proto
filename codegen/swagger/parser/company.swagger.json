@@ -1233,6 +1233,16 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          },
+          {
+            "name": "companyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [

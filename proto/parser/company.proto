@@ -242,6 +242,7 @@ message GetV2Request {
   Select has_facebook = 17;
   repeated string technology_ids = 18;
   FindRule technology_find_rule = 19;
+  repeated string company_ids = 20;
 }
 
 message MyCompany {
