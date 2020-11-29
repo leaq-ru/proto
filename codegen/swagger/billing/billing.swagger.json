@@ -65,6 +65,38 @@
         ]
       }
     },
+    "/v1/billing/getMyDataPlan": {
+      "post": {
+        "operationId": "Billing_GetMyDataPlan",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/billingGetMyDataPlanResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "properties": {}
+            }
+          }
+        ],
+        "tags": [
+          "Billing"
+        ]
+      }
+    },
     "/v1/billing/getMyInvoices": {
       "get": {
         "operationId": "Billing_GetMyInvoices",
@@ -128,6 +160,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/billingRenewCompanyPremiumRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Billing"
+        ]
+      }
+    },
+    "/v1/billing/renewDataPremium": {
+      "post": {
+        "operationId": "Billing_RenewDataPremium",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/billingRenewDataPremiumRequest"
             }
           }
         ],
@@ -221,6 +285,24 @@
         }
       }
     },
+    "billingCreditDataPremium": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "monthAmount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "userFirstName": {
+          "type": "string"
+        },
+        "userLastName": {
+          "type": "string"
+        }
+      }
+    },
     "billingDebitRobokassa": {
       "type": "object",
       "properties": {
@@ -230,12 +312,36 @@
         }
       }
     },
+    "billingGetDataPlanResponse": {
+      "type": "object",
+      "properties": {
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "premiumDeadline": {
+          "type": "string"
+        }
+      }
+    },
     "billingGetMyBalanceResponse": {
       "type": "object",
       "properties": {
         "balance": {
           "type": "integer",
           "format": "int64"
+        }
+      }
+    },
+    "billingGetMyDataPlanResponse": {
+      "type": "object",
+      "properties": {
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "premiumDeadline": {
+          "type": "string"
         }
       }
     },
@@ -274,6 +380,9 @@
         },
         "creditCompanyPremium": {
           "$ref": "#/definitions/billingCreditCompanyPremium"
+        },
+        "creditDataPremium": {
+          "$ref": "#/definitions/billingCreditDataPremium"
         }
       }
     },
@@ -283,7 +392,8 @@
         "KIND_NONE",
         "DEBIT_ROBOKASSA",
         "CREDIT_COMPANY_PREMIUM",
-        "DEBIT_MANUAL"
+        "DEBIT_MANUAL",
+        "CREDIT_DATA_PREMIUM"
       ],
       "default": "KIND_NONE"
     },
@@ -293,6 +403,15 @@
         "companyId": {
           "type": "string"
         },
+        "monthAmount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "billingRenewDataPremiumRequest": {
+      "type": "object",
+      "properties": {
         "monthAmount": {
           "type": "integer",
           "format": "int64"

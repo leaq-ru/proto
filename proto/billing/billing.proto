@@ -25,6 +25,12 @@ service Billing {
       body: "*"
     };
   };
+  rpc RenewDataPremium(RenewDataPremiumRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/billing/renewDataPremium"
+      body: "*"
+    };
+  };
   rpc GetMyBalance(google.protobuf.Empty) returns (GetMyBalanceResponse) {
     option (google.api.http) = {
       get: "/v1/billing/getMyBalance"
@@ -35,7 +41,28 @@ service Billing {
       get: "/v1/billing/getMyInvoices"
     };
   };
+  rpc GetMyDataPlan(google.protobuf.Empty) returns (GetMyDataPlanResponse) {
+    option (google.api.http) = {
+      post: "/v1/billing/getMyDataPlan"
+      body: "*"
+    };
+  };
   rpc ManualDebit(ManualDebitRequest) returns (google.protobuf.Empty) {};
+  rpc GetDataPlan(GetDataPlanRequest) returns (GetDataPlanResponse) {};
+}
+
+message GetDataPlanRequest {
+  string user_id = 1;
+}
+
+message GetDataPlanResponse {
+  bool premium = 1;
+  string premium_deadline = 2;
+}
+
+message GetMyDataPlanResponse {
+  bool premium = 1;
+  string premium_deadline = 2;
 }
 
 message GetMyInvoicesRequest {
@@ -53,6 +80,7 @@ enum Kind {
   DEBIT_ROBOKASSA = 1;
   CREDIT_COMPANY_PREMIUM = 2;
   DEBIT_MANUAL = 3;
+  CREDIT_DATA_PREMIUM = 4;
 }
 
 message DebitRobokassa {
@@ -65,6 +93,13 @@ message CreditCompanyPremium {
   string company_slug = 3;
 }
 
+message CreditDataPremium {
+  string user_id = 1;
+  uint32 month_amount = 2;
+  string user_first_name = 3;
+  string user_last_name = 4;
+}
+
 message InvoiceItem {
   string id = 1;
   string created_at = 2;
@@ -73,6 +108,7 @@ message InvoiceItem {
   Kind kind = 5;
   DebitRobokassa debit_robokassa = 6;
   CreditCompanyPremium credit_company_premium = 7;
+  CreditDataPremium credit_data_premium = 8;
 }
 
 message GetMyInvoicesResponse {
@@ -88,6 +124,10 @@ message ManualDebitRequest {
 message RenewCompanyPremiumRequest {
   string company_id = 1;
   uint32 month_amount = 2;
+}
+
+message RenewDataPremiumRequest {
+  uint32 month_amount = 1;
 }
 
 message GetBalanceRequest {
