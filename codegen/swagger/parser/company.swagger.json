@@ -1538,6 +1538,96 @@
         }
       }
     },
+    "parserFullCompanyV2": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "category": {
+          "$ref": "#/definitions/categoryCategoryItem"
+        },
+        "url": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "online": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "phone": {
+          "type": "number",
+          "format": "double"
+        },
+        "inn": {
+          "type": "number",
+          "format": "double"
+        },
+        "kpp": {
+          "type": "number",
+          "format": "double"
+        },
+        "ogrn": {
+          "type": "number",
+          "format": "double"
+        },
+        "domain": {
+          "$ref": "#/definitions/parserDomain"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "location": {
+          "$ref": "#/definitions/parserFullLocation"
+        },
+        "app": {
+          "$ref": "#/definitions/parserApp"
+        },
+        "social": {
+          "$ref": "#/definitions/parserSocial"
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserPeople"
+          }
+        },
+        "updatedAt": {
+          "type": "string"
+        },
+        "technologyCategories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserTechnologyCategory"
+          }
+        },
+        "pageSpeed": {
+          "type": "integer",
+          "format": "int64",
+          "title": "milliseconds"
+        },
+        "verified": {
+          "type": "boolean",
+          "format": "boolean",
+          "title": "company has owner"
+        },
+        "premium": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "parserFullLocation": {
       "type": "object",
       "properties": {
@@ -2028,6 +2118,31 @@
           "format": "int32"
         },
         "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "runtimeStreamError": {
+      "type": "object",
+      "properties": {
+        "grpcCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "httpCode": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "httpStatus": {
           "type": "string"
         },
         "details": {

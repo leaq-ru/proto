@@ -80,6 +80,35 @@ service Company {
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
   rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
+  rpc GetFull(GetV2Request) returns (stream FullCompanyV2) {};
+}
+
+message FullCompanyV2 {
+  string id = 1;
+  category.CategoryItem category = 2;
+  string url = 3;
+  string slug = 4;
+  string title = 5;
+  string email = 6;
+  string description = 7;
+  bool online = 8;
+  double phone = 9;
+  double inn = 10;
+  double kpp = 11;
+  double ogrn = 12;
+  Domain domain = 13;
+  string avatar = 14;
+  FullLocation location = 15;
+  App app = 16;
+  Social social = 17;
+  repeated People people = 18;
+  string updated_at = 19;
+  repeated TechnologyCategory technology_categories = 20;
+  // milliseconds
+  uint32 page_speed = 21;
+  // company has owner
+  bool verified = 22;
+  bool premium = 23;
 }
 
 message RenewCompanyPremiumRequest {
