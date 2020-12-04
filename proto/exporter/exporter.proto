@@ -32,10 +32,10 @@ message GetMyFilesRequest {
 
 enum Status {
   NONE = 0;
-  QUEUED = 1;
+  PENDING = 1;
   IN_PROGRESS = 2;
   SUCCESS = 3;
-  FAILED = 4;
+  FAIL = 4;
 }
 
 message File {
