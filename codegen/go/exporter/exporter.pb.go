@@ -488,7 +488,9 @@ const _ = grpc.SupportPackageIsVersion6
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ExporterClient interface {
+	// returns only first 1000 results even on data-premium plan
 	ExportCompanies(ctx context.Context, in *parser.GetListRequest, opts ...grpc.CallOption) (*ExportCompaniesResponse, error)
+	// available only on data-premium plan and full result returns in getMyFiles response
 	ExportCompaniesAsync(ctx context.Context, in *parser.GetListRequest, opts ...grpc.CallOption) (*empty.Empty, error)
 	GetMyFiles(ctx context.Context, in *GetMyFilesRequest, opts ...grpc.CallOption) (*GetMyFilesResponse, error)
 }
@@ -530,7 +532,9 @@ func (c *exporterClient) GetMyFiles(ctx context.Context, in *GetMyFilesRequest, 
 
 // ExporterServer is the server API for Exporter service.
 type ExporterServer interface {
+	// returns only first 1000 results even on data-premium plan
 	ExportCompanies(context.Context, *parser.GetListRequest) (*ExportCompaniesResponse, error)
+	// available only on data-premium plan and full result returns in getMyFiles response
 	ExportCompaniesAsync(context.Context, *parser.GetListRequest) (*empty.Empty, error)
 	GetMyFiles(context.Context, *GetMyFilesRequest) (*GetMyFilesResponse, error)
 }

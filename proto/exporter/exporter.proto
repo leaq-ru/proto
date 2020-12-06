@@ -9,11 +9,13 @@ import "opts/page.proto";
 import "parser/company.proto";
 
 service Exporter {
+  // returns only first 1000 results even on data-premium plan
   rpc ExportCompanies(parser.GetListRequest) returns (ExportCompaniesResponse) {
     option (google.api.http) = {
       get: "/v1/exporter/exportCompanies"
     };
   }
+  // available only on data-premium plan and full result returns in getMyFiles response
   rpc ExportCompaniesAsync(parser.GetListRequest) returns (google.protobuf.Empty) {
     option (google.api.http) = {
       get: "/v1/exporter/exportCompaniesAsync"
