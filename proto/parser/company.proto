@@ -81,6 +81,11 @@ service Company {
   rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
   rpc GetFull(GetV2Request) returns (stream FullCompanyV2) {};
+  rpc GetCount(GetV2Request) returns (GetCountResponse) {};
+}
+
+message GetCountResponse {
+  uint32 count = 1;
 }
 
 message FullCompanyV2 {

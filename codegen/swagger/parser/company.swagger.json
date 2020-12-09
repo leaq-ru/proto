@@ -1682,6 +1682,15 @@
         }
       }
     },
+    "parserGetCountResponse": {
+      "type": "object",
+      "properties": {
+        "count": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
     "parserGetListResponse": {
       "type": "object",
       "properties": {
