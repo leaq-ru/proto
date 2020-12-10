@@ -207,7 +207,7 @@
           "200": {
             "description": "A successful response.",
             "schema": {
-              "properties": {}
+              "type": "string"
             }
           },
           "default": {
