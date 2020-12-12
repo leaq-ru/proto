@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package classifier;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/classifier";
+
+service Classifier {
+  rpc Predict(PredictRequest) returns (PredictResponse);
+}
+
+message PredictRequest {
+  string html = 1;
+}
+
+message PredictResponse {
+  string category_class = 1;
+}
