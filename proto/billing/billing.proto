@@ -44,8 +44,7 @@ service Billing {
   };
   rpc GetMyDataPlan(google.protobuf.Empty) returns (GetMyDataPlanResponse) {
     option (google.api.http) = {
-      post: "/v1/billing/getMyDataPlan"
-      body: "*"
+      get: "/v1/billing/getMyDataPlan"
     };
   };
   rpc ManualDebit(ManualDebitRequest) returns (google.protobuf.Empty) {};
