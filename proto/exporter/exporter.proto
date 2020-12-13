@@ -45,6 +45,9 @@ message File {
   string name = 2;
   string url = 3;
   string created_at = 4;
+  Status status = 5;
+  uint32 current_count = 6;
+  uint32 total_count = 7;
 }
 
 message GetMyFilesResponse {

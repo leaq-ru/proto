@@ -546,6 +546,17 @@
         },
         "createdAt": {
           "type": "string"
+        },
+        "status": {
+          "$ref": "#/definitions/exporterStatus"
+        },
+        "currentCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "totalCount": {
+          "type": "integer",
+          "format": "int64"
         }
       }
     },
@@ -559,6 +570,17 @@
           }
         }
       }
+    },
+    "exporterStatus": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "PENDING",
+        "IN_PROGRESS",
+        "SUCCESS",
+        "FAIL"
+      ],
+      "default": "NONE"
     },
     "optsSkipLimit": {
       "type": "object",
