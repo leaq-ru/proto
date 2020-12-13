@@ -278,18 +278,9 @@
     "billingCreditDataPremium": {
       "type": "object",
       "properties": {
-        "userId": {
-          "type": "string"
-        },
         "monthAmount": {
           "type": "integer",
           "format": "int64"
-        },
-        "userFirstName": {
-          "type": "string"
-        },
-        "userLastName": {
-          "type": "string"
         }
       }
     },

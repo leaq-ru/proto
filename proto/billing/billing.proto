@@ -94,10 +94,7 @@ message CreditCompanyPremium {
 }
 
 message CreditDataPremium {
-  string user_id = 1;
-  uint32 month_amount = 2;
-  string user_first_name = 3;
-  string user_last_name = 4;
+  uint32 month_amount = 1;
 }
 
 message InvoiceItem {
