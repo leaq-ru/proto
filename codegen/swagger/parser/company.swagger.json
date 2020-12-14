@@ -1741,6 +1741,83 @@
         }
       }
     },
+    "parserGetV2Request": {
+      "type": "object",
+      "properties": {
+        "opts": {
+          "$ref": "#/definitions/optsPage"
+        },
+        "cityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "categoryIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hasEmail": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasPhone": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasOnline": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasInn": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasKpp": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasOgrn": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasAppStore": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasGooglePlay": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasVk": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "vkMembersCount": {
+          "$ref": "#/definitions/parserVkMembersCount"
+        },
+        "hasInstagram": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasTwitter": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasYoutube": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "hasFacebook": {
+          "$ref": "#/definitions/parserSelect"
+        },
+        "technologyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "technologyFindRule": {
+          "$ref": "#/definitions/parserFindRule"
+        },
+        "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
     "parserIsClosed": {
       "type": "string",
       "enum": [

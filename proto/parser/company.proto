@@ -80,8 +80,13 @@ service Company {
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
   rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
-  rpc GetFull(GetV2Request) returns (stream FullCompanyV2) {};
+  rpc GetFull(GetFullRequest) returns (stream FullCompanyV2) {};
   rpc GetCount(GetV2Request) returns (GetCountResponse) {};
+}
+
+message GetFullRequest {
+  string from_id = 1;
+  GetV2Request query = 2;
 }
 
 message GetCountResponse {
