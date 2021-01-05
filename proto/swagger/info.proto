@@ -9,7 +9,7 @@ option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
   info: {
     title: "LEAQ API"
     version: "1.0.0"
-    description: "Доступ к API без ограничений на кол-во запросов в день/месяц. Ограничение 1 запрос в секунду с одного IP для бесплатного тарифа, и 30 для платного. Подробнее о тарифах: https://leaq.ru/plans#data"
+    description: "Доступ к API без ограничений на кол-во запросов в день/месяц. Ограничение 1 запрос в секунду с одного IP для бесплатного тарифа, и 30 для платного. Подробнее о тарифах: https://leaq.ru/plans#data \n\n Для платного тарифа, передавайте токен с https://leaq.ru/account/profile в заголовке 'Authorization: Bearer TOKEN'"
     contact: {
       name: "Поддержка"
       url: "https://vk.me/leaq_ru"
