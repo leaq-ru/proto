@@ -6,11 +6,16 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
 import "google/api/annotations.proto";
 
 service User {
-  // https://vk.com/dev/Auth
   rpc VkAuth(VkAuthRequest) returns (SelfUser) {
     option (google.api.http) = {
       post: "/v1/user/vkAuth"
-      body: '*'
+      body: "*"
+    };
+  };
+  rpc YandexAuth(YandexAuthRequest) returns (SelfUser) {
+    option (google.api.http) = {
+      post: "/v1/user/yandexAuth"
+      body: "*"
     };
   };
   rpc Auth(AuthRequest) returns (SelfUser) {};
@@ -35,6 +40,10 @@ message AuthRequest {
 }
 
 message VkAuthRequest {
+  string code = 1;
+}
+
+message YandexAuthRequest {
   string code = 1;
 }
 

@@ -13,7 +13,6 @@
   "paths": {
     "/v1/user/vkAuth": {
       "post": {
-        "summary": "https://vk.com/dev/Auth",
         "operationId": "User_VkAuth",
         "responses": {
           "200": {
@@ -36,6 +35,38 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/userVkAuthRequest"
+            }
+          }
+        ],
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/v1/user/yandexAuth": {
+      "post": {
+        "operationId": "User_YandexAuth",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/userSelfUser"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/userYandexAuthRequest"
             }
           }
         ],
@@ -134,6 +165,14 @@
       }
     },
     "userVkAuthRequest": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string"
+        }
+      }
+    },
+    "userYandexAuthRequest": {
       "type": "object",
       "properties": {
         "code": {
