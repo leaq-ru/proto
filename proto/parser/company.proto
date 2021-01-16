@@ -208,6 +208,7 @@ message GetListRequest {
   Select has_facebook = 16;
   repeated string technology_ids = 17;
   FindRule technology_find_rule = 18;
+  repeated string dns_ids = 19;
 }
 
 message GetListResponse {
@@ -288,6 +289,7 @@ message GetV2Request {
   repeated string technology_ids = 18;
   FindRule technology_find_rule = 19;
   repeated string company_ids = 20;
+  repeated string dns_ids = 21;
 }
 
 message MyCompany {

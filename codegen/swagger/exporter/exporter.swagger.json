@@ -240,6 +240,16 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          },
+          {
+            "name": "dnsIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -476,6 +486,16 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          },
+          {
+            "name": "dnsIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [

@@ -631,6 +631,16 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          },
+          {
+            "name": "dnsIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -906,6 +916,16 @@
               "ALL"
             ],
             "default": "ONE_OF"
+          },
+          {
+            "name": "dnsIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
           }
         ],
         "tags": [
@@ -1236,6 +1256,16 @@
           },
           {
             "name": "companyIds",
+            "in": "query",
+            "required": false,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "dnsIds",
             "in": "query",
             "required": false,
             "type": "array",
@@ -1834,6 +1864,12 @@
           "$ref": "#/definitions/parserFindRule"
         },
         "companyIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dnsIds": {
           "type": "array",
           "items": {
             "type": "string"
