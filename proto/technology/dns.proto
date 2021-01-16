@@ -32,7 +32,7 @@ message DnsItem {
 }
 
 message GetDnsHintsResponse {
-  repeated DnsItem technologies = 1;
+  repeated DnsItem dns = 1;
 }
 
 message GetDnsByIdsRequest {

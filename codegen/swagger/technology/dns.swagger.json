@@ -133,7 +133,7 @@
     "technologyGetDnsHintsResponse": {
       "type": "object",
       "properties": {
-        "technologies": {
+        "dns": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/technologyDnsItem"
