@@ -1377,6 +1377,17 @@
         }
       }
     },
+    "parserDnsItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
     "parserDomain": {
       "type": "object",
       "properties": {
@@ -1625,6 +1636,12 @@
         "premium": {
           "type": "boolean",
           "format": "boolean"
+        },
+        "dns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserDnsItem"
+          }
         }
       }
     },
@@ -1679,6 +1696,12 @@
         "premium": {
           "type": "boolean",
           "format": "boolean"
+        },
+        "dns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserDnsItem"
+          }
         }
       }
     },
