@@ -23,6 +23,21 @@
       "description": "- MAIN: Головная организация\n - BRANCH: Филиал",
       "title": "Тип подразделения"
     },
+    "fnsMetro": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "line": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
     "fnsOkvedKind": {
       "type": "string",
       "enum": [

@@ -88,12 +88,17 @@ message ReindexRequest {
   BranchKind branch_kind = 23;
   string address = 24;
   repeated Metro metro = 25;
-  string region_fias_id = 26;
-  string region_kladr_id = 27;
-  string region_type = 28;
-  string region_type_full = 29;
-  string region_name = 30;
-  string registration_date = 31;
-  string liquidation_date = 32;
-  StatusKind status_kind = 33;
+  string city_fias_id = 26;
+  string city_kladr_id = 27;
+  string city_name = 28;
+  string city_type = 29;
+  string city_type_full = 30;
+  string settlement_fias_id = 31;
+  string settlement_kladr_id = 32;
+  string settlement_name = 33;
+  string settlement_type = 34;
+  string settlement_type_full = 35;
+  string registration_date = 36;
+  string liquidation_date = 37;
+  StatusKind status_kind = 38;
 }
