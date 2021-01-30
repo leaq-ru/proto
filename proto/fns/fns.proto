@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package fns;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/fns";
+
+import "google/protobuf/empty.proto";
+
+service Fns {
+  rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
+}
+
+enum OrgKind {
+  ORG_KIND_NONE = 0;
+  // Юридическое лицо
+  LEGAL = 1;
+  // Индивидуальный предприниматель
+  INDIVIDUAL = 2;
+}
+
+// Версия справочника ОКВЭД
+enum OkvedKind {
+  OKVED_KIND_NONE = 0;
+  y2001 = 1;
+  y2004 = 2;
+}
+
+// Версия справочника ОКОПФ
+enum OpfKind {
+  OPF_KIND_NONE = 0;
+  y1999 = 1;
+  y2012 = 2;
+  y2014 = 3;
+}
+
+// Тип подразделения
+enum BranchKind {
+  BRANCH_KIND_NONE = 0;
+  // Головная организация
+  MAIN = 1;
+  // Филиал
+  BRANCH = 2;
+}
+
+// Статус организации
+enum StatusKind {
+  STATUS_KIND_NONE = 0;
+  // Действующая
+  ACTIVE = 1;
+  // Ликвидируется
+  LIQUIDATING = 2;
+  // Ликвидирована
+  LIQUIDATED = 3;
+  // Банкротство
+  BANKRUPT = 4;
+  // В процессе присоединения к другому юрлицу, с последующей ликвидацией
+  REORGANIZING = 5;
+}
+
+message Metro {
+  string name = 1;
+  string line = 2;
+  float distance = 3;
+}
+
+message ReindexRequest {
+  string name = 1;
+  double inn = 2;
+  double kpp = 3;
+  double ogrn = 4;
+  string ogrn_date = 5;
+  OrgKind org_kind = 6;
+  string name_full_with_opf = 7;
+  string name_short_with_opf = 8;
+  double okato = 9;
+  double oktmo = 10;
+  double okpo = 11;
+  double okogu = 12;
+  double okfs = 13;
+  string okved = 14;
+  OkvedKind okved_kind = 15;
+  double opf_code = 16;
+  string opf_full = 17;
+  string opf_short = 18;
+  OpfKind opf_kind = 19;
+  string management_name = 20;
+  string management_post = 21;
+  uint32 branch_count = 22;
+  BranchKind branch_kind = 23;
+  string address = 24;
+  repeated Metro metro = 25;
+  string region_fias_id = 26;
+  string region_kladr_id = 27;
+  string region_type = 28;
+  string region_type_full = 29;
+  string region_name = 30;
+  string registration_date = 31;
+  string liquidation_date = 32;
+  StatusKind status_kind = 33;
+}

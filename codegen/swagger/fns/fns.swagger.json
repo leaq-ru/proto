@@ -1,0 +1,105 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "fns/fns.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "fnsBranchKind": {
+      "type": "string",
+      "enum": [
+        "BRANCH_KIND_NONE",
+        "MAIN",
+        "BRANCH"
+      ],
+      "default": "BRANCH_KIND_NONE",
+      "description": "- MAIN: Головная организация\n - BRANCH: Филиал",
+      "title": "Тип подразделения"
+    },
+    "fnsOkvedKind": {
+      "type": "string",
+      "enum": [
+        "OKVED_KIND_NONE",
+        "y2001",
+        "y2004"
+      ],
+      "default": "OKVED_KIND_NONE",
+      "title": "Версия справочника ОКВЭД"
+    },
+    "fnsOpfKind": {
+      "type": "string",
+      "enum": [
+        "OPF_KIND_NONE",
+        "y1999",
+        "y2012",
+        "y2014"
+      ],
+      "default": "OPF_KIND_NONE",
+      "title": "Версия справочника ОКОПФ"
+    },
+    "fnsOrgKind": {
+      "type": "string",
+      "enum": [
+        "ORG_KIND_NONE",
+        "LEGAL",
+        "INDIVIDUAL"
+      ],
+      "default": "ORG_KIND_NONE",
+      "title": "- LEGAL: Юридическое лицо\n - INDIVIDUAL: Индивидуальный предприниматель"
+    },
+    "fnsStatusKind": {
+      "type": "string",
+      "enum": [
+        "STATUS_KIND_NONE",
+        "ACTIVE",
+        "LIQUIDATING",
+        "LIQUIDATED",
+        "BANKRUPT",
+        "REORGANIZING"
+      ],
+      "default": "STATUS_KIND_NONE",
+      "description": "- ACTIVE: Действующая\n - LIQUIDATING: Ликвидируется\n - LIQUIDATED: Ликвидирована\n - BANKRUPT: Банкротство\n - REORGANIZING: В процессе присоединения к другому юрлицу, с последующей ликвидацией",
+      "title": "Статус организации"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "typeUrl": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
