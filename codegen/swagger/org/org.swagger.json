@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "fns/fns.proto",
+    "title": "org/org.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -12,7 +12,7 @@
   ],
   "paths": {},
   "definitions": {
-    "fnsBranchKind": {
+    "orgBranchKind": {
       "type": "string",
       "enum": [
         "BRANCH_KIND_NONE",
@@ -23,7 +23,7 @@
       "description": "- MAIN: Головная организация\n - BRANCH: Филиал",
       "title": "Тип подразделения"
     },
-    "fnsMetro": {
+    "orgMetro": {
       "type": "object",
       "properties": {
         "name": {
@@ -38,7 +38,7 @@
         }
       }
     },
-    "fnsOkvedKind": {
+    "orgOkvedKind": {
       "type": "string",
       "enum": [
         "OKVED_KIND_NONE",
@@ -48,7 +48,7 @@
       "default": "OKVED_KIND_NONE",
       "title": "Версия справочника ОКВЭД"
     },
-    "fnsOpfKind": {
+    "orgOpfKind": {
       "type": "string",
       "enum": [
         "OPF_KIND_NONE",
@@ -59,7 +59,7 @@
       "default": "OPF_KIND_NONE",
       "title": "Версия справочника ОКОПФ"
     },
-    "fnsOrgKind": {
+    "orgOrgKind": {
       "type": "string",
       "enum": [
         "ORG_KIND_NONE",
@@ -69,7 +69,7 @@
       "default": "ORG_KIND_NONE",
       "title": "- LEGAL: Юридическое лицо\n - INDIVIDUAL: Индивидуальный предприниматель"
     },
-    "fnsStatusKind": {
+    "orgStatusKind": {
       "type": "string",
       "enum": [
         "STATUS_KIND_NONE",
