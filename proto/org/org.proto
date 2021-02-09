@@ -4,9 +4,46 @@ package org;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/org";
 
 import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+import "opts/page.proto";
 
 service Org {
-  rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
+  rpc Get(GetRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/get"
+    };
+  };
+}
+
+message GetRequest {
+  opts.SkipLimit opts = 1;
+}
+
+message OrgShort {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  double inn = 4;
+  double kpp = 5;
+  double ogrn = 6;
+  OrgKind org_kind = 7;
+  string manager_id = 8;
+  string manager_slug = 9;
+  string manager_name = 10;
+  string area_id = 11;
+  string area_slug = 12;
+  string area_name = 13;
+  string location_id = 14;
+  string location_slug = 15;
+  string location_name = 16;
+  string okved_id = 17;
+  string okved_slug = 18;
+  string okved_name = 19;
+  StatusKind status_kind = 20;
+}
+
+message GetResponse {
+  repeated OrgShort orgs = 1;
 }
 
 enum OrgKind {
@@ -54,52 +91,4 @@ enum StatusKind {
   BANKRUPT = 4;
   // В процессе присоединения к другому юрлицу, с последующей ликвидацией
   REORGANIZING = 5;
-}
-
-message Metro {
-  string name = 1;
-  string line = 2;
-  float distance = 3;
-}
-
-message ReindexRequest {
-  string dadata_id = 1;
-  string name = 2;
-  double inn = 3;
-  double kpp = 4;
-  double ogrn = 5;
-  string ogrn_date = 6;
-  OrgKind org_kind = 7;
-  string name_full_with_opf = 8;
-  string name_short_with_opf = 9;
-  double okato = 10;
-  double oktmo = 11;
-  double okpo = 12;
-  double okogu = 13;
-  double okfs = 14;
-  string okved = 15;
-  OkvedKind okved_kind = 16;
-  double opf_code = 17;
-  string opf_full = 18;
-  string opf_short = 19;
-  OpfKind opf_kind = 20;
-  string management_name = 21;
-  string management_post = 22;
-  uint32 branch_count = 23;
-  BranchKind branch_kind = 24;
-  string address = 25;
-  repeated Metro metro = 26;
-  string city_fias_id = 27;
-  string city_kladr_id = 28;
-  string city_name = 29;
-  string city_type = 30;
-  string city_type_full = 31;
-  string settlement_fias_id = 32;
-  string settlement_kladr_id = 33;
-  string settlement_name = 34;
-  string settlement_type = 35;
-  string settlement_type_full = 36;
-  string registration_date = 37;
-  string liquidation_date = 38;
-  StatusKind status_kind = 39;
 }
