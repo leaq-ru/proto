@@ -13,10 +13,141 @@ service Org {
       get: "/v1/org/get"
     };
   };
+  rpc GetByAreaId(GetByAreaIdRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getByAreaId"
+    };
+  };
+  rpc GetByManagerId(GetByManagerIdRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getByManagerId"
+    };
+  };
+  rpc GetByMetroId(GetByMetroIdRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getByMetroId"
+    };
+  };
+  rpc GetByOkvedId(GetByOkvedIdRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getByOkvedId"
+    };
+  };
+  rpc GetRelated(GetRelatedRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getRelated"
+    };
+  };
+  rpc GetBySlug(GetBySlugRequest) returns (GetBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getBySlug"
+    };
+  };
+}
+
+message GetRelatedRequest {
+  string org_id = 1;
+  opts.SkipLimit opts = 2;
+}
+
+message GetByAreaIdRequest {
+  string area_id = 1;
+}
+
+message GetByManagerIdRequest {
+  string manager_id = 1;
+}
+
+message GetByMetroIdRequest {
+  string metro_id = 1;
+}
+
+message GetByOkvedIdRequest {
+  string okved_id = 1;
+}
+
+message GetBySlugRequest {
+  string slug = 1;
+}
+
+message Main {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  double inn = 4;
+  double kpp = 5;
+  double ogrn = 6;
+  OrgKind org_kind = 7;
+  ManagerItem manager = 8;
+  AreaItem area = 9;
+  LocationItem location = 10;
+  OkvedItem okved = 11;
+  StatusKind status_kind = 12;
+  repeated OkvedItem okved_dop = 13;
+  uint32 employee_count = 14;
+  repeated MetroItem metros = 15;
+  string name_full_with_opf = 16;
+  string name_short_with_opf = 17;
+  double opf_code = 18;
+  string opf_full = 19;
+  string opf_short = 20;
+  OpfKind opf_kind = 21;
+  string ogrn_date = 22;
+  double okato = 23;
+  double oktmo = 24;
+  double okpo = 25;
+  double okogu = 26;
+  double okfs = 27;
+  string registration_date = 28;
+  string liquidation_date = 29;
+  string updated_at = 30;
+}
+
+message Branch {
+  string name = 1;
+  AreaItem area = 2;
+  LocationItem location = 3;
+  StatusKind status_kind = 4;
+}
+
+message GetBySlugResponse {
+  Main main = 1;
+  repeated Branch branches = 2;
 }
 
 message GetRequest {
   opts.SkipLimit opts = 1;
+}
+
+message MetroItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  float distance = 4;
+}
+
+message ManagerItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+}
+
+message AreaItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+}
+
+message LocationItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+}
+
+message OkvedItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
 }
 
 message OrgShort {
@@ -27,19 +158,11 @@ message OrgShort {
   double kpp = 5;
   double ogrn = 6;
   OrgKind org_kind = 7;
-  string manager_id = 8;
-  string manager_slug = 9;
-  string manager_name = 10;
-  string area_id = 11;
-  string area_slug = 12;
-  string area_name = 13;
-  string location_id = 14;
-  string location_slug = 15;
-  string location_name = 16;
-  string okved_id = 17;
-  string okved_slug = 18;
-  string okved_name = 19;
-  StatusKind status_kind = 20;
+  ManagerItem manager = 8;
+  AreaItem area = 9;
+  LocationItem location = 10;
+  OkvedItem okved = 11;
+  StatusKind status_kind = 12;
 }
 
 message GetResponse {
@@ -57,16 +180,16 @@ enum OrgKind {
 // Версия справочника ОКВЭД
 enum OkvedKind {
   OKVED_KIND_NONE = 0;
-  y2001 = 1;
-  y2004 = 2;
+  Y2001 = 1;
+  Y2004 = 2;
 }
 
 // Версия справочника ОКОПФ
 enum OpfKind {
   OPF_KIND_NONE = 0;
-  y1999 = 1;
-  y2012 = 2;
-  y2014 = 3;
+  Y1999 = 1;
+  Y2012 = 2;
+  Y2014 = 3;
 }
 
 // Тип подразделения

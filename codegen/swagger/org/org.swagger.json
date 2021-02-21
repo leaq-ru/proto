@@ -49,6 +49,201 @@
           "Org"
         ]
       }
+    },
+    "/v1/org/getByAreaId": {
+      "get": {
+        "operationId": "Org_GetByAreaId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "areaId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/org/getByManagerId": {
+      "get": {
+        "operationId": "Org_GetByManagerId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "managerId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/org/getByMetroId": {
+      "get": {
+        "operationId": "Org_GetByMetroId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "metroId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/org/getByOkvedId": {
+      "get": {
+        "operationId": "Org_GetByOkvedId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "okvedId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/org/getBySlug": {
+      "get": {
+        "operationId": "Org_GetBySlug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetBySlugResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
+    "/v1/org/getRelated": {
+      "get": {
+        "operationId": "Org_GetRelated",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "orgId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
     }
   },
   "definitions": {
@@ -69,6 +264,51 @@
         }
       }
     },
+    "orgAreaItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "orgBranch": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/definitions/orgAreaItem"
+        },
+        "location": {
+          "$ref": "#/definitions/orgLocationItem"
+        },
+        "statusKind": {
+          "$ref": "#/definitions/orgStatusKind"
+        }
+      }
+    },
+    "orgGetBySlugResponse": {
+      "type": "object",
+      "properties": {
+        "main": {
+          "$ref": "#/definitions/orgMain"
+        },
+        "branches": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orgBranch"
+          }
+        }
+      }
+    },
     "orgGetResponse": {
       "type": "object",
       "properties": {
@@ -79,6 +319,188 @@
           }
         }
       }
+    },
+    "orgLocationItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "orgMain": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "inn": {
+          "type": "number",
+          "format": "double"
+        },
+        "kpp": {
+          "type": "number",
+          "format": "double"
+        },
+        "ogrn": {
+          "type": "number",
+          "format": "double"
+        },
+        "orgKind": {
+          "$ref": "#/definitions/orgOrgKind"
+        },
+        "manager": {
+          "$ref": "#/definitions/orgManagerItem"
+        },
+        "area": {
+          "$ref": "#/definitions/orgAreaItem"
+        },
+        "location": {
+          "$ref": "#/definitions/orgLocationItem"
+        },
+        "okved": {
+          "$ref": "#/definitions/orgOkvedItem"
+        },
+        "statusKind": {
+          "$ref": "#/definitions/orgStatusKind"
+        },
+        "okvedDop": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orgOkvedItem"
+          }
+        },
+        "employeeCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "metros": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orgMetroItem"
+          }
+        },
+        "nameFullWithOpf": {
+          "type": "string"
+        },
+        "nameShortWithOpf": {
+          "type": "string"
+        },
+        "opfCode": {
+          "type": "number",
+          "format": "double"
+        },
+        "opfFull": {
+          "type": "string"
+        },
+        "opfShort": {
+          "type": "string"
+        },
+        "opfKind": {
+          "$ref": "#/definitions/orgOpfKind"
+        },
+        "ogrnDate": {
+          "type": "string"
+        },
+        "okato": {
+          "type": "number",
+          "format": "double"
+        },
+        "oktmo": {
+          "type": "number",
+          "format": "double"
+        },
+        "okpo": {
+          "type": "number",
+          "format": "double"
+        },
+        "okogu": {
+          "type": "number",
+          "format": "double"
+        },
+        "okfs": {
+          "type": "number",
+          "format": "double"
+        },
+        "registrationDate": {
+          "type": "string"
+        },
+        "liquidationDate": {
+          "type": "string"
+        },
+        "updatedAt": {
+          "type": "string"
+        }
+      }
+    },
+    "orgManagerItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "orgMetroItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "distance": {
+          "type": "number",
+          "format": "float"
+        }
+      }
+    },
+    "orgOkvedItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "orgOpfKind": {
+      "type": "string",
+      "enum": [
+        "OPF_KIND_NONE",
+        "Y1999",
+        "Y2012",
+        "Y2014"
+      ],
+      "default": "OPF_KIND_NONE",
+      "title": "Версия справочника ОКОПФ"
     },
     "orgOrgKind": {
       "type": "string",
@@ -117,41 +539,17 @@
         "orgKind": {
           "$ref": "#/definitions/orgOrgKind"
         },
-        "managerId": {
-          "type": "string"
+        "manager": {
+          "$ref": "#/definitions/orgManagerItem"
         },
-        "managerSlug": {
-          "type": "string"
+        "area": {
+          "$ref": "#/definitions/orgAreaItem"
         },
-        "managerName": {
-          "type": "string"
+        "location": {
+          "$ref": "#/definitions/orgLocationItem"
         },
-        "areaId": {
-          "type": "string"
-        },
-        "areaSlug": {
-          "type": "string"
-        },
-        "areaName": {
-          "type": "string"
-        },
-        "locationId": {
-          "type": "string"
-        },
-        "locationSlug": {
-          "type": "string"
-        },
-        "locationName": {
-          "type": "string"
-        },
-        "okvedId": {
-          "type": "string"
-        },
-        "okvedSlug": {
-          "type": "string"
-        },
-        "okvedName": {
-          "type": "string"
+        "okved": {
+          "$ref": "#/definitions/orgOkvedItem"
         },
         "statusKind": {
           "$ref": "#/definitions/orgStatusKind"
