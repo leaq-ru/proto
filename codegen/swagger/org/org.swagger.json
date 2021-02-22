@@ -219,7 +219,13 @@
         },
         "parameters": [
           {
-            "name": "orgId",
+            "name": "areaId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "okvedId",
             "in": "query",
             "required": false,
             "type": "string"
