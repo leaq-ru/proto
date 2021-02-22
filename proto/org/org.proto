@@ -45,25 +45,29 @@ service Org {
 }
 
 message GetRelatedRequest {
-  string area_id = 1;
-  string okved_id = 2;
-  opts.SkipLimit opts = 3;
+  opts.SkipLimit opts = 1;
+  string area_id = 2;
+  string okved_id = 3;
 }
 
 message GetByAreaIdRequest {
-  string area_id = 1;
+  opts.SkipLimit opts = 1;
+  string area_id = 2;
 }
 
 message GetByManagerIdRequest {
-  string manager_id = 1;
+  opts.SkipLimit opts = 1;
+  string manager_id = 2;
 }
 
 message GetByMetroIdRequest {
-  string metro_id = 1;
+  opts.SkipLimit opts = 1;
+  string metro_id = 2;
 }
 
 message GetByOkvedIdRequest {
-  string okved_id = 1;
+  opts.SkipLimit opts = 1;
+  string okved_id = 2;
 }
 
 message GetBySlugRequest {
@@ -77,7 +81,7 @@ message Main {
   double inn = 4;
   double kpp = 5;
   double ogrn = 6;
-  OrgKind org_kind = 7;
+  OrgKind kind = 7;
   ManagerItem manager = 8;
   AreaItem area = 9;
   LocationItem location = 10;
@@ -148,6 +152,7 @@ message OkvedItem {
   string id = 1;
   string slug = 2;
   string name = 3;
+  OkvedKind kind = 4;
 }
 
 message OrgShort {
@@ -157,7 +162,7 @@ message OrgShort {
   double inn = 4;
   double kpp = 5;
   double ogrn = 6;
-  OrgKind org_kind = 7;
+  OrgKind kind = 7;
   ManagerItem manager = 8;
   AreaItem area = 9;
   LocationItem location = 10;
@@ -190,15 +195,6 @@ enum OpfKind {
   Y1999 = 1;
   Y2012 = 2;
   Y2014 = 3;
-}
-
-// Тип подразделения
-enum BranchKind {
-  BRANCH_KIND_NONE = 0;
-  // Головная организация
-  MAIN = 1;
-  // Филиал
-  BRANCH = 2;
 }
 
 // Статус организации

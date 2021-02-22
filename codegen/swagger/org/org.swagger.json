@@ -69,6 +69,21 @@
         },
         "parameters": [
           {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
             "name": "areaId",
             "in": "query",
             "required": false,
@@ -98,6 +113,21 @@
           }
         },
         "parameters": [
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
           {
             "name": "managerId",
             "in": "query",
@@ -129,6 +159,21 @@
         },
         "parameters": [
           {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
             "name": "metroId",
             "in": "query",
             "required": false,
@@ -158,6 +203,21 @@
           }
         },
         "parameters": [
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
           {
             "name": "okvedId",
             "in": "query",
@@ -219,18 +279,6 @@
         },
         "parameters": [
           {
-            "name": "areaId",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
-            "name": "okvedId",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          },
-          {
             "name": "opts.skip",
             "in": "query",
             "required": false,
@@ -244,6 +292,18 @@
             "required": false,
             "type": "integer",
             "format": "int64"
+          },
+          {
+            "name": "areaId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "okvedId",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
@@ -364,7 +424,7 @@
           "type": "number",
           "format": "double"
         },
-        "orgKind": {
+        "kind": {
           "$ref": "#/definitions/orgOrgKind"
         },
         "manager": {
@@ -494,8 +554,21 @@
         },
         "name": {
           "type": "string"
+        },
+        "kind": {
+          "$ref": "#/definitions/orgOkvedKind"
         }
       }
+    },
+    "orgOkvedKind": {
+      "type": "string",
+      "enum": [
+        "OKVED_KIND_NONE",
+        "Y2001",
+        "Y2004"
+      ],
+      "default": "OKVED_KIND_NONE",
+      "title": "Версия справочника ОКВЭД"
     },
     "orgOpfKind": {
       "type": "string",
@@ -542,7 +615,7 @@
           "type": "number",
           "format": "double"
         },
-        "orgKind": {
+        "kind": {
           "$ref": "#/definitions/orgOrgKind"
         },
         "manager": {
