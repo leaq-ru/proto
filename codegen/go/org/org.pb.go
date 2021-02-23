@@ -367,6 +367,61 @@ func (x *GetByAreaIdRequest) GetAreaId() string {
 	return ""
 }
 
+type GetByLocationIdRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Opts       *opts.SkipLimit `protobuf:"bytes,1,opt,name=opts,proto3" json:"opts,omitempty"`
+	LocationId string          `protobuf:"bytes,2,opt,name=location_id,json=locationId,proto3" json:"location_id,omitempty"`
+}
+
+func (x *GetByLocationIdRequest) Reset() {
+	*x = GetByLocationIdRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_org_org_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetByLocationIdRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetByLocationIdRequest) ProtoMessage() {}
+
+func (x *GetByLocationIdRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_org_org_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetByLocationIdRequest.ProtoReflect.Descriptor instead.
+func (*GetByLocationIdRequest) Descriptor() ([]byte, []int) {
+	return file_org_org_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetByLocationIdRequest) GetOpts() *opts.SkipLimit {
+	if x != nil {
+		return x.Opts
+	}
+	return nil
+}
+
+func (x *GetByLocationIdRequest) GetLocationId() string {
+	if x != nil {
+		return x.LocationId
+	}
+	return ""
+}
+
 type GetByManagerIdRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -379,7 +434,7 @@ type GetByManagerIdRequest struct {
 func (x *GetByManagerIdRequest) Reset() {
 	*x = GetByManagerIdRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[2]
+		mi := &file_org_org_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -392,7 +447,7 @@ func (x *GetByManagerIdRequest) String() string {
 func (*GetByManagerIdRequest) ProtoMessage() {}
 
 func (x *GetByManagerIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[2]
+	mi := &file_org_org_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -405,7 +460,7 @@ func (x *GetByManagerIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetByManagerIdRequest.ProtoReflect.Descriptor instead.
 func (*GetByManagerIdRequest) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{2}
+	return file_org_org_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GetByManagerIdRequest) GetOpts() *opts.SkipLimit {
@@ -434,7 +489,7 @@ type GetByMetroIdRequest struct {
 func (x *GetByMetroIdRequest) Reset() {
 	*x = GetByMetroIdRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[3]
+		mi := &file_org_org_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -447,7 +502,7 @@ func (x *GetByMetroIdRequest) String() string {
 func (*GetByMetroIdRequest) ProtoMessage() {}
 
 func (x *GetByMetroIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[3]
+	mi := &file_org_org_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -460,7 +515,7 @@ func (x *GetByMetroIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetByMetroIdRequest.ProtoReflect.Descriptor instead.
 func (*GetByMetroIdRequest) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{3}
+	return file_org_org_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GetByMetroIdRequest) GetOpts() *opts.SkipLimit {
@@ -489,7 +544,7 @@ type GetByOkvedIdRequest struct {
 func (x *GetByOkvedIdRequest) Reset() {
 	*x = GetByOkvedIdRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[4]
+		mi := &file_org_org_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -502,7 +557,7 @@ func (x *GetByOkvedIdRequest) String() string {
 func (*GetByOkvedIdRequest) ProtoMessage() {}
 
 func (x *GetByOkvedIdRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[4]
+	mi := &file_org_org_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -515,7 +570,7 @@ func (x *GetByOkvedIdRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetByOkvedIdRequest.ProtoReflect.Descriptor instead.
 func (*GetByOkvedIdRequest) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{4}
+	return file_org_org_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetByOkvedIdRequest) GetOpts() *opts.SkipLimit {
@@ -543,7 +598,7 @@ type GetBySlugRequest struct {
 func (x *GetBySlugRequest) Reset() {
 	*x = GetBySlugRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[5]
+		mi := &file_org_org_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -556,7 +611,7 @@ func (x *GetBySlugRequest) String() string {
 func (*GetBySlugRequest) ProtoMessage() {}
 
 func (x *GetBySlugRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[5]
+	mi := &file_org_org_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -569,7 +624,7 @@ func (x *GetBySlugRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBySlugRequest.ProtoReflect.Descriptor instead.
 func (*GetBySlugRequest) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{5}
+	return file_org_org_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *GetBySlugRequest) GetSlug() string {
@@ -619,7 +674,7 @@ type Main struct {
 func (x *Main) Reset() {
 	*x = Main{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[6]
+		mi := &file_org_org_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -632,7 +687,7 @@ func (x *Main) String() string {
 func (*Main) ProtoMessage() {}
 
 func (x *Main) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[6]
+	mi := &file_org_org_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -645,7 +700,7 @@ func (x *Main) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Main.ProtoReflect.Descriptor instead.
 func (*Main) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{6}
+	return file_org_org_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Main) GetId() string {
@@ -872,7 +927,7 @@ type Branch struct {
 func (x *Branch) Reset() {
 	*x = Branch{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[7]
+		mi := &file_org_org_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -885,7 +940,7 @@ func (x *Branch) String() string {
 func (*Branch) ProtoMessage() {}
 
 func (x *Branch) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[7]
+	mi := &file_org_org_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -898,7 +953,7 @@ func (x *Branch) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Branch.ProtoReflect.Descriptor instead.
 func (*Branch) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{7}
+	return file_org_org_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *Branch) GetName() string {
@@ -941,7 +996,7 @@ type GetBySlugResponse struct {
 func (x *GetBySlugResponse) Reset() {
 	*x = GetBySlugResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[8]
+		mi := &file_org_org_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -954,7 +1009,7 @@ func (x *GetBySlugResponse) String() string {
 func (*GetBySlugResponse) ProtoMessage() {}
 
 func (x *GetBySlugResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[8]
+	mi := &file_org_org_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -967,7 +1022,7 @@ func (x *GetBySlugResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetBySlugResponse.ProtoReflect.Descriptor instead.
 func (*GetBySlugResponse) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{8}
+	return file_org_org_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *GetBySlugResponse) GetMain() *Main {
@@ -995,7 +1050,7 @@ type GetRequest struct {
 func (x *GetRequest) Reset() {
 	*x = GetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[9]
+		mi := &file_org_org_proto_msgTypes[10]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1008,7 +1063,7 @@ func (x *GetRequest) String() string {
 func (*GetRequest) ProtoMessage() {}
 
 func (x *GetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[9]
+	mi := &file_org_org_proto_msgTypes[10]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1021,7 +1076,7 @@ func (x *GetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetRequest.ProtoReflect.Descriptor instead.
 func (*GetRequest) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{9}
+	return file_org_org_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *GetRequest) GetOpts() *opts.SkipLimit {
@@ -1045,7 +1100,7 @@ type MetroItem struct {
 func (x *MetroItem) Reset() {
 	*x = MetroItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[10]
+		mi := &file_org_org_proto_msgTypes[11]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1058,7 +1113,7 @@ func (x *MetroItem) String() string {
 func (*MetroItem) ProtoMessage() {}
 
 func (x *MetroItem) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[10]
+	mi := &file_org_org_proto_msgTypes[11]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1071,7 +1126,7 @@ func (x *MetroItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MetroItem.ProtoReflect.Descriptor instead.
 func (*MetroItem) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{10}
+	return file_org_org_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *MetroItem) GetId() string {
@@ -1115,7 +1170,7 @@ type ManagerItem struct {
 func (x *ManagerItem) Reset() {
 	*x = ManagerItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[11]
+		mi := &file_org_org_proto_msgTypes[12]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1128,7 +1183,7 @@ func (x *ManagerItem) String() string {
 func (*ManagerItem) ProtoMessage() {}
 
 func (x *ManagerItem) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[11]
+	mi := &file_org_org_proto_msgTypes[12]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1141,7 +1196,7 @@ func (x *ManagerItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ManagerItem.ProtoReflect.Descriptor instead.
 func (*ManagerItem) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{11}
+	return file_org_org_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *ManagerItem) GetId() string {
@@ -1178,7 +1233,7 @@ type AreaItem struct {
 func (x *AreaItem) Reset() {
 	*x = AreaItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[12]
+		mi := &file_org_org_proto_msgTypes[13]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1191,7 +1246,7 @@ func (x *AreaItem) String() string {
 func (*AreaItem) ProtoMessage() {}
 
 func (x *AreaItem) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[12]
+	mi := &file_org_org_proto_msgTypes[13]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1204,7 +1259,7 @@ func (x *AreaItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AreaItem.ProtoReflect.Descriptor instead.
 func (*AreaItem) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{12}
+	return file_org_org_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *AreaItem) GetId() string {
@@ -1241,7 +1296,7 @@ type LocationItem struct {
 func (x *LocationItem) Reset() {
 	*x = LocationItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[13]
+		mi := &file_org_org_proto_msgTypes[14]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1254,7 +1309,7 @@ func (x *LocationItem) String() string {
 func (*LocationItem) ProtoMessage() {}
 
 func (x *LocationItem) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[13]
+	mi := &file_org_org_proto_msgTypes[14]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1267,7 +1322,7 @@ func (x *LocationItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use LocationItem.ProtoReflect.Descriptor instead.
 func (*LocationItem) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{13}
+	return file_org_org_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *LocationItem) GetId() string {
@@ -1305,7 +1360,7 @@ type OkvedItem struct {
 func (x *OkvedItem) Reset() {
 	*x = OkvedItem{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[14]
+		mi := &file_org_org_proto_msgTypes[15]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1318,7 +1373,7 @@ func (x *OkvedItem) String() string {
 func (*OkvedItem) ProtoMessage() {}
 
 func (x *OkvedItem) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[14]
+	mi := &file_org_org_proto_msgTypes[15]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1331,7 +1386,7 @@ func (x *OkvedItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OkvedItem.ProtoReflect.Descriptor instead.
 func (*OkvedItem) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{14}
+	return file_org_org_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *OkvedItem) GetId() string {
@@ -1384,7 +1439,7 @@ type OrgShort struct {
 func (x *OrgShort) Reset() {
 	*x = OrgShort{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[15]
+		mi := &file_org_org_proto_msgTypes[16]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1397,7 +1452,7 @@ func (x *OrgShort) String() string {
 func (*OrgShort) ProtoMessage() {}
 
 func (x *OrgShort) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[15]
+	mi := &file_org_org_proto_msgTypes[16]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1410,7 +1465,7 @@ func (x *OrgShort) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use OrgShort.ProtoReflect.Descriptor instead.
 func (*OrgShort) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{15}
+	return file_org_org_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *OrgShort) GetId() string {
@@ -1508,7 +1563,7 @@ type GetResponse struct {
 func (x *GetResponse) Reset() {
 	*x = GetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_org_org_proto_msgTypes[16]
+		mi := &file_org_org_proto_msgTypes[17]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -1521,7 +1576,7 @@ func (x *GetResponse) String() string {
 func (*GetResponse) ProtoMessage() {}
 
 func (x *GetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_org_org_proto_msgTypes[16]
+	mi := &file_org_org_proto_msgTypes[17]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1534,7 +1589,7 @@ func (x *GetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetResponse.ProtoReflect.Descriptor instead.
 func (*GetResponse) Descriptor() ([]byte, []int) {
-	return file_org_org_proto_rawDescGZIP(), []int{16}
+	return file_org_org_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *GetResponse) GetOrgs() []*OrgShort {
@@ -1563,7 +1618,13 @@ var file_org_org_proto_rawDesc = []byte{
 	0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x6f, 0x70, 0x74, 0x73, 0x2e, 0x53, 0x6b, 0x69,
 	0x70, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x52, 0x04, 0x6f, 0x70, 0x74, 0x73, 0x12, 0x17, 0x0a, 0x07,
 	0x61, 0x72, 0x65, 0x61, 0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x61,
-	0x72, 0x65, 0x61, 0x49, 0x64, 0x22, 0x5b, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4d, 0x61,
+	0x72, 0x65, 0x61, 0x49, 0x64, 0x22, 0x5e, 0x0a, 0x16, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4c, 0x6f,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x23, 0x0a, 0x04, 0x6f, 0x70, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0f, 0x2e,
+	0x6f, 0x70, 0x74, 0x73, 0x2e, 0x53, 0x6b, 0x69, 0x70, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x52, 0x04,
+	0x6f, 0x70, 0x74, 0x73, 0x12, 0x1f, 0x0a, 0x0b, 0x6c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e,
+	0x5f, 0x69, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x6c, 0x6f, 0x63, 0x61, 0x74,
+	0x69, 0x6f, 0x6e, 0x49, 0x64, 0x22, 0x5b, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4d, 0x61,
 	0x6e, 0x61, 0x67, 0x65, 0x72, 0x49, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x23,
 	0x0a, 0x04, 0x6f, 0x70, 0x74, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x0f, 0x2e, 0x6f,
 	0x70, 0x74, 0x73, 0x2e, 0x53, 0x6b, 0x69, 0x70, 0x4c, 0x69, 0x6d, 0x69, 0x74, 0x52, 0x04, 0x6f,
@@ -1732,7 +1793,7 @@ var file_org_org_proto_rawDesc = []byte{
 	0x47, 0x10, 0x02, 0x12, 0x0e, 0x0a, 0x0a, 0x4c, 0x49, 0x51, 0x55, 0x49, 0x44, 0x41, 0x54, 0x45,
 	0x44, 0x10, 0x03, 0x12, 0x0c, 0x0a, 0x08, 0x42, 0x41, 0x4e, 0x4b, 0x52, 0x55, 0x50, 0x54, 0x10,
 	0x04, 0x12, 0x10, 0x0a, 0x0c, 0x52, 0x45, 0x4f, 0x52, 0x47, 0x41, 0x4e, 0x49, 0x5a, 0x49, 0x4e,
-	0x47, 0x10, 0x05, 0x32, 0xda, 0x04, 0x0a, 0x03, 0x4f, 0x72, 0x67, 0x12, 0x3d, 0x0a, 0x03, 0x47,
+	0x47, 0x10, 0x05, 0x32, 0xbd, 0x05, 0x0a, 0x03, 0x4f, 0x72, 0x67, 0x12, 0x3d, 0x0a, 0x03, 0x47,
 	0x65, 0x74, 0x12, 0x0f, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73,
 	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x13, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0d, 0x12, 0x0b, 0x2f,
@@ -1759,21 +1820,27 @@ var file_org_org_proto_rawDesc = []byte{
 	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1c, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x16, 0x12,
 	0x14, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x42, 0x79, 0x4f, 0x6b,
-	0x76, 0x65, 0x64, 0x49, 0x64, 0x12, 0x52, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6c, 0x61,
-	0x74, 0x65, 0x64, 0x12, 0x16, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x6c,
-	0x61, 0x74, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x6f, 0x72,
-	0x67, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1a, 0x82,
-	0xd3, 0xe4, 0x93, 0x02, 0x14, 0x12, 0x12, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x2f, 0x67,
-	0x65, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x12, 0x55, 0x0a, 0x09, 0x47, 0x65, 0x74,
-	0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x12, 0x15, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74,
-	0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e,
-	0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x73,
-	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x19, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x13, 0x12, 0x11, 0x2f,
-	0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67,
-	0x42, 0x2a, 0x5a, 0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e,
-	0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f,
-	0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x6f, 0x72, 0x67, 0x62, 0x06, 0x70, 0x72,
-	0x6f, 0x74, 0x6f, 0x33,
+	0x76, 0x65, 0x64, 0x49, 0x64, 0x12, 0x61, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x42, 0x79, 0x4c, 0x6f,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x1b, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47,
+	0x65, 0x74, 0x42, 0x79, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x1f, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x19, 0x12,
+	0x17, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x42, 0x79, 0x4c, 0x6f,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x49, 0x64, 0x12, 0x52, 0x0a, 0x0a, 0x47, 0x65, 0x74, 0x52,
+	0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x12, 0x16, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74,
+	0x52, 0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x10,
+	0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x1a, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x14, 0x12, 0x12, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72,
+	0x67, 0x2f, 0x67, 0x65, 0x74, 0x52, 0x65, 0x6c, 0x61, 0x74, 0x65, 0x64, 0x12, 0x55, 0x0a, 0x09,
+	0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x12, 0x15, 0x2e, 0x6f, 0x72, 0x67, 0x2e,
+	0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x16, 0x2e, 0x6f, 0x72, 0x67, 0x2e, 0x47, 0x65, 0x74, 0x42, 0x79, 0x53, 0x6c, 0x75, 0x67,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x19, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x13,
+	0x12, 0x11, 0x2f, 0x76, 0x31, 0x2f, 0x6f, 0x72, 0x67, 0x2f, 0x67, 0x65, 0x74, 0x42, 0x79, 0x53,
+	0x6c, 0x75, 0x67, 0x42, 0x2a, 0x5a, 0x28, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x6f, 0x72, 0x67, 0x62,
+	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -1789,79 +1856,83 @@ func file_org_org_proto_rawDescGZIP() []byte {
 }
 
 var file_org_org_proto_enumTypes = make([]protoimpl.EnumInfo, 4)
-var file_org_org_proto_msgTypes = make([]protoimpl.MessageInfo, 17)
+var file_org_org_proto_msgTypes = make([]protoimpl.MessageInfo, 18)
 var file_org_org_proto_goTypes = []interface{}{
-	(OrgKind)(0),                  // 0: org.OrgKind
-	(OkvedKind)(0),                // 1: org.OkvedKind
-	(OpfKind)(0),                  // 2: org.OpfKind
-	(StatusKind)(0),               // 3: org.StatusKind
-	(*GetRelatedRequest)(nil),     // 4: org.GetRelatedRequest
-	(*GetByAreaIdRequest)(nil),    // 5: org.GetByAreaIdRequest
-	(*GetByManagerIdRequest)(nil), // 6: org.GetByManagerIdRequest
-	(*GetByMetroIdRequest)(nil),   // 7: org.GetByMetroIdRequest
-	(*GetByOkvedIdRequest)(nil),   // 8: org.GetByOkvedIdRequest
-	(*GetBySlugRequest)(nil),      // 9: org.GetBySlugRequest
-	(*Main)(nil),                  // 10: org.Main
-	(*Branch)(nil),                // 11: org.Branch
-	(*GetBySlugResponse)(nil),     // 12: org.GetBySlugResponse
-	(*GetRequest)(nil),            // 13: org.GetRequest
-	(*MetroItem)(nil),             // 14: org.MetroItem
-	(*ManagerItem)(nil),           // 15: org.ManagerItem
-	(*AreaItem)(nil),              // 16: org.AreaItem
-	(*LocationItem)(nil),          // 17: org.LocationItem
-	(*OkvedItem)(nil),             // 18: org.OkvedItem
-	(*OrgShort)(nil),              // 19: org.OrgShort
-	(*GetResponse)(nil),           // 20: org.GetResponse
-	(*opts.SkipLimit)(nil),        // 21: opts.SkipLimit
+	(OrgKind)(0),                   // 0: org.OrgKind
+	(OkvedKind)(0),                 // 1: org.OkvedKind
+	(OpfKind)(0),                   // 2: org.OpfKind
+	(StatusKind)(0),                // 3: org.StatusKind
+	(*GetRelatedRequest)(nil),      // 4: org.GetRelatedRequest
+	(*GetByAreaIdRequest)(nil),     // 5: org.GetByAreaIdRequest
+	(*GetByLocationIdRequest)(nil), // 6: org.GetByLocationIdRequest
+	(*GetByManagerIdRequest)(nil),  // 7: org.GetByManagerIdRequest
+	(*GetByMetroIdRequest)(nil),    // 8: org.GetByMetroIdRequest
+	(*GetByOkvedIdRequest)(nil),    // 9: org.GetByOkvedIdRequest
+	(*GetBySlugRequest)(nil),       // 10: org.GetBySlugRequest
+	(*Main)(nil),                   // 11: org.Main
+	(*Branch)(nil),                 // 12: org.Branch
+	(*GetBySlugResponse)(nil),      // 13: org.GetBySlugResponse
+	(*GetRequest)(nil),             // 14: org.GetRequest
+	(*MetroItem)(nil),              // 15: org.MetroItem
+	(*ManagerItem)(nil),            // 16: org.ManagerItem
+	(*AreaItem)(nil),               // 17: org.AreaItem
+	(*LocationItem)(nil),           // 18: org.LocationItem
+	(*OkvedItem)(nil),              // 19: org.OkvedItem
+	(*OrgShort)(nil),               // 20: org.OrgShort
+	(*GetResponse)(nil),            // 21: org.GetResponse
+	(*opts.SkipLimit)(nil),         // 22: opts.SkipLimit
 }
 var file_org_org_proto_depIdxs = []int32{
-	21, // 0: org.GetRelatedRequest.opts:type_name -> opts.SkipLimit
-	21, // 1: org.GetByAreaIdRequest.opts:type_name -> opts.SkipLimit
-	21, // 2: org.GetByManagerIdRequest.opts:type_name -> opts.SkipLimit
-	21, // 3: org.GetByMetroIdRequest.opts:type_name -> opts.SkipLimit
-	21, // 4: org.GetByOkvedIdRequest.opts:type_name -> opts.SkipLimit
-	0,  // 5: org.Main.kind:type_name -> org.OrgKind
-	15, // 6: org.Main.manager:type_name -> org.ManagerItem
-	16, // 7: org.Main.area:type_name -> org.AreaItem
-	17, // 8: org.Main.location:type_name -> org.LocationItem
-	18, // 9: org.Main.okved:type_name -> org.OkvedItem
-	3,  // 10: org.Main.status_kind:type_name -> org.StatusKind
-	18, // 11: org.Main.okved_dop:type_name -> org.OkvedItem
-	14, // 12: org.Main.metros:type_name -> org.MetroItem
-	2,  // 13: org.Main.opf_kind:type_name -> org.OpfKind
-	16, // 14: org.Branch.area:type_name -> org.AreaItem
-	17, // 15: org.Branch.location:type_name -> org.LocationItem
-	3,  // 16: org.Branch.status_kind:type_name -> org.StatusKind
-	10, // 17: org.GetBySlugResponse.main:type_name -> org.Main
-	11, // 18: org.GetBySlugResponse.branches:type_name -> org.Branch
-	21, // 19: org.GetRequest.opts:type_name -> opts.SkipLimit
-	1,  // 20: org.OkvedItem.kind:type_name -> org.OkvedKind
-	0,  // 21: org.OrgShort.kind:type_name -> org.OrgKind
-	15, // 22: org.OrgShort.manager:type_name -> org.ManagerItem
-	16, // 23: org.OrgShort.area:type_name -> org.AreaItem
-	17, // 24: org.OrgShort.location:type_name -> org.LocationItem
-	18, // 25: org.OrgShort.okved:type_name -> org.OkvedItem
-	3,  // 26: org.OrgShort.status_kind:type_name -> org.StatusKind
-	19, // 27: org.GetResponse.orgs:type_name -> org.OrgShort
-	13, // 28: org.Org.Get:input_type -> org.GetRequest
-	5,  // 29: org.Org.GetByAreaId:input_type -> org.GetByAreaIdRequest
-	6,  // 30: org.Org.GetByManagerId:input_type -> org.GetByManagerIdRequest
-	7,  // 31: org.Org.GetByMetroId:input_type -> org.GetByMetroIdRequest
-	8,  // 32: org.Org.GetByOkvedId:input_type -> org.GetByOkvedIdRequest
-	4,  // 33: org.Org.GetRelated:input_type -> org.GetRelatedRequest
-	9,  // 34: org.Org.GetBySlug:input_type -> org.GetBySlugRequest
-	20, // 35: org.Org.Get:output_type -> org.GetResponse
-	20, // 36: org.Org.GetByAreaId:output_type -> org.GetResponse
-	20, // 37: org.Org.GetByManagerId:output_type -> org.GetResponse
-	20, // 38: org.Org.GetByMetroId:output_type -> org.GetResponse
-	20, // 39: org.Org.GetByOkvedId:output_type -> org.GetResponse
-	20, // 40: org.Org.GetRelated:output_type -> org.GetResponse
-	12, // 41: org.Org.GetBySlug:output_type -> org.GetBySlugResponse
-	35, // [35:42] is the sub-list for method output_type
-	28, // [28:35] is the sub-list for method input_type
-	28, // [28:28] is the sub-list for extension type_name
-	28, // [28:28] is the sub-list for extension extendee
-	0,  // [0:28] is the sub-list for field type_name
+	22, // 0: org.GetRelatedRequest.opts:type_name -> opts.SkipLimit
+	22, // 1: org.GetByAreaIdRequest.opts:type_name -> opts.SkipLimit
+	22, // 2: org.GetByLocationIdRequest.opts:type_name -> opts.SkipLimit
+	22, // 3: org.GetByManagerIdRequest.opts:type_name -> opts.SkipLimit
+	22, // 4: org.GetByMetroIdRequest.opts:type_name -> opts.SkipLimit
+	22, // 5: org.GetByOkvedIdRequest.opts:type_name -> opts.SkipLimit
+	0,  // 6: org.Main.kind:type_name -> org.OrgKind
+	16, // 7: org.Main.manager:type_name -> org.ManagerItem
+	17, // 8: org.Main.area:type_name -> org.AreaItem
+	18, // 9: org.Main.location:type_name -> org.LocationItem
+	19, // 10: org.Main.okved:type_name -> org.OkvedItem
+	3,  // 11: org.Main.status_kind:type_name -> org.StatusKind
+	19, // 12: org.Main.okved_dop:type_name -> org.OkvedItem
+	15, // 13: org.Main.metros:type_name -> org.MetroItem
+	2,  // 14: org.Main.opf_kind:type_name -> org.OpfKind
+	17, // 15: org.Branch.area:type_name -> org.AreaItem
+	18, // 16: org.Branch.location:type_name -> org.LocationItem
+	3,  // 17: org.Branch.status_kind:type_name -> org.StatusKind
+	11, // 18: org.GetBySlugResponse.main:type_name -> org.Main
+	12, // 19: org.GetBySlugResponse.branches:type_name -> org.Branch
+	22, // 20: org.GetRequest.opts:type_name -> opts.SkipLimit
+	1,  // 21: org.OkvedItem.kind:type_name -> org.OkvedKind
+	0,  // 22: org.OrgShort.kind:type_name -> org.OrgKind
+	16, // 23: org.OrgShort.manager:type_name -> org.ManagerItem
+	17, // 24: org.OrgShort.area:type_name -> org.AreaItem
+	18, // 25: org.OrgShort.location:type_name -> org.LocationItem
+	19, // 26: org.OrgShort.okved:type_name -> org.OkvedItem
+	3,  // 27: org.OrgShort.status_kind:type_name -> org.StatusKind
+	20, // 28: org.GetResponse.orgs:type_name -> org.OrgShort
+	14, // 29: org.Org.Get:input_type -> org.GetRequest
+	5,  // 30: org.Org.GetByAreaId:input_type -> org.GetByAreaIdRequest
+	7,  // 31: org.Org.GetByManagerId:input_type -> org.GetByManagerIdRequest
+	8,  // 32: org.Org.GetByMetroId:input_type -> org.GetByMetroIdRequest
+	9,  // 33: org.Org.GetByOkvedId:input_type -> org.GetByOkvedIdRequest
+	6,  // 34: org.Org.GetByLocationId:input_type -> org.GetByLocationIdRequest
+	4,  // 35: org.Org.GetRelated:input_type -> org.GetRelatedRequest
+	10, // 36: org.Org.GetBySlug:input_type -> org.GetBySlugRequest
+	21, // 37: org.Org.Get:output_type -> org.GetResponse
+	21, // 38: org.Org.GetByAreaId:output_type -> org.GetResponse
+	21, // 39: org.Org.GetByManagerId:output_type -> org.GetResponse
+	21, // 40: org.Org.GetByMetroId:output_type -> org.GetResponse
+	21, // 41: org.Org.GetByOkvedId:output_type -> org.GetResponse
+	21, // 42: org.Org.GetByLocationId:output_type -> org.GetResponse
+	21, // 43: org.Org.GetRelated:output_type -> org.GetResponse
+	13, // 44: org.Org.GetBySlug:output_type -> org.GetBySlugResponse
+	37, // [37:45] is the sub-list for method output_type
+	29, // [29:37] is the sub-list for method input_type
+	29, // [29:29] is the sub-list for extension type_name
+	29, // [29:29] is the sub-list for extension extendee
+	0,  // [0:29] is the sub-list for field type_name
 }
 
 func init() { file_org_org_proto_init() }
@@ -1895,7 +1966,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetByManagerIdRequest); i {
+			switch v := v.(*GetByLocationIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1907,7 +1978,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetByMetroIdRequest); i {
+			switch v := v.(*GetByManagerIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1919,7 +1990,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetByOkvedIdRequest); i {
+			switch v := v.(*GetByMetroIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1931,7 +2002,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBySlugRequest); i {
+			switch v := v.(*GetByOkvedIdRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1943,7 +2014,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Main); i {
+			switch v := v.(*GetBySlugRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1955,7 +2026,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Branch); i {
+			switch v := v.(*Main); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1967,7 +2038,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetBySlugResponse); i {
+			switch v := v.(*Branch); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1979,7 +2050,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetRequest); i {
+			switch v := v.(*GetBySlugResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -1991,7 +2062,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*MetroItem); i {
+			switch v := v.(*GetRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2003,7 +2074,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ManagerItem); i {
+			switch v := v.(*MetroItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2015,7 +2086,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*AreaItem); i {
+			switch v := v.(*ManagerItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2027,7 +2098,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*LocationItem); i {
+			switch v := v.(*AreaItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2039,7 +2110,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*OkvedItem); i {
+			switch v := v.(*LocationItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2051,7 +2122,7 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*OrgShort); i {
+			switch v := v.(*OkvedItem); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -2063,6 +2134,18 @@ func file_org_org_proto_init() {
 			}
 		}
 		file_org_org_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*OrgShort); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_org_org_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetResponse); i {
 			case 0:
 				return &v.state
@@ -2081,7 +2164,7 @@ func file_org_org_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_org_org_proto_rawDesc,
 			NumEnums:      4,
-			NumMessages:   17,
+			NumMessages:   18,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
@@ -2113,6 +2196,7 @@ type OrgClient interface {
 	GetByManagerId(ctx context.Context, in *GetByManagerIdRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	GetByMetroId(ctx context.Context, in *GetByMetroIdRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	GetByOkvedId(ctx context.Context, in *GetByOkvedIdRequest, opts ...grpc.CallOption) (*GetResponse, error)
+	GetByLocationId(ctx context.Context, in *GetByLocationIdRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	GetRelated(ctx context.Context, in *GetRelatedRequest, opts ...grpc.CallOption) (*GetResponse, error)
 	GetBySlug(ctx context.Context, in *GetBySlugRequest, opts ...grpc.CallOption) (*GetBySlugResponse, error)
 }
@@ -2170,6 +2254,15 @@ func (c *orgClient) GetByOkvedId(ctx context.Context, in *GetByOkvedIdRequest, o
 	return out, nil
 }
 
+func (c *orgClient) GetByLocationId(ctx context.Context, in *GetByLocationIdRequest, opts ...grpc.CallOption) (*GetResponse, error) {
+	out := new(GetResponse)
+	err := c.cc.Invoke(ctx, "/org.Org/GetByLocationId", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 func (c *orgClient) GetRelated(ctx context.Context, in *GetRelatedRequest, opts ...grpc.CallOption) (*GetResponse, error) {
 	out := new(GetResponse)
 	err := c.cc.Invoke(ctx, "/org.Org/GetRelated", in, out, opts...)
@@ -2195,6 +2288,7 @@ type OrgServer interface {
 	GetByManagerId(context.Context, *GetByManagerIdRequest) (*GetResponse, error)
 	GetByMetroId(context.Context, *GetByMetroIdRequest) (*GetResponse, error)
 	GetByOkvedId(context.Context, *GetByOkvedIdRequest) (*GetResponse, error)
+	GetByLocationId(context.Context, *GetByLocationIdRequest) (*GetResponse, error)
 	GetRelated(context.Context, *GetRelatedRequest) (*GetResponse, error)
 	GetBySlug(context.Context, *GetBySlugRequest) (*GetBySlugResponse, error)
 }
@@ -2217,6 +2311,9 @@ func (*UnimplementedOrgServer) GetByMetroId(context.Context, *GetByMetroIdReques
 }
 func (*UnimplementedOrgServer) GetByOkvedId(context.Context, *GetByOkvedIdRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetByOkvedId not implemented")
+}
+func (*UnimplementedOrgServer) GetByLocationId(context.Context, *GetByLocationIdRequest) (*GetResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetByLocationId not implemented")
 }
 func (*UnimplementedOrgServer) GetRelated(context.Context, *GetRelatedRequest) (*GetResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetRelated not implemented")
@@ -2319,6 +2416,24 @@ func _Org_GetByOkvedId_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Org_GetByLocationId_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetByLocationIdRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(OrgServer).GetByLocationId(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/org.Org/GetByLocationId",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(OrgServer).GetByLocationId(ctx, req.(*GetByLocationIdRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 func _Org_GetRelated_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetRelatedRequest)
 	if err := dec(in); err != nil {
@@ -2378,6 +2493,10 @@ var _Org_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetByOkvedId",
 			Handler:    _Org_GetByOkvedId_Handler,
+		},
+		{
+			MethodName: "GetByLocationId",
+			Handler:    _Org_GetByLocationId_Handler,
 		},
 		{
 			MethodName: "GetRelated",

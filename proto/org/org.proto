@@ -32,6 +32,11 @@ service Org {
       get: "/v1/org/getByOkvedId"
     };
   };
+  rpc GetByLocationId(GetByLocationIdRequest) returns (GetResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getByLocationId"
+    };
+  };
   rpc GetRelated(GetRelatedRequest) returns (GetResponse) {
     option (google.api.http) = {
       get: "/v1/org/getRelated"
@@ -53,6 +58,11 @@ message GetRelatedRequest {
 message GetByAreaIdRequest {
   opts.SkipLimit opts = 1;
   string area_id = 2;
+}
+
+message GetByLocationIdRequest {
+  opts.SkipLimit opts = 1;
+  string location_id = 2;
 }
 
 message GetByManagerIdRequest {

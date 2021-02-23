@@ -95,6 +95,51 @@
         ]
       }
     },
+    "/v1/org/getByLocationId": {
+      "get": {
+        "operationId": "Org_GetByLocationId",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/orgGetResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "locationId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Org"
+        ]
+      }
+    },
     "/v1/org/getByManagerId": {
       "get": {
         "operationId": "Org_GetByManagerId",
