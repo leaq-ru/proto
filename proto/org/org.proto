@@ -17,9 +17,19 @@ service Org {
       get: "/v1/org/getByAreaId"
     };
   };
+  rpc GetAreaBySlug(GetAreaBySlugRequest) returns (GetAreaBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getAreaBySlug"
+    };
+  };
   rpc GetByManagerId(GetByManagerIdRequest) returns (GetResponse) {
     option (google.api.http) = {
       get: "/v1/org/getByManagerId"
+    };
+  };
+  rpc GetManagerBySlug(GetManagerBySlugRequest) returns (GetManagerBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getManagerBySlug"
     };
   };
   rpc GetByMetroId(GetByMetroIdRequest) returns (GetResponse) {
@@ -27,14 +37,29 @@ service Org {
       get: "/v1/org/getByMetroId"
     };
   };
+  rpc GetMetroBySlug(GetMetroBySlugRequest) returns (GetMetroBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getMetroBySlug"
+    };
+  };
   rpc GetByOkvedId(GetByOkvedIdRequest) returns (GetResponse) {
     option (google.api.http) = {
       get: "/v1/org/getByOkvedId"
     };
   };
+  rpc GetOkvedBySlug(GetOkvedBySlugRequest) returns (GetOkvedBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getOkvedBySlug"
+    };
+  };
   rpc GetByLocationId(GetByLocationIdRequest) returns (GetResponse) {
     option (google.api.http) = {
       get: "/v1/org/getByLocationId"
+    };
+  };
+  rpc GetLocationBySlug(GetLocationBySlugRequest) returns (GetLocationBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/org/getLocationBySlug"
     };
   };
   rpc GetRelated(GetRelatedRequest) returns (GetResponse) {
@@ -47,6 +72,40 @@ service Org {
       get: "/v1/org/getBySlug"
     };
   };
+}
+
+message GetAreaBySlugRequest {
+  string slug = 1;
+}
+
+message AreaFullItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  string fias_id = 4;
+  string kladr_id = 5;
+  string type = 6;
+  string type_full = 7;
+}
+
+message GetAreaBySlugResponse {
+  AreaFullItem area = 1;
+}
+
+message GetManagerBySlugRequest {
+  string slug = 1;
+}
+
+message GetMetroBySlugRequest {
+  string slug = 1;
+}
+
+message GetOkvedBySlugRequest {
+  string slug = 1;
+}
+
+message GetLocationBySlugRequest {
+  string slug = 1;
 }
 
 message GetRelatedRequest {
@@ -93,13 +152,13 @@ message Main {
   double ogrn = 6;
   OrgKind kind = 7;
   ManagerItem manager = 8;
-  AreaItem area = 9;
+  AreaFullItem area = 9;
   LocationItem location = 10;
-  OkvedItem okved = 11;
+  OkvedFullItem okved = 11;
   StatusKind status_kind = 12;
   repeated OkvedItem okved_dop = 13;
   uint32 employee_count = 14;
-  repeated MetroItem metros = 15;
+  repeated MetroFullItem metros = 15;
   string name_full_with_opf = 16;
   string name_short_with_opf = 17;
   double opf_code = 18;
