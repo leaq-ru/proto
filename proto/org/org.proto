@@ -74,6 +74,22 @@ service Org {
   };
 }
 
+message GetManagerBySlugResponse {
+  ManagerItem manager = 1;
+}
+
+message GetMetroBySlugResponse {
+  MetroFullItem metro = 1;
+}
+
+message GetOkvedBySlugResponse {
+  OkvedFullItem okved = 1;
+}
+
+message GetLocationBySlugResponse {
+  LocationItem location = 1;
+}
+
 message GetAreaBySlugRequest {
   string slug = 1;
 }
@@ -141,6 +157,23 @@ message GetByOkvedIdRequest {
 
 message GetBySlugRequest {
   string slug = 1;
+}
+
+message MetroFullItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  string line = 4;
+  AreaFullItem area = 5;
+}
+
+message OkvedFullItem {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  string code = 4;
+  string code_with_name = 5;
+  OkvedKind kind = 6;
 }
 
 message Main {
