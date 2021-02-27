@@ -716,7 +716,7 @@
         "metros": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/orgMetroFullItem"
+            "$ref": "#/definitions/orgMetroFullItemWithDistance"
           }
         },
         "nameFullWithOpf": {
@@ -803,6 +803,30 @@
         },
         "area": {
           "$ref": "#/definitions/orgAreaFullItem"
+        }
+      }
+    },
+    "orgMetroFullItemWithDistance": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "line": {
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/definitions/orgAreaFullItem"
+        },
+        "distance": {
+          "type": "number",
+          "format": "float"
         }
       }
     },

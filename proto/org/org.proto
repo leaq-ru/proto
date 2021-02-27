@@ -159,6 +159,15 @@ message GetBySlugRequest {
   string slug = 1;
 }
 
+message MetroFullItemWithDistance {
+  string id = 1;
+  string slug = 2;
+  string name = 3;
+  string line = 4;
+  AreaFullItem area = 5;
+  float distance = 6;
+}
+
 message MetroFullItem {
   string id = 1;
   string slug = 2;
@@ -191,7 +200,7 @@ message Main {
   StatusKind status_kind = 12;
   repeated OkvedItem okved_dop = 13;
   uint32 employee_count = 14;
-  repeated MetroFullItem metros = 15;
+  repeated MetroFullItemWithDistance metros = 15;
   string name_full_with_opf = 16;
   string name_short_with_opf = 17;
   double opf_code = 18;
