@@ -128,6 +128,7 @@ message GetRelatedRequest {
   opts.SkipLimit opts = 1;
   string area_id = 2;
   string okved_id = 3;
+  string exclude_org_id = 4;
 }
 
 message GetByAreaIdRequest {

@@ -499,6 +499,12 @@
             "in": "query",
             "required": false,
             "type": "string"
+          },
+          {
+            "name": "excludeOrgId",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
