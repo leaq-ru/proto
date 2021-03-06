@@ -229,6 +229,7 @@ message Branch {
 message GetBySlugResponse {
   Main main = 1;
   repeated Branch branches = 2;
+  repeated OrgShort related = 3;
 }
 
 message GetRequest {

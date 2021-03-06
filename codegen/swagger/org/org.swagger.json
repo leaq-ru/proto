@@ -607,6 +607,12 @@
           "items": {
             "$ref": "#/definitions/orgBranch"
           }
+        },
+        "related": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/orgOrgShort"
+          }
         }
       }
     },
