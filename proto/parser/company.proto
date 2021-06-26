@@ -76,6 +76,7 @@ service Company {
     };
   }
   rpc GetBy(GetByRequest) returns (ShortCompany) {};
+  rpc GetManyBy(GetManyByRequest) returns (ShortCompanies) {};
   rpc Reindex(ReindexRequest) returns (google.protobuf.Empty) {};
   rpc IsCompanyAvatarExists(IsCompanyAvatarExistsRequest) returns (IsCompanyAvatarExistsResponse) {};
   rpc UnsetExpiredPremium(google.protobuf.Empty) returns (google.protobuf.Empty) {};
@@ -167,7 +168,10 @@ message GetMyRequest {
 message GetByRequest {
   string url = 1;
   string company_id = 2;
-  string slug = 3;
+}
+
+message GetManyByRequest {
+  repeated string company_ids = 1;
 }
 
 message GetTotalCountResponse {
