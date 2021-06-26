@@ -82,6 +82,11 @@ service Company {
   rpc RenewCompanyPremium(RenewCompanyPremiumRequest) returns (google.protobuf.Empty) {};
   rpc GetFull(GetFullRequest) returns (stream FullCompanyV2) {};
   rpc GetCount(GetV2Request) returns (GetCountResponse) {};
+  rpc SetHidden(SetHiddenRequest) returns (google.protobuf.Empty) {};
+}
+
+message SetHiddenRequest {
+  string slug = 1;
 }
 
 message GetFullRequest {
@@ -162,6 +167,7 @@ message GetMyRequest {
 message GetByRequest {
   string url = 1;
   string company_id = 2;
+  string slug = 3;
 }
 
 message GetTotalCountResponse {
