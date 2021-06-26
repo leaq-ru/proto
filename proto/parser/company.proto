@@ -86,7 +86,7 @@ service Company {
 }
 
 message SetHiddenRequest {
-  string slug = 1;
+  repeated string slugs = 1;
 }
 
 message GetFullRequest {
