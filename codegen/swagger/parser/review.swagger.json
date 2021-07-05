@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "user/user.proto",
+    "title": "parser/review.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -11,14 +11,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/user/vkAuth": {
+    "/v1/review/create": {
       "post": {
-        "operationId": "User_VkAuth",
+        "operationId": "Review_Create",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/userSelfUser"
+              "properties": {}
             }
           },
           "default": {
@@ -34,23 +34,23 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/userVkAuthRequest"
+              "$ref": "#/definitions/parserCreateRequest"
             }
           }
         ],
         "tags": [
-          "User"
+          "Review"
         ]
       }
     },
-    "/v1/user/yandexAuth": {
-      "post": {
-        "operationId": "User_YandexAuth",
+    "/v1/review/get": {
+      "get": {
+        "operationId": "Review_GetReview",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/userSelfUser"
+              "$ref": "#/definitions/parserGetReviewResponse"
             }
           },
           "default": {
@@ -62,21 +62,84 @@
         },
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/userYandexAuthRequest"
-            }
+            "name": "opts.skip",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "opts.limit",
+            "description": "20 default",
+            "in": "query",
+            "required": false,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "companyId",
+            "in": "query",
+            "required": false,
+            "type": "string"
           }
         ],
         "tags": [
-          "User"
+          "Review"
         ]
       }
     }
   },
   "definitions": {
+    "optsSkipLimit": {
+      "type": "object",
+      "properties": {
+        "skip": {
+          "type": "integer",
+          "format": "int64",
+          "minimum": 1
+        },
+        "limit": {
+          "type": "integer",
+          "format": "int64",
+          "description": "20 default",
+          "maximum": 100,
+          "minimum": 1
+        }
+      }
+    },
+    "parserCreateRequest": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      }
+    },
+    "parserGetReviewResponse": {
+      "type": "object",
+      "properties": {
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserReviewItem"
+          }
+        }
+      }
+    },
+    "parserReviewItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/userShortUser"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -113,33 +176,6 @@
         }
       }
     },
-    "userSelfUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "vkId": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "token": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "photo": {
-          "type": "string"
-        },
-        "photoRec": {
-          "type": "string"
-        }
-      }
-    },
     "userShortUser": {
       "type": "object",
       "properties": {
@@ -165,33 +201,6 @@
         "banReview": {
           "type": "boolean",
           "format": "boolean"
-        }
-      }
-    },
-    "userShortUsers": {
-      "type": "object",
-      "properties": {
-        "users": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/userShortUser"
-          }
-        }
-      }
-    },
-    "userVkAuthRequest": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
-        }
-      }
-    },
-    "userYandexAuthRequest": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
         }
       }
     }

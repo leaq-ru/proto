@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "user/user.proto",
+    "title": "event/event.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -10,72 +10,7 @@
   "produces": [
     "application/json"
   ],
-  "paths": {
-    "/v1/user/vkAuth": {
-      "post": {
-        "operationId": "User_VkAuth",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/userSelfUser"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/userVkAuthRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    },
-    "/v1/user/yandexAuth": {
-      "post": {
-        "operationId": "User_YandexAuth",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/userSelfUser"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/userYandexAuthRequest"
-            }
-          }
-        ],
-        "tags": [
-          "User"
-        ]
-      }
-    }
-  },
+  "paths": {},
   "definitions": {
     "protobufAny": {
       "type": "object",
@@ -110,88 +45,6 @@
           "items": {
             "$ref": "#/definitions/protobufAny"
           }
-        }
-      }
-    },
-    "userSelfUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "vkId": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "token": {
-          "type": "string"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "photo": {
-          "type": "string"
-        },
-        "photoRec": {
-          "type": "string"
-        }
-      }
-    },
-    "userShortUser": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "vkId": {
-          "type": "integer",
-          "format": "int64"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "photo": {
-          "type": "string"
-        },
-        "photoRec": {
-          "type": "string"
-        },
-        "banReview": {
-          "type": "boolean",
-          "format": "boolean"
-        }
-      }
-    },
-    "userShortUsers": {
-      "type": "object",
-      "properties": {
-        "users": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/userShortUser"
-          }
-        }
-      }
-    },
-    "userVkAuthRequest": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
-        }
-      }
-    },
-    "userYandexAuthRequest": {
-      "type": "object",
-      "properties": {
-        "code": {
-          "type": "string"
         }
       }
     }

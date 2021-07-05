@@ -4,6 +4,8 @@ package user;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
 
 import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
 
 service User {
   rpc VkAuth(VkAuthRequest) returns (SelfUser) {
@@ -18,8 +20,18 @@ service User {
       body: "*"
     };
   };
-  rpc Auth(AuthRequest) returns (SelfUser) {};
-  rpc GetById(GetByIdRequest) returns (ShortUser) {};
+  rpc Auth(AuthRequest) returns (SelfUser);
+  rpc GetById(GetByIdRequest) returns (ShortUser);
+  rpc GetByIds(GetByIdsRequest) returns (ShortUsers);
+  rpc ModifyRights(ModifyRightsRequest) returns (google.protobuf.Empty);
+}
+
+message ModifyRightsRequest {
+  google.protobuf.BoolValue ban_review = 1;
+}
+
+message ShortUsers {
+  repeated ShortUser users = 1;
 }
 
 message ShortUser {
@@ -29,10 +41,15 @@ message ShortUser {
   string last_name = 4;
   string photo = 5;
   string photo_rec = 6;
+  bool ban_review = 7;
 }
 
 message GetByIdRequest {
   string user_id = 1;
+}
+
+message GetByIdsRequest {
+  string user_ids = 1;
 }
 
 message AuthRequest {

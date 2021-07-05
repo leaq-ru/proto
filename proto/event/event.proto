@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package event;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/event";
+
+import "parser/review.proto";
+
+message ReviewModeration {
+  parser.ReviewItem review = 1;
+}

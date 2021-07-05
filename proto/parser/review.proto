@@ -1,0 +1,57 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "opts/page.proto";
+import "user/user.proto";
+
+service Review {
+  rpc GetReviews(GetReviewsRequest) returns (GetReviewsResponse) {
+    option (google.api.http) = {
+      get: "/v1/review/get"
+    };
+  };
+  rpc Create(CreateRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/review/create"
+      body: "*"
+    };
+  };
+  rpc ChangeStatus(ChangeStatusRequest) returns (google.protobuf.Empty);
+  rpc DisallowAuthorDeleteAll(DisallowAuthorDeleteAllRequest) returns (google.protobuf.Empty);
+}
+
+message DisallowAuthorDeleteAllRequest {
+  string user_id = 1;
+}
+
+message ChangeStatusRequest {
+  string review_id = 1;
+  enum status {
+    NONE = 0;
+    OK = 1;
+    DELETE = 2;
+  }
+}
+
+message CreateRequest {
+  string text = 1;
+}
+
+message ReviewItem {
+  string id = 1;
+  string text = 2;
+  user.ShortUser user = 3;
+}
+
+message GetReviewsResponse {
+  repeated ReviewItem reviews = 1;
+}
+
+message GetReviewsRequest {
+  opts.SkipLimit opts = 1;
+  string company_id = 2;
+}
