@@ -27,7 +27,8 @@ service User {
 }
 
 message ModifyRightsRequest {
-  google.protobuf.BoolValue ban_review = 1;
+  string user_id = 1;
+  google.protobuf.BoolValue ban_review = 2;
 }
 
 message ShortUsers {
