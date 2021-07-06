@@ -145,6 +145,10 @@
         },
         "companyId": {
           "type": "string"
+        },
+        "positive": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },
@@ -173,6 +177,10 @@
         },
         "createdAt": {
           "type": "string"
+        },
+        "positive": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     },

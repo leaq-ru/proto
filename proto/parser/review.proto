@@ -49,6 +49,7 @@ message ChangeStatusRequest {
 message CreateRequest {
   string text = 1;
   string company_id = 2;
+  bool positive = 3;
 }
 
 message ReviewItem {
@@ -56,6 +57,7 @@ message ReviewItem {
   string text = 2;
   user.ShortUser user = 3;
   string created_at = 4;
+  bool positive = 5;
 }
 
 message GetReviewsResponse {
