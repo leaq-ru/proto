@@ -20,8 +20,17 @@ service Review {
       body: "*"
     };
   };
+  rpc Delete(DeleteRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete: "/v1/review/delete"
+    };
+  };
   rpc ChangeStatus(ChangeStatusRequest) returns (google.protobuf.Empty);
   rpc DisallowAuthorDeleteAll(DisallowAuthorDeleteAllRequest) returns (google.protobuf.Empty);
+}
+
+message DeleteRequest {
+  string review_id = 1;
 }
 
 message DisallowAuthorDeleteAllRequest {

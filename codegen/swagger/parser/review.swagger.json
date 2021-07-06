@@ -43,14 +43,44 @@
         ]
       }
     },
-    "/v1/review/get": {
-      "get": {
-        "operationId": "Review_GetReview",
+    "/v1/review/delete": {
+      "delete": {
+        "operationId": "Review_Delete",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/parserGetReviewResponse"
+              "properties": {}
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "reviewId",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Review"
+        ]
+      }
+    },
+    "/v1/review/get": {
+      "get": {
+        "operationId": "Review_GetReviews",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserGetReviewsResponse"
             }
           },
           "default": {
@@ -115,7 +145,7 @@
         }
       }
     },
-    "parserGetReviewResponse": {
+    "parserGetReviewsResponse": {
       "type": "object",
       "properties": {
         "reviews": {
