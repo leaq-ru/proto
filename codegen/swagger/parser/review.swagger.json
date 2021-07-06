@@ -184,6 +184,15 @@
         }
       }
     },
+    "parserReviewStatus": {
+      "type": "string",
+      "enum": [
+        "REVIEW_STATUS_NONE",
+        "OK",
+        "DELETE"
+      ],
+      "default": "REVIEW_STATUS_NONE"
+    },
     "protobufAny": {
       "type": "object",
       "properties": {

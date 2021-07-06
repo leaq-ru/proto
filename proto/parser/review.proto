@@ -37,13 +37,15 @@ message DisallowAuthorDeleteAllRequest {
   string user_id = 1;
 }
 
+enum ReviewStatus {
+  REVIEW_STATUS_NONE = 0;
+  OK = 1;
+  DELETE = 2;
+}
+
 message ChangeStatusRequest {
   string review_id = 1;
-  enum status {
-    NONE = 0;
-    OK = 1;
-    DELETE = 2;
-  }
+  ReviewStatus status = 2;
 }
 
 message CreateRequest {
