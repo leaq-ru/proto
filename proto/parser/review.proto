@@ -48,6 +48,7 @@ message ChangeStatusRequest {
 
 message CreateRequest {
   string text = 1;
+  string company_id = 2;
 }
 
 message ReviewItem {
