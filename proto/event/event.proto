@@ -5,6 +5,7 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/event";
 
 import "parser/review.proto";
 
+// subject review_moderation
 message ReviewModeration {
   parser.ReviewItem review = 1;
 }
