@@ -12,6 +12,7 @@ import "city/city.proto";
 import "category/category.proto";
 import "opts/page.proto";
 import "parser/post.proto";
+import "parser/review.proto";
 
 service Company {
   rpc GetBySlugV2(GetBySlugRequest) returns (GetBySlugResponse) {
@@ -403,6 +404,7 @@ message GetBySlugResponse {
   bool verified = 6;
   bool premium = 7;
   repeated DnsItem dns = 8;
+  repeated ReviewItem reviews = 9;
 }
 
 message People {

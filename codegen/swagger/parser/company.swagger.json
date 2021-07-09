@@ -1732,6 +1732,12 @@
           "items": {
             "$ref": "#/definitions/parserDnsItem"
           }
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserReviewItem"
+          }
         }
       }
     },
@@ -2018,6 +2024,27 @@
         }
       }
     },
+    "parserReviewItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "user": {
+          "$ref": "#/definitions/userShortUser"
+        },
+        "createdAt": {
+          "type": "string"
+        },
+        "positive": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "parserSelect": {
       "type": "string",
       "enum": [
@@ -2295,6 +2322,34 @@
           "items": {
             "$ref": "#/definitions/protobufAny"
           }
+        }
+      }
+    },
+    "userShortUser": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "vkId": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "photoRec": {
+          "type": "string"
+        },
+        "banReview": {
+          "type": "boolean",
+          "format": "boolean"
         }
       }
     }
