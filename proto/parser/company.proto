@@ -8,11 +8,12 @@ import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
 import "protoc-gen-swagger/options/annotations.proto";
-import "city/city.proto";
-import "category/category.proto";
 import "opts/page.proto";
 import "parser/post.proto";
 import "parser/review.proto";
+import "parser/city.proto";
+import "parser/category.proto";
+import "parser/dns.proto";
 
 service Company {
   rpc GetBySlugV2(GetBySlugRequest) returns (GetBySlugResponse) {
@@ -100,14 +101,9 @@ message GetCountResponse {
   uint32 count = 1;
 }
 
-message DnsItem {
-  string id = 1;
-  string name = 2;
-}
-
 message FullCompanyV2 {
   string id = 1;
-  category.CategoryItem category = 2;
+  CategoryItem category = 2;
   string url = 3;
   string slug = 4;
   string title = 5;
@@ -125,7 +121,7 @@ message FullCompanyV2 {
   Social social = 17;
   repeated People people = 18;
   string updated_at = 19;
-  repeated TechnologyCategory technology_categories = 20;
+  repeated TechCategoryInverted technology_categories = 20;
   // milliseconds
   uint32 page_speed = 21;
   // company has owner
@@ -305,14 +301,14 @@ message GetV2Request {
 
 message MyCompany {
   string id = 1;
-  category.CategoryItem category = 2;
+  CategoryItem category = 2;
   string url = 3;
   string slug = 4;
   string title = 5;
   string email = 6;
   double phone = 7;
   string avatar = 8;
-  city.CityItem city = 9;
+  CityItem city = 9;
   App app = 10;
   ShortSocial social = 11;
   string updated_at = 12;
@@ -342,7 +338,7 @@ message GetBySlugRequest {
 
 message FullCompany {
   string id = 1;
-  category.CategoryItem category = 2;
+  CategoryItem category = 2;
   string url = 3;
   string slug = 4;
   string title = 5;
@@ -362,29 +358,29 @@ message FullCompany {
   string updated_at = 19;
 }
 
-message TechnologyItem {
+message TechItemInverted {
   string id = 1;
   string name = 2;
   string version = 3;
   string slug = 4;
 }
 
-message TechnologyCategory {
+message TechCategoryInverted {
   string id = 1;
   string name = 2;
-  repeated TechnologyItem technologies = 3;
+  repeated TechItemInverted technologies = 3;
 }
 
 message ShortCompany {
   string id = 1;
-  category.CategoryItem category = 2;
+  CategoryItem category = 2;
   string url = 3;
   string slug = 4;
   string title = 5;
   string email = 6;
   double phone = 7;
   string avatar = 8;
-  city.CityItem city = 9;
+  CityItem city = 9;
   App app = 10;
   ShortSocial social = 11;
   string updated_at = 12;
@@ -395,7 +391,7 @@ message ShortCompany {
 
 message GetBySlugResponse {
   FullCompany full_company = 1;
-  repeated TechnologyCategory technology_categories = 2;
+  repeated TechCategoryInverted technology_categories = 2;
   // milliseconds
   uint32 page_speed = 3;
   repeated ShortCompany related = 4;
@@ -479,7 +475,7 @@ message Domain {
 }
 
 message FullLocation {
-  city.CityItem city = 1;
+  CityItem city = 1;
   string address = 2;
   string address_title = 3;
 }

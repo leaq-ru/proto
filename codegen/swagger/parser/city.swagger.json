@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "technology/dns.proto",
+    "title": "parser/city.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -11,14 +11,36 @@
     "application/json"
   ],
   "paths": {
-    "/v1/dns/getHints": {
+    "/v1/city/getAll": {
       "get": {
-        "operationId": "Dns_GetDnsHints",
+        "operationId": "City_GetAllCity",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/technologyGetDnsHintsResponse"
+              "$ref": "#/definitions/parserCitiesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "tags": [
+          "City"
+        ]
+      }
+    },
+    "/v1/city/getById": {
+      "get": {
+        "operationId": "City_GetCityById",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserCityItem"
             }
           },
           "default": {
@@ -30,13 +52,37 @@
         },
         "parameters": [
           {
-            "name": "name",
+            "name": "cityId",
             "in": "query",
             "required": false,
             "type": "string"
+          }
+        ],
+        "tags": [
+          "City"
+        ]
+      }
+    },
+    "/v1/city/getByIds": {
+      "get": {
+        "operationId": "City_GetCityByIds",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserCitiesResponse"
+            }
           },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
           {
-            "name": "excludeIds",
+            "name": "cityIds",
             "in": "query",
             "required": false,
             "type": "array",
@@ -44,6 +90,66 @@
               "type": "string"
             },
             "collectionFormat": "multi"
+          }
+        ],
+        "tags": [
+          "City"
+        ]
+      }
+    },
+    "/v1/city/getBySlug": {
+      "get": {
+        "operationId": "City_GetCityBySlug",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserCityItem"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "City"
+        ]
+      }
+    },
+    "/v1/city/getHints": {
+      "get": {
+        "operationId": "City_GetCityHints",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/parserCitiesResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": false,
+            "type": "string"
           },
           {
             "name": "limit",
@@ -55,12 +161,49 @@
           }
         ],
         "tags": [
-          "Dns"
+          "City"
         ]
       }
     }
   },
   "definitions": {
+    "parserCitiesResponse": {
+      "type": "object",
+      "properties": {
+        "cities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserCityItem"
+          }
+        }
+      }
+    },
+    "parserCityItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      }
+    },
+    "parserFindCityResponse": {
+      "type": "object",
+      "properties": {
+        "cityId": {
+          "type": "string"
+        },
+        "isFound": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -93,50 +236,6 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/protobufAny"
-          }
-        }
-      }
-    },
-    "technologyDnsItem": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "name": {
-          "type": "string"
-        }
-      }
-    },
-    "technologyFindDnsResponse": {
-      "type": "object",
-      "properties": {
-        "ids": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "technologyGetDnsByIdsResponse": {
-      "type": "object",
-      "properties": {
-        "dns": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/technologyDnsItem"
-          }
-        }
-      }
-    },
-    "technologyGetDnsHintsResponse": {
-      "type": "object",
-      "properties": {
-        "dns": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/technologyDnsItem"
           }
         }
       }

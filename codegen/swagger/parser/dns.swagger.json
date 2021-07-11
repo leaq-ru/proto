@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "category/category.proto",
+    "title": "parser/dns.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -11,36 +11,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/category/getAll": {
+    "/v1/dns/getHints": {
       "get": {
-        "operationId": "Category_GetAll",
+        "operationId": "Dns_GetDnsHints",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/categoryCategoriesResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "tags": [
-          "Category"
-        ]
-      }
-    },
-    "/v1/category/getById": {
-      "get": {
-        "operationId": "Category_GetById",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/categoryCategoryItem"
+              "$ref": "#/definitions/parserGetDnsHintsResponse"
             }
           },
           "default": {
@@ -52,37 +30,13 @@
         },
         "parameters": [
           {
-            "name": "categoryId",
+            "name": "name",
             "in": "query",
             "required": false,
             "type": "string"
-          }
-        ],
-        "tags": [
-          "Category"
-        ]
-      }
-    },
-    "/v1/category/getByIds": {
-      "get": {
-        "operationId": "Category_GetByIds",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/categoryCategoriesResponse"
-            }
           },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
           {
-            "name": "categoryIds",
+            "name": "excludeIds",
             "in": "query",
             "required": false,
             "type": "array",
@@ -90,66 +44,6 @@
               "type": "string"
             },
             "collectionFormat": "multi"
-          }
-        ],
-        "tags": [
-          "Category"
-        ]
-      }
-    },
-    "/v1/category/getBySlug": {
-      "get": {
-        "operationId": "Category_GetBySlug",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/categoryCategoryItem"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "slug",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Category"
-        ]
-      }
-    },
-    "/v1/category/getHints": {
-      "get": {
-        "operationId": "Category_GetHints",
-        "responses": {
-          "200": {
-            "description": "A successful response.",
-            "schema": {
-              "$ref": "#/definitions/categoryCategoriesResponse"
-            }
-          },
-          "default": {
-            "description": "An unexpected error response",
-            "schema": {
-              "$ref": "#/definitions/runtimeError"
-            }
-          }
-        },
-        "parameters": [
-          {
-            "name": "title",
-            "in": "query",
-            "required": false,
-            "type": "string"
           },
           {
             "name": "limit",
@@ -161,42 +55,53 @@
           }
         ],
         "tags": [
-          "Category"
+          "Dns"
         ]
       }
     }
   },
   "definitions": {
-    "categoryCategoriesResponse": {
-      "type": "object",
-      "properties": {
-        "categories": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/categoryCategoryItem"
-          }
-        }
-      }
-    },
-    "categoryCategoryItem": {
+    "parserDnsItem": {
       "type": "object",
       "properties": {
         "id": {
           "type": "string"
         },
-        "title": {
-          "type": "string"
-        },
-        "slug": {
+        "name": {
           "type": "string"
         }
       }
     },
-    "categoryFindResponse": {
+    "parserFindDnsResponse": {
       "type": "object",
       "properties": {
-        "categoryId": {
-          "type": "string"
+        "ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "parserGetDnsByIdsResponse": {
+      "type": "object",
+      "properties": {
+        "dns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserDnsItem"
+          }
+        }
+      }
+    },
+    "parserGetDnsHintsResponse": {
+      "type": "object",
+      "properties": {
+        "dns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/parserDnsItem"
+          }
         }
       }
     },

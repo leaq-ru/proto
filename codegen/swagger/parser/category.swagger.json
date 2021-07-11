@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "city/city.proto",
+    "title": "parser/category.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -11,14 +11,14 @@
     "application/json"
   ],
   "paths": {
-    "/v1/city/getAll": {
+    "/v1/category/getAll": {
       "get": {
-        "operationId": "City_GetAll",
+        "operationId": "Category_GetAllCategory",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cityCitiesResponse"
+              "$ref": "#/definitions/parserCategoriesResponse"
             }
           },
           "default": {
@@ -29,18 +29,18 @@
           }
         },
         "tags": [
-          "City"
+          "Category"
         ]
       }
     },
-    "/v1/city/getById": {
+    "/v1/category/getById": {
       "get": {
-        "operationId": "City_GetById",
+        "operationId": "Category_GetCategoryById",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cityCityItem"
+              "$ref": "#/definitions/parserCategoryItem"
             }
           },
           "default": {
@@ -52,25 +52,25 @@
         },
         "parameters": [
           {
-            "name": "cityId",
+            "name": "categoryId",
             "in": "query",
             "required": false,
             "type": "string"
           }
         ],
         "tags": [
-          "City"
+          "Category"
         ]
       }
     },
-    "/v1/city/getByIds": {
+    "/v1/category/getByIds": {
       "get": {
-        "operationId": "City_GetByIds",
+        "operationId": "Category_GetCategoryByIds",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cityCitiesResponse"
+              "$ref": "#/definitions/parserCategoriesResponse"
             }
           },
           "default": {
@@ -82,7 +82,7 @@
         },
         "parameters": [
           {
-            "name": "cityIds",
+            "name": "categoryIds",
             "in": "query",
             "required": false,
             "type": "array",
@@ -93,18 +93,18 @@
           }
         ],
         "tags": [
-          "City"
+          "Category"
         ]
       }
     },
-    "/v1/city/getBySlug": {
+    "/v1/category/getBySlug": {
       "get": {
-        "operationId": "City_GetBySlug",
+        "operationId": "Category_GetCategoryBySlug",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cityCityItem"
+              "$ref": "#/definitions/parserCategoryItem"
             }
           },
           "default": {
@@ -123,18 +123,18 @@
           }
         ],
         "tags": [
-          "City"
+          "Category"
         ]
       }
     },
-    "/v1/city/getHints": {
+    "/v1/category/getHints": {
       "get": {
-        "operationId": "City_GetHints",
+        "operationId": "Category_GetCategoryHints",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/cityCitiesResponse"
+              "$ref": "#/definitions/parserCategoriesResponse"
             }
           },
           "default": {
@@ -161,24 +161,24 @@
           }
         ],
         "tags": [
-          "City"
+          "Category"
         ]
       }
     }
   },
   "definitions": {
-    "cityCitiesResponse": {
+    "parserCategoriesResponse": {
       "type": "object",
       "properties": {
-        "cities": {
+        "categories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/cityCityItem"
+            "$ref": "#/definitions/parserCategoryItem"
           }
         }
       }
     },
-    "cityCityItem": {
+    "parserCategoryItem": {
       "type": "object",
       "properties": {
         "id": {
@@ -192,15 +192,11 @@
         }
       }
     },
-    "cityFindResponse": {
+    "parserFindCategoryResponse": {
       "type": "object",
       "properties": {
-        "cityId": {
+        "categoryId": {
           "type": "string"
-        },
-        "isFound": {
-          "type": "boolean",
-          "format": "boolean"
         }
       }
     },

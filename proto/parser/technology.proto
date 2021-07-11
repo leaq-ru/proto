@@ -1,0 +1,79 @@
+syntax = "proto3";
+
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
+
+import "protoc-gen-swagger/options/annotations.proto";
+import "google/api/annotations.proto";
+
+service Technology {
+  rpc FindTech(FindTechRequest) returns (FindTechResponse) {};
+  rpc GetTechByIds(GetTechByIdsRequest) returns (GetTechByIdsResponse) {};
+  rpc GetTechHints(GetTechHintsRequest) returns (GetTechHintsResponse) {
+    option (google.api.http) = {
+      get: "/v1/technology/getHints"
+    };
+  };
+  rpc GetTechBySlug(GetTechBySlugRequest) returns (GetTechBySlugResponse) {
+    option (google.api.http) = {
+      get: "/v1/technology/getBySlug"
+    };
+  };
+}
+
+message GetTechBySlugRequest {
+  string slug = 1;
+}
+
+message GetTechBySlugResponse {
+  TechItem technology = 1;
+}
+
+message GetTechHintsRequest {
+  string name = 1;
+  repeated string exclude_ids = 2;
+  uint32 limit = 3 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
+    description: "20 default"
+    minimum: 1
+    maximum: 100
+  }];
+}
+
+message HintTechItem {
+  string id = 1;
+  string name = 2;
+  string version = 3;
+}
+
+message GetTechHintsResponse {
+  repeated HintTechItem technologies = 1;
+}
+
+message GetTechByIdsRequest {
+  repeated string ids = 1;
+}
+
+message TechCategoryItem {
+  string id = 1;
+  string name = 2;
+}
+
+message TechItem {
+  string id = 1;
+  string name = 2;
+  string version = 3;
+  repeated TechCategoryItem categories = 4;
+  string slug = 5;
+}
+
+message GetTechByIdsResponse {
+  repeated TechItem technologies = 1;
+}
+
+message FindTechRequest {
+  string url = 1;
+}
+
+message FindTechResponse {
+  repeated string ids = 1;
+}

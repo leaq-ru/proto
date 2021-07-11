@@ -1312,34 +1312,6 @@
     }
   },
   "definitions": {
-    "categoryCategoryItem": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        }
-      }
-    },
-    "cityCityItem": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "string"
-        },
-        "title": {
-          "type": "string"
-        },
-        "slug": {
-          "type": "string"
-        }
-      }
-    },
     "optsOpts": {
       "type": "object",
       "properties": {
@@ -1404,6 +1376,34 @@
         },
         "googlePlay": {
           "$ref": "#/definitions/parserUrlItem"
+        }
+      }
+    },
+    "parserCategoryItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        }
+      }
+    },
+    "parserCityItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
         }
       }
     },
@@ -1516,7 +1516,7 @@
           "type": "string"
         },
         "category": {
-          "$ref": "#/definitions/categoryCategoryItem"
+          "$ref": "#/definitions/parserCategoryItem"
         },
         "url": {
           "type": "string"
@@ -1586,7 +1586,7 @@
           "type": "string"
         },
         "category": {
-          "$ref": "#/definitions/categoryCategoryItem"
+          "$ref": "#/definitions/parserCategoryItem"
         },
         "url": {
           "type": "string"
@@ -1650,7 +1650,7 @@
         "technologyCategories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parserTechnologyCategory"
+            "$ref": "#/definitions/parserTechCategoryInverted"
           }
         },
         "pageSpeed": {
@@ -1679,7 +1679,7 @@
       "type": "object",
       "properties": {
         "city": {
-          "$ref": "#/definitions/cityCityItem"
+          "$ref": "#/definitions/parserCityItem"
         },
         "address": {
           "type": "string"
@@ -1698,7 +1698,7 @@
         "technologyCategories": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parserTechnologyCategory"
+            "$ref": "#/definitions/parserTechCategoryInverted"
           }
         },
         "pageSpeed": {
@@ -1908,7 +1908,7 @@
           "type": "string"
         },
         "category": {
-          "$ref": "#/definitions/categoryCategoryItem"
+          "$ref": "#/definitions/parserCategoryItem"
         },
         "url": {
           "type": "string"
@@ -1930,7 +1930,7 @@
           "type": "string"
         },
         "city": {
-          "$ref": "#/definitions/cityCityItem"
+          "$ref": "#/definitions/parserCityItem"
         },
         "app": {
           "$ref": "#/definitions/parserApp"
@@ -2081,7 +2081,7 @@
           "type": "string"
         },
         "category": {
-          "$ref": "#/definitions/categoryCategoryItem"
+          "$ref": "#/definitions/parserCategoryItem"
         },
         "url": {
           "type": "string"
@@ -2103,7 +2103,7 @@
           "type": "string"
         },
         "city": {
-          "$ref": "#/definitions/cityCityItem"
+          "$ref": "#/definitions/parserCityItem"
         },
         "app": {
           "$ref": "#/definitions/parserApp"
@@ -2181,7 +2181,7 @@
         }
       }
     },
-    "parserTechnologyCategory": {
+    "parserTechCategoryInverted": {
       "type": "object",
       "properties": {
         "id": {
@@ -2193,12 +2193,12 @@
         "technologies": {
           "type": "array",
           "items": {
-            "$ref": "#/definitions/parserTechnologyItem"
+            "$ref": "#/definitions/parserTechItemInverted"
           }
         }
       }
     },
-    "parserTechnologyItem": {
+    "parserTechItemInverted": {
       "type": "object",
       "properties": {
         "id": {

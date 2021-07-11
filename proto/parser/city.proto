@@ -1,42 +1,42 @@
 syntax = "proto3";
 
-package city;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/city";
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 service City {
-  rpc Find(FindRequest) returns (FindResponse);
-  rpc GetById(GetByIdRequest) returns (CityItem) {
+  rpc FindCity(FindCityRequest) returns (FindCityResponse);
+  rpc GetCityById(GetCityByIdRequest) returns (CityItem) {
     option (google.api.http) = {
       get: "/v1/city/getById"
     };
   };
-  rpc GetBySlug(GetBySlugRequest) returns (CityItem) {
+  rpc GetCityBySlug(GetCityBySlugRequest) returns (CityItem) {
     option (google.api.http) = {
       get: "/v1/city/getBySlug"
     };
   };
-  rpc GetByIds(GetByIdsRequest) returns (CitiesResponse) {
+  rpc GetCityByIds(GetCityByIdsRequest) returns (CitiesResponse) {
     option (google.api.http) = {
       get: "/v1/city/getByIds"
     };
   };
-  rpc GetAll(google.protobuf.Empty) returns (CitiesResponse) {
+  rpc GetAllCity(google.protobuf.Empty) returns (CitiesResponse) {
     option (google.api.http) = {
       get: "/v1/city/getAll"
     };
   };
-  rpc GetHints(GetHintsRequest) returns (CitiesResponse) {
+  rpc GetCityHints(GetCityHintsRequest) returns (CitiesResponse) {
     option (google.api.http) = {
       get: "/v1/city/getHints"
     };
   };
 }
 
-message GetHintsRequest {
+message GetCityHintsRequest {
   string title = 1;
   uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
     description: "20 default"
@@ -45,15 +45,15 @@ message GetHintsRequest {
   }];
 }
 
-message GetBySlugRequest {
+message GetCityBySlugRequest {
   string slug = 1;
 }
 
-message GetByIdRequest {
+message GetCityByIdRequest {
   string city_id = 1;
 }
 
-message GetByIdsRequest {
+message GetCityByIdsRequest {
   repeated string city_ids = 1;
 }
 
@@ -61,11 +61,11 @@ message CitiesResponse {
   repeated CityItem cities = 1;
 }
 
-message FindRequest {
+message FindCityRequest {
   string html = 1;
 }
 
-message FindResponse {
+message FindCityResponse {
   string city_id = 1;
   bool is_found = 2;
 }

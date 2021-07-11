@@ -1,7 +1,7 @@
 syntax = "proto3";
 
-package technology;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/technology";
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
 
 import "protoc-gen-swagger/options/annotations.proto";
 import "google/api/annotations.proto";

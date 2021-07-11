@@ -1,42 +1,42 @@
 syntax = "proto3";
 
-package category;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/category";
+package parser;
+option go_package = "github.com/nnqq/scr-proto/codegen/go/parser";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";
 import "protoc-gen-swagger/options/annotations.proto";
 
 service Category {
-  rpc Find(FindRequest) returns (FindResponse);
-  rpc GetById(GetByIdRequest) returns (CategoryItem) {
+  rpc FindCategory(FindCategoryRequest) returns (FindCategoryResponse);
+  rpc GetCategoryById(GetCategoryByIdRequest) returns (CategoryItem) {
     option (google.api.http) = {
       get: "/v1/category/getById"
     };
   };
-  rpc GetBySlug(GetBySlugRequest) returns (CategoryItem) {
+  rpc GetCategoryBySlug(GetCategoryBySlugRequest) returns (CategoryItem) {
     option (google.api.http) = {
       get: "/v1/category/getBySlug"
     };
   };
-  rpc GetByIds(GetByIdsRequest) returns (CategoriesResponse) {
+  rpc GetCategoryByIds(GetCategoryByIdsRequest) returns (CategoriesResponse) {
     option (google.api.http) = {
       get: "/v1/category/getByIds"
     };
   };
-  rpc GetAll(google.protobuf.Empty) returns (CategoriesResponse) {
+  rpc GetAllCategory(google.protobuf.Empty) returns (CategoriesResponse) {
     option (google.api.http) = {
       get: "/v1/category/getAll"
     };
   };
-  rpc GetHints(GetHintsRequest) returns (CategoriesResponse) {
+  rpc GetCategoryHints(GetCategoryHintsRequest) returns (CategoriesResponse) {
     option (google.api.http) = {
       get: "/v1/category/getHints"
     };
   };
 }
 
-message GetHintsRequest {
+message GetCategoryHintsRequest {
   string title = 1;
   uint32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {
     description: "20 default"
@@ -45,15 +45,15 @@ message GetHintsRequest {
   }];
 }
 
-message GetBySlugRequest {
+message GetCategoryBySlugRequest {
   string slug = 1;
 }
 
-message GetByIdRequest {
+message GetCategoryByIdRequest {
   string category_id = 1;
 }
 
-message GetByIdsRequest {
+message GetCategoryByIdsRequest {
   repeated string category_ids = 1;
 }
 
@@ -61,11 +61,11 @@ message CategoriesResponse {
   repeated CategoryItem categories = 1;
 }
 
-message FindRequest {
+message FindCategoryRequest {
   string html = 1;
 }
 
-message FindResponse {
+message FindCategoryResponse {
   string category_id = 1;
 }
 
