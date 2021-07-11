@@ -4,6 +4,7 @@ package event;
 option go_package = "github.com/nnqq/scr-proto/codegen/go/event";
 
 import "parser/review.proto";
+import "wappalyzer/wappalyzer.proto";
 
 // subject review-moderation
 message ReviewModeration {
@@ -14,4 +15,10 @@ message ReviewModeration {
 message CompanyNew {
   string company_id = 1;
   string url = 2;
+}
+
+// subject analyze-result
+message AnalyzeResult {
+  string company_id = 1;
+  wappalyzer.AnalyzeResponse result = 2;
 }
