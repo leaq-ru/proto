@@ -1,4 +1,4 @@
-module github.com/nnqq/scr-proto/v2
+module github.com/nnqq/scr-proto
 
 go 1.15
 
