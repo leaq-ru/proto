@@ -15,10 +15,17 @@ message ReviewModeration {
 message CompanyNew {
   string company_id = 1;
   string url = 2;
+  string avatar_to_upload = 3;
 }
 
 // subject analyze-result
 message AnalyzeResult {
   string company_id = 1;
   wappalyzer.AnalyzeResponse result = 2;
+}
+
+// subject image-upload-result
+message ImageUploadResult {
+  string company_id = 1;
+  string avatar_url = 2;
 }
