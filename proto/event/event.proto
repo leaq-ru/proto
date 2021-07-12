@@ -6,26 +6,36 @@ option go_package = "github.com/nnqq/scr-proto/codegen/go/event";
 import "parser/review.proto";
 import "wappalyzer/wappalyzer.proto";
 
-// subject review-moderation
+// subject 'review-moderation'
+// when new review created in 'moderation' status
 message ReviewModeration {
   parser.ReviewItem review = 1;
 }
 
-// subject company-new
+// subject 'company-new'
+// when company inserted/updated in mongo
 message CompanyNew {
   string company_id = 1;
   string url = 2;
   string avatar_to_upload = 3;
 }
 
-// subject analyze-result
+// subject 'analyze-result'
+// when wappalyzer done website analyze
 message AnalyzeResult {
   string company_id = 1;
   wappalyzer.AnalyzeResponse result = 2;
 }
 
-// subject image-upload-result
+// subject 'image-upload-result'
+// when async image upload done
 message ImageUploadResult {
   string company_id = 1;
   string avatar_url = 2;
+}
+
+// subject 'delete-image'
+// to delete provided image from S3
+message DeleteImage {
+  string s3_url = 1;
 }

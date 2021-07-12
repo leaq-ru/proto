@@ -27,7 +27,8 @@ const (
 // of the legacy proto package is being used.
 const _ = proto.ProtoPackageIsVersion4
 
-// subject review-moderation
+// subject 'review-moderation'
+// when new review created in 'moderation' status
 type ReviewModeration struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -75,7 +76,8 @@ func (x *ReviewModeration) GetReview() *parser.ReviewItem {
 	return nil
 }
 
-// subject company-new
+// subject 'company-new'
+// when company inserted/updated in mongo
 type CompanyNew struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -139,7 +141,8 @@ func (x *CompanyNew) GetAvatarToUpload() string {
 	return ""
 }
 
-// subject analyze-result
+// subject 'analyze-result'
+// when wappalyzer done website analyze
 type AnalyzeResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -195,7 +198,8 @@ func (x *AnalyzeResult) GetResult() *wappalyzer.AnalyzeResponse {
 	return nil
 }
 
-// subject image-upload-result
+// subject 'image-upload-result'
+// when async image upload done
 type ImageUploadResult struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -251,6 +255,55 @@ func (x *ImageUploadResult) GetAvatarUrl() string {
 	return ""
 }
 
+// subject 'delete-image'
+// to delete provided image from S3
+type DeleteImage struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	S3Url string `protobuf:"bytes,1,opt,name=s3_url,json=s3Url,proto3" json:"s3_url,omitempty"`
+}
+
+func (x *DeleteImage) Reset() {
+	*x = DeleteImage{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_event_event_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *DeleteImage) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*DeleteImage) ProtoMessage() {}
+
+func (x *DeleteImage) ProtoReflect() protoreflect.Message {
+	mi := &file_event_event_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use DeleteImage.ProtoReflect.Descriptor instead.
+func (*DeleteImage) Descriptor() ([]byte, []int) {
+	return file_event_event_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *DeleteImage) GetS3Url() string {
+	if x != nil {
+		return x.S3Url
+	}
+	return ""
+}
+
 var File_event_event_proto protoreflect.FileDescriptor
 
 var file_event_event_proto_rawDesc = []byte{
@@ -280,11 +333,13 @@ var file_event_event_proto_rawDesc = []byte{
 	0x1d, 0x0a, 0x0a, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x5f, 0x69, 0x64, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x09, 0x52, 0x09, 0x63, 0x6f, 0x6d, 0x70, 0x61, 0x6e, 0x79, 0x49, 0x64, 0x12, 0x1d,
 	0x0a, 0x0a, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x5f, 0x75, 0x72, 0x6c, 0x18, 0x02, 0x20, 0x01,
-	0x28, 0x09, 0x52, 0x09, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x55, 0x72, 0x6c, 0x42, 0x2c, 0x5a,
-	0x2a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f, 0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71,
-	0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67,
-	0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x65, 0x76, 0x65, 0x6e, 0x74, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x28, 0x09, 0x52, 0x09, 0x61, 0x76, 0x61, 0x74, 0x61, 0x72, 0x55, 0x72, 0x6c, 0x22, 0x24, 0x0a,
+	0x0b, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x49, 0x6d, 0x61, 0x67, 0x65, 0x12, 0x15, 0x0a, 0x06,
+	0x73, 0x33, 0x5f, 0x75, 0x72, 0x6c, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x73, 0x33,
+	0x55, 0x72, 0x6c, 0x42, 0x2c, 0x5a, 0x2a, 0x67, 0x69, 0x74, 0x68, 0x75, 0x62, 0x2e, 0x63, 0x6f,
+	0x6d, 0x2f, 0x6e, 0x6e, 0x71, 0x71, 0x2f, 0x73, 0x63, 0x72, 0x2d, 0x70, 0x72, 0x6f, 0x74, 0x6f,
+	0x2f, 0x63, 0x6f, 0x64, 0x65, 0x67, 0x65, 0x6e, 0x2f, 0x67, 0x6f, 0x2f, 0x65, 0x76, 0x65, 0x6e,
+	0x74, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -299,18 +354,19 @@ func file_event_event_proto_rawDescGZIP() []byte {
 	return file_event_event_proto_rawDescData
 }
 
-var file_event_event_proto_msgTypes = make([]protoimpl.MessageInfo, 4)
+var file_event_event_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_event_event_proto_goTypes = []interface{}{
 	(*ReviewModeration)(nil),           // 0: event.ReviewModeration
 	(*CompanyNew)(nil),                 // 1: event.CompanyNew
 	(*AnalyzeResult)(nil),              // 2: event.AnalyzeResult
 	(*ImageUploadResult)(nil),          // 3: event.ImageUploadResult
-	(*parser.ReviewItem)(nil),          // 4: parser.ReviewItem
-	(*wappalyzer.AnalyzeResponse)(nil), // 5: wappalyzer.AnalyzeResponse
+	(*DeleteImage)(nil),                // 4: event.DeleteImage
+	(*parser.ReviewItem)(nil),          // 5: parser.ReviewItem
+	(*wappalyzer.AnalyzeResponse)(nil), // 6: wappalyzer.AnalyzeResponse
 }
 var file_event_event_proto_depIdxs = []int32{
-	4, // 0: event.ReviewModeration.review:type_name -> parser.ReviewItem
-	5, // 1: event.AnalyzeResult.result:type_name -> wappalyzer.AnalyzeResponse
+	5, // 0: event.ReviewModeration.review:type_name -> parser.ReviewItem
+	6, // 1: event.AnalyzeResult.result:type_name -> wappalyzer.AnalyzeResponse
 	2, // [2:2] is the sub-list for method output_type
 	2, // [2:2] is the sub-list for method input_type
 	2, // [2:2] is the sub-list for extension type_name
@@ -372,6 +428,18 @@ func file_event_event_proto_init() {
 				return nil
 			}
 		}
+		file_event_event_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*DeleteImage); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -379,7 +447,7 @@ func file_event_event_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_event_event_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   4,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
