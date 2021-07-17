@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package classifier;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/classifier";
+option go_package = "github.com/leaq-ru/proto/codegen/go/classifier";
 
 service Classifier {
   rpc Predict(PredictRequest) returns (PredictResponse);

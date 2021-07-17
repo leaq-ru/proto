@@ -1,11 +1,11 @@
 {
-  "name": "scr-proto",
+  "name": "proto",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nnqq/scr-proto.git"
+    "url": "git+https://github.com/leaq-ru/proto.git"
   },
   "bugs": {
-    "url": "https://github.com/nnqq/scr-proto/issues"
+    "url": "https://github.com/leaq-ru/proto/issues"
   },
-  "homepage": "https://github.com/nnqq/scr-proto#readme"
+  "homepage": "https://github.com/leaq-ru/proto#readme"
 }

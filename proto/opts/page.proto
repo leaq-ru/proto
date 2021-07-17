@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package opts;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/opts";
+option go_package = "github.com/leaq-ru/proto/codegen/go/opts";
 
 import "protoc-gen-swagger/options/annotations.proto";
 

@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package exporter;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/exporter";
+option go_package = "github.com/leaq-ru/proto/codegen/go/exporter";
 
 import "google/protobuf/empty.proto";
 import "google/api/annotations.proto";

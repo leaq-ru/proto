@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package user;
-option go_package = "github.com/nnqq/scr-proto/codegen/go/user";
+option go_package = "github.com/leaq-ru/proto/codegen/go/user";
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";

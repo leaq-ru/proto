@@ -1,4 +1,4 @@
-module github.com/nnqq/scr-proto
+module github.com/leaq-ru/proto
 
 go 1.15
 
